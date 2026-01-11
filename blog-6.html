@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home di Balik Dinding Klasik | Gemilang Properti</title>
+
+    <meta property="og:title" content="Smart Home di Balik Dinding Klasik: Harmoni Teknologi">
+    <meta property="og:description"
+        content="Bagaimana Gemilang Properti mengintegrasikan sistem keamanan canggih tanpa merusak estetika arsitektur klasik.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1558002038-1091a1661116">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&family=Marcellus&display=swap"
+        rel="stylesheet">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0A0A0A',
+                        charcoal: '#141414',
+                        champagne: '#F2F0E4',
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            light: '#F2E8C4',
+                            dim: 'rgba(212, 175, 55, 0.1)',
+                        },
+                        pewter: '#888888',
+                    },
+                    fontFamily: {
+                        sans: ['"Josefin Sans"', 'sans-serif'],
+                        serif: ['"Marcellus"', 'serif'],
+                    },
+                    letterSpacing: {
+                        'deco': '0.2em',
+                    },
+                    backgroundImage: {
+                        'deco-lines': "repeating-linear-gradient(45deg, #D4AF37 0, #D4AF37 1px, transparent 0, transparent 50%)",
+                        'gold-gradient': "linear-gradient(135deg, #D4AF37 0%, #F2E8C4 50%, #D4AF37 100%)",
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(212, 175, 55, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .bg-grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 50;
+            mix-blend-mode: overlay;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+
+        /* Article Typography Overrides */
+        .article-content h2 {
+            font-family: "Marcellus", serif;
+            font-size: 1.875rem;
+            color: #F2F0E4;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .article-content h3 {
+            font-family: "Marcellus", serif;
+            font-size: 1.5rem;
+            color: #D4AF37;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-content p {
+            color: #888888;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .article-content strong {
+            color: #F2F0E4;
+            font-weight: 600;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            color: #888888;
+            margin-bottom: 1.5rem;
+            margin-left: 1.5rem;
+            list-style-type: disc;
+        }
+
+        .article-content li {
+            margin-bottom: 0.5rem;
+            padding-left: 0.5rem;
+        }
+
+        /* Dropcap */
+        .article-content p:first-of-type::first-letter {
+            float: left;
+            font-family: 'Marcellus', serif;
+            font-size: 4.5rem;
+            line-height: 0.85;
+            padding-right: 1rem;
+            padding-top: 0.2rem;
+            color: #D4AF37;
+        }
+
+        /* Toc Active State */
+        .toc-link.active {
+            color: #D4AF37;
+            border-left: 2px solid #D4AF37;
+            padding-left: 0.5rem;
+            background: rgba(212, 175, 55, 0.05);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-obsidian text-champagne font-sans antialiased overflow-x-hidden relative selection:bg-gold selection:text-obsidian">
+
+    <div class="bg-grain"></div>
+
+    <div class="fixed inset-0 pointer-events-none z-0 flex justify-between px-6 md:px-24 opacity-10">
+        <div class="w-px h-full bg-gold"></div>
+        <div class="w-px h-full bg-gold"></div>
+        <div class="w-px h-full bg-gold"></div>
+    </div>
+
+    <nav x-data="{ open: false, scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 50)"
+        :class="scrolled ? 'bg-obsidian/95 border-b border-gold/30 backdrop-blur-md' : 'bg-transparent border-b border-white/5'"
+        class="fixed w-full z-40 transition-all duration-500 ease-out top-0">
+
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+
+            <a href="index.html" class="flex items-center gap-4 group cursor-pointer">
+                <div
+                    class="w-10 h-10 border border-gold rotate-45 flex items-center justify-center transition-transform duration-500 group-hover:rotate-0">
+                    <div class="w-5 h-5 bg-gold -rotate-45 group-hover:rotate-0 transition-transform duration-500">
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-2xl uppercase tracking-widest text-gold leading-none">Gemilang</span>
+                    <span class="text-[10px] uppercase tracking-[0.4em] text-pewter mt-1">Properti Group</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Beranda</a>
+
+                <a href="tentang.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Tentang</a>
+
+                <a href="cluster.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Cluster</a>
+
+                <a href="fasilitas.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Fasilitas</a>
+
+                <a href="lokasi.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Lokasi</a>
+
+                <a href="blog.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Blog</a>
+
+                <a href="https://wa.me/6282257391460"
+                    class="relative px-8 py-3 border border-gold text-gold hover:bg-gold hover:text-obsidian transition-all duration-300 group overflow-hidden ml-4">
+                    <span class="relative z-10 text-xs uppercase tracking-widest font-bold">Hubungi Kami</span>
+                    <div
+                        class="absolute inset-0 bg-gold transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out">
+                    </div>
+                </a>
+            </div>
+
+            <button @click="open = !open" class="md:hidden text-gold focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="square" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div x-show="open" x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-4" @click.away="open = false"
+            class="md:hidden bg-charcoal border-b border-gold absolute w-full shadow-2xl">
+
+            <div class="flex flex-col p-8 space-y-6 text-center">
+                <a href="index.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Beranda</a>
+                <a href="tentang.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Tentang</a>
+                <a href="cluster.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Cluster</a>
+                <a href="fasilitas.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Fasilitas</a>
+                <a href="lokasi.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Lokasi</a>
+                <a href="blog.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Blog</a>
+
+                <div class="h-px w-10 bg-gold/30 mx-auto my-2"></div>
+
+                <a href="https://wa.me/6282257391460" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-gold font-bold">Hubungi Kami</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="relative pt-32 pb-20">
+
+        <header class="max-w-4xl mx-auto px-6 text-center mb-12 md:mb-16">
+
+            <h1 class="font-serif text-3xl md:text-5xl lg:text-6xl text-champagne uppercase leading-tight mb-8">
+                Smart Home di Balik <br />
+                <span class="text-transparent bg-clip-text bg-gold-gradient">Dinding Klasik: Harmoni Teknologi</span>
+            </h1>
+
+            <div
+                class="flex items-center justify-center gap-6 text-sm text-pewter border-y border-gold/20 py-4 max-w-lg mx-auto">
+                <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                        </path>
+                    </svg>
+                    <span>05 Jan 2026</span>
+                </div>
+                <div class="w-px h-4 bg-gold/30"></div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>12 Menit Baca</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="max-w-6xl mx-auto px-6 mb-16 relative">
+            <div class="relative aspect-w-16 aspect-h-9 md:aspect-h-7 border border-gold/20 p-2">
+                <div class="absolute inset-0 bg-obsidian/20 z-10 pointer-events-none mix-blend-color"></div> <img
+                    src="https://images.unsplash.com/photo-1558002038-1091a1661116?q=80&w=2400&auto=format&fit=crop"
+                    alt="Integrasi Smart Home pada Hunian Klasik"
+                    class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000">
+            </div>
+            <p class="mt-4 text-center text-xs text-pewter italic">Perpaduan kontrol digital mutakhir dalam balutan
+                estetika interior klasik yang tak lekang waktu.</p>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 relative">
+
+            <aside class="hidden lg:block lg:col-span-3">
+                <div class="sticky top-32">
+                    <div class="border border-gold/20 bg-charcoal/50 p-6 backdrop-blur-sm relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-8 h-8 border-t border-r border-gold/30"></div>
+                        <div class="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-gold/30"></div>
+
+                        <h4
+                            class="font-serif text-gold uppercase tracking-widest text-sm mb-6 pb-2 border-b border-gold/10">
+                            Daftar Isi</h4>
+                        <nav id="toc-desktop" class="space-y-3 text-xs uppercase tracking-widest text-pewter">
+                        </nav>
+                    </div>
+                </div>
+            </aside>
+
+            <article class="col-span-1 lg:col-span-8 lg:col-start-4">
+
+                <div class="lg:hidden mb-12 border border-gold/20 bg-charcoal/30 p-4" x-data="{ openToc: false }">
+                    <button @click="openToc = !openToc"
+                        class="w-full flex justify-between items-center text-gold font-serif uppercase tracking-widest text-sm">
+                        <span>Daftar Isi Artikel</span>
+                        <svg :class="openToc ? 'rotate-180' : ''" class="w-4 h-4 transition-transform duration-300"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="square" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <nav x-show="openToc" x-collapse id="toc-mobile"
+                        class="mt-4 pt-4 border-t border-gold/10 space-y-3 text-xs text-pewter uppercase tracking-widest">
+                    </nav>
+                </div>
+
+                <div id="article-content" class="article-content font-light">
+                    <p>
+                        Seringkali terdapat dikotomi yang keliru dalam dunia properti: Anda harus memilih antara
+                        "Kenyamanan Teknologi" atau "Keagungan Estetika". Asumsi umum mengatakan bahwa rumah klasik,
+                        dengan dinding tebal berprofil dan langit-langit tingginya, adalah musuh alami bagi instalasi
+                        kabel optik dan sensor modern.
+                    </p>
+                    <p>
+                        Namun, di Gemilang Properti, kami melihat tantangan ini sebagai peluang untuk menciptakan
+                        <em>Masterpiece</em>.
+                        Bagaimana jika Anda bisa memiliki fasad Art Deco tahun 1920-an yang megah, namun dengan "otak"
+                        digital yang melampaui apartemen pintar di Silicon Valley? Inilah yang kami sebut sebagai
+                        <strong>Invisible Tech Ecosystem</strong>.
+                    </p>
+
+                    <div class="my-10 p-6 border-l-2 border-gold bg-charcoal/50">
+                        <span class="text-xs text-gold uppercase tracking-widest block mb-2">Baca Juga</span>
+                        <a href="blog-1.html"
+                            class="font-serif text-champagne text-lg hover:text-gold transition-colors">Investasi
+                            Properti di 2026: Mengapa Klasik Tak Pernah Mati</a>
+                    </div>
+
+                    <h2>Tantangan: Kabel vs Profil Gypsum</h2>
+                    <p>
+                        Rumah bergaya klasik, khususnya tipe <em>Craftsman</em> atau <em>Colonial Revival</em> yang kami
+                        kembangkan,
+                        memiliki detail arsitektural yang rumit. Cornice, wainscoting, dan pilar dekoratif adalah elemen
+                        suci
+                        yang tidak boleh dirusak oleh jalur kabel (conduit) yang semrawut.
+                    </p>
+                    <p>
+                        Pada metode konstruksi konvensional, penambahan fitur <em>Smart Home</em> seringkali dilakukan
+                        sebagai
+                        proses <em>afterthought</em> (setelah bangunan jadi). Ini fatal bagi estetika klasik. Kabel yang
+                        menempel
+                        di luar dinding atau sensor plastik putih murah yang ditempel sembarangan akan menghancurkan
+                        nuansa
+                        kemewahan.
+                    </p>
+                    <p>
+                        Solusi kami dimulai dari fase <em>Blueprint</em>. Di Gemilang Properti, infrastruktur IoT
+                        (Internet of Things)
+                        ditanam bersamaan dengan struktur beton bertulang. Kami menggunakan sistem <strong>Wireless Mesh
+                            Network</strong>
+                        kelas enterprise yang tertanam di balik plafon, menghilangkan kebutuhan akan ribuan meter kabel
+                        data yang mengganggu.
+                    </p>
+
+                    <h2>Harmoni Pencahayaan: Mood yang Adaptif</h2>
+                    <p>
+                        Salah satu elemen kunci arsitektur klasik adalah pencahayaan yang dramatis. Chandelier kristal
+                        gantung
+                        adalah pusat perhatian di ruang tamu. Namun, saklar "klik" manual sudah ketinggalan zaman.
+                    </p>
+                    <p>
+                        Kami mengintegrasikan modul <em>Smart Dimmer</em> yang kompatibel dengan lampu filamen vintage
+                        maupun LED modern.
+                        Sistem ini memungkinkan Anda mengubah atmosfer ruang dari "Mode Pesta" yang terang benderang
+                        menjadi
+                        "Mode Bioskop" yang intim hanya dengan satu perintah suara, atau bahkan secara otomatis
+                        mengikuti ritme sirkadian matahari.
+                    </p>
+
+                    <blockquote
+                        class="pl-6 border-l-4 border-gold italic text-champagne font-serif text-xl my-8 py-2 bg-gradient-to-r from-gold/10 to-transparent">
+                        "Teknologi terbaik adalah teknologi yang tidak terlihat. Ia hadir melayani Anda tanpa menuntut
+                        perhatian visual,
+                        membiarkan keindahan arsitektur tetap menjadi pemeran utama."
+                    </blockquote>
+
+                    <h3>Keamanan Tak Kasat Mata</h3>
+                    <p>
+                        Keamanan adalah prioritas mutlak bagi penghuni kawasan elit. Namun, memasang kamera CCTV bulky
+                        di sudut
+                        pilar Doric adalah sebuah dosa desain. Kami menggunakan pendekatan <em>Stealth Security</em>.
+                    </p>
+                    <ul>
+                        <li><strong>Smart Lock Tersembunyi:</strong> Pintu kayu jati solid Anda tetap terlihat klasik
+                            dengan handle
+                            kuningan antik, namun di dalamnya tertanam mekanisme biometrik fingerprint dan solenoid lock
+                            ganda.</li>
+                        <li><strong>Sensor Jendela Invisible:</strong> Sensor magnetik ditanam di dalam kusen
+                            (in-frame),
+                            bukan ditempel di luar, sehingga tidak terlihat saat jendela tertutup.</li>
+                        <li><strong>AI Surveillance:</strong> Kamera keamanan didesain menyatu dengan lampu taman atau
+                            tersembunyi dalam ornamen fasad, dilengkapi kemampuan pengenalan wajah (Face Recognition).
+                        </li>
+                    </ul>
+
+                    <figure class="my-12 relative group cursor-pointer overflow-hidden border border-gold/30">
+                        <div
+                            class="absolute top-4 left-4 z-20 bg-gold text-obsidian px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
+                            Limited Unit</div>
+                        <img src="https://images.unsplash.com/photo-1585128719715-46776b56a0d1?q=80&w=2400&auto=format&fit=crop"
+                            alt="Smart Living Room Gemilang Properti"
+                            class="w-full h-80 object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500">
+                        <div
+                            class="absolute inset-0 flex flex-col items-center justify-center bg-black/40 group-hover:bg-transparent transition-colors duration-500">
+                            <h3 class="text-white font-serif text-2xl uppercase tracking-widest mb-4 drop-shadow-lg">
+                                Rasakan Kemewahan Digital</h3>
+                            <a href="kontak.html"
+                                class="px-6 py-2 border border-white text-white hover:bg-gold hover:border-gold hover:text-obsidian transition-all duration-300 uppercase text-xs tracking-widest">Buat
+                                Janji Temu</a>
+                        </div>
+                        <figcaption class="text-center text-xs text-pewter mt-2 italic">Contoh integrasi panel kontrol
+                            minimalis pada dinding marmer.</figcaption>
+                    </figure>
+
+                    <h2>Efisiensi Energi di Ruang Tinggi</h2>
+                    <p>
+                        Rumah klasik dengan <em>High Ceiling</em> (langit-langit tinggi) di atas 4 meter memberikan
+                        sirkulasi udara yang luar biasa,
+                        namun juga tantangan dalam pendinginan ruangan (AC). Tanpa manajemen yang cerdas, tagihan
+                        listrik bisa membengkak.
+                    </p>
+                    <p>
+                        Sistem <em>Smart Climate Control</em> kami menggunakan sensor okupansi termal. AC tidak sekadar
+                        menyala berdasarkan suhu,
+                        tetapi mendeteksi keberadaan manusia. Jika ruang keluarga kosong selama 30 menit, sistem akan
+                        menaikkan suhu atau
+                        mematikan unit secara otomatis. Tirai bermotor (motorized curtains) juga terprogram untuk
+                        menutup saat matahari
+                        sedang terik-teriknya di siang hari, mengurangi beban kerja pendingin ruangan secara pasif.
+                    </p>
+
+                    <h3>Integrasi Tanpa Aplikasi yang Rumit</h3>
+                    <p>
+                        Salah satu keluhan terbesar pengguna Smart Home adalah "terlalu banyak aplikasi". Satu aplikasi
+                        untuk CCTV, satu untuk lampu,
+                        satu untuk AC. Ini merepotkan.
+                    </p>
+                    <p>
+                        Di Cluster terbaru kami, semua perangkat terintegrasi dalam satu <em>Central Hub</em>. Anda bisa
+                        mengontrol seluruh rumah
+                        melalui panel layar sentuh yang elegan di dinding, atau melalui asisten suara (Voice Command).
+                        Bayangkan Anda baru
+                        pulang kerja, cukup katakan "Saya Pulang", dan seketika:
+                    </p>
+                    <ul>
+                        <li>Pintu gerbang terbuka otomatis.</li>
+                        <li>Lampu taman menyala redup menyambut.</li>
+                        <li>AC ruang utama menyala di suhu 24 derajat.</li>
+                        <li>Musik jazz lembut mulai mengalun di latar belakang.</li>
+                    </ul>
+
+                    <figure class="my-12">
+                        <div class="relative border border-gold/20 p-2">
+                            <div class="absolute inset-0 bg-obsidian/10 z-10 pointer-events-none"></div>
+                            <img src="https://images.unsplash.com/photo-1507646227500-4d389b0012be?q=80&w=1200&auto=format&fit=crop"
+                                alt="Keamanan Smart Home"
+                                class="w-full h-[400px] object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                        </div>
+                        <figcaption class="text-center text-xs text-pewter mt-3 italic">
+                            Keamanan perimeter yang terintegrasi penuh, memberikan ketenangan pikiran 24/7.
+                        </figcaption>
+                    </figure>
+
+                    <h2>Masa Depan Properti Klasik</h2>
+                    <p>
+                        Properti adalah aset jangka panjang. Teknologi yang Anda pasang hari ini mungkin usang 5 tahun
+                        lagi.
+                        Bagaimana Gemilang Properti mengantisipasi ini? Kami menerapkan prinsip <em>Modular
+                            Scalability</em>.
+                    </p>
+                    <p>
+                        Sistem kelistrikan kami menggunakan jalur netral di setiap saklar (standar yang sering diabaikan
+                        pengembang lain),
+                        memungkinkan penggantian <em>switch</em> pintar model apapun di masa depan tanpa membobok
+                        dinding.
+                        Kami juga menyediakan jalur <em>Fiber Optic Backbone</em> hingga ke setiap kamar, memastikan
+                        rumah Anda siap
+                        untuk teknologi bandwidth tinggi di dekade mendatang, entah itu VR, AR, atau Metaverse.
+                    </p>
+
+                    <h2>FAQ: Pertanyaan Seputar Smart Home Klasik</h2>
+
+                    <div class="border-t border-gold/20 mt-8 mb-12" x-data="{ selectedFaq: null }">
+
+                        <div class="border-b border-gold/20 py-4">
+                            <button @click="selectedFaq !== 1 ? selectedFaq = 1 : selectedFaq = null"
+                                class="w-full flex justify-between items-center text-left focus:outline-none group">
+                                <span class="text-champagne font-serif group-hover:text-gold transition-colors">Apakah
+                                    sistem ini bergantung pada WiFi?</span>
+                                <span class="text-gold text-xl transition-transform duration-300"
+                                    :class="selectedFaq === 1 ? 'rotate-45' : ''">+</span>
+                            </button>
+                            <div x-show="selectedFaq === 1" x-collapse class="mt-2 text-sm text-pewter">
+                                Tidak sepenuhnya. Kami menggunakan protokol Zigbee/Z-Wave lokal. Jika internet mati,
+                                saklar dan otomatisasi lokal tetap berfungsi normal. Internet hanya butuh untuk kontrol
+                                jarak jauh.
+                            </div>
+                        </div>
+
+                        <div class="border-b border-gold/20 py-4">
+                            <button @click="selectedFaq !== 2 ? selectedFaq = 2 : selectedFaq = null"
+                                class="w-full flex justify-between items-center text-left focus:outline-none group">
+                                <span class="text-champagne font-serif group-hover:text-gold transition-colors">Seberapa
+                                    aman datanya?</span>
+                                <span class="text-gold text-xl transition-transform duration-300"
+                                    :class="selectedFaq === 2 ? 'rotate-45' : ''">+</span>
+                            </button>
+                            <div x-show="selectedFaq === 2" x-collapse class="mt-2 text-sm text-pewter">
+                                Sangat aman. Seluruh data video CCTV disimpan di NVR lokal (Private Cloud) di dalam
+                                rumah Anda, bukan di server publik pihak ketiga, menjamin privasi total.
+                            </div>
+                        </div>
+
+                        <div class="border-b border-gold/20 py-4">
+                            <button @click="selectedFaq !== 3 ? selectedFaq = 3 : selectedFaq = null"
+                                class="w-full flex justify-between items-center text-left focus:outline-none group">
+                                <span class="text-champagne font-serif group-hover:text-gold transition-colors">Apakah
+                                    sulit digunakan lansia?</span>
+                                <span class="text-gold text-xl transition-transform duration-300"
+                                    :class="selectedFaq === 3 ? 'rotate-45' : ''">+</span>
+                            </button>
+                            <div x-show="selectedFaq === 3" x-collapse class="mt-2 text-sm text-pewter">
+                                Kami mendesain sistem "Hybrid". Walaupun canggih, saklar fisik tetap ada dan berfungsi
+                                seperti biasa. Orang tua tidak perlu membuka HP untuk sekadar menyalakan lampu.
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <h2>Kesimpulan</h2>
+                    <p>
+                        Rumah klasik bukan berarti hidup di masa lalu. Dengan integrasi teknologi yang cermat dan penuh
+                        hormat terhadap arsitektur,
+                        Gemilang Properti menghadirkan hunian yang memadukan kehangatan nostalgia dengan kemudahan masa
+                        depan.
+                    </p>
+                    <p>
+                        Inilah definisi baru dari kemewahan sejati: Ketika Anda tidak lagi disibukkan oleh hal-hal
+                        teknis kecil,
+                        dan bisa sepenuhnya menikmati keindahan hidup bersama keluarga di balik dinding-dinding yang
+                        megah.
+                        <em>Smart Home</em> di balik dinding klasik bukan sekadar fitur, ia adalah sebuah harmoni.
+                    </p>
+                </div>
+
+                <div class="mt-16 border border-gold/20 p-8 bg-charcoal relative">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gold"></div>
+                    <div class="flex flex-col md:flex-row gap-6 items-center md:items-start">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&fit=crop"
+                            alt="Penulis" class="w-20 h-20 rounded-full border-2 border-gold grayscale object-cover">
+                        <div class="text-center md:text-left">
+                            <span class="text-[10px] text-gold uppercase tracking-widest">Tentang Penulis</span>
+                            <h4 class="font-serif text-xl text-champagne mt-1 mb-2">Hendra Wicaksono</h4>
+                            <p class="text-sm text-pewter leading-relaxed">Senior Property Analyst dengan spesialisasi
+                                integrasi IoT (Internet of Things) pada bangunan heritage dan luxury residential.</p>
+                            <div class="mt-4 flex gap-4 justify-center md:justify-start">
+                                <a href="#"
+                                    class="text-pewter hover:text-gold text-xs uppercase tracking-widest">LinkedIn</a>
+                                <a href="#"
+                                    class="text-pewter hover:text-gold text-xs uppercase tracking-widest">Email</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-8 border-t border-gold/10 text-center">
+                    <span class="block text-xs text-gold uppercase tracking-[0.2em] mb-6">Bagikan Artikel Ini</span>
+                    <div class="flex justify-center gap-6">
+                        <button onclick="shareSocial('wa')"
+                            class="w-12 h-12 flex items-center justify-center border border-gold/30 rounded-full hover:bg-gold hover:text-obsidian hover:border-gold transition-all duration-300 group">
+                            <svg class="w-5 h-5 text-pewter group-hover:text-obsidian transition-colors"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.876 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                            </svg>
+                        </button>
+                        <button onclick="shareSocial('fb')"
+                            class="w-12 h-12 flex items-center justify-center border border-gold/30 rounded-full hover:bg-gold hover:text-obsidian hover:border-gold transition-all duration-300 group">
+                            <svg class="w-5 h-5 text-pewter group-hover:text-obsidian transition-colors"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+                            </svg>
+                        </button>
+                        <button onclick="shareSocial('x')"
+                            class="w-12 h-12 flex items-center justify-center border border-gold/30 rounded-full hover:bg-gold hover:text-obsidian hover:border-gold transition-all duration-300 group">
+                            <svg class="w-5 h-5 text-pewter group-hover:text-obsidian transition-colors"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+            </article>
+        </div>
+
+    </main>
+    <section class="py-20 bg-charcoal border-t border-gold/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center gap-4 mb-10">
+                <div class="h-px flex-1 bg-gold/20"></div>
+                <h3 class="font-serif text-2xl text-champagne uppercase tracking-widest">Artikel Terkait</h3>
+                <div class="h-px flex-1 bg-gold/20"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <div class="group bg-obsidian border border-gold/10 hover:border-gold transition-all duration-300">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&fit=crop"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute top-2 right-2 bg-obsidian border border-gold px-2 py-1">
+                            <span class="text-[10px] text-gold uppercase">Design</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4
+                            class="font-serif text-lg text-champagne mb-3 leading-tight group-hover:text-gold transition-colors">
+                            Panduan Merawat Lantai Marmer Agar Tetap Berkilau</h4>
+                        <p class="text-xs text-pewter mb-6 line-clamp-3 leading-relaxed">Marmer bukan sekadar bahan
+                            bangunan; ia adalah simbol kemewahan, sejarah, dan keabadian.</p>
+                        <a href="blog-5.html"
+                            class="inline-block text-[10px] text-gold uppercase tracking-widest border-b border-gold pb-1 hover:text-white hover:border-white transition-all">Baca
+                            Selengkapnya</a>
+                    </div>
+                </div>
+
+                <div class="group bg-obsidian border border-gold/10 hover:border-gold transition-all duration-300">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&fit=crop"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute top-2 right-2 bg-obsidian border border-gold px-2 py-1">
+                            <span class="text-[10px] text-gold uppercase">Market</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4
+                            class="font-serif text-lg text-champagne mb-3 leading-tight group-hover:text-gold transition-colors">
+                            Perbedaan Sertifikat SHM dan HGB: Panduan Pembeli
+                        </h4>
+                        <p class="text-xs text-pewter mb-6 line-clamp-3 leading-relaxed">Membeli properti adalah salah
+                            satu keputusan finansial terbesar dalam hidup. Anda jatuh cinta pada arsitekturnya,
+                            lokasinya yang strategis, dan tata ruangnya yang elegan.</p>
+                        <a href="blog-7.html"
+                            class="inline-block text-[10px] text-gold uppercase tracking-widest border-b border-gold pb-1 hover:text-white hover:border-white transition-all">Baca
+                            Selengkapnya</a>
+                    </div>
+                </div>
+
+                <div class="group bg-obsidian border border-gold/10 hover:border-gold transition-all duration-300">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?q=80&w=800&fit=crop"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute top-2 right-2 bg-obsidian border border-gold px-2 py-1">
+                            <span class="text-[10px] text-gold uppercase">Finance</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4
+                            class="font-serif text-lg text-champagne mb-3 leading-tight group-hover:text-gold transition-colors">
+                            Feng Shui Hunian Menghadap Utara: Mitos dan Fakta</h4>
+                        <p class="text-xs text-pewter mb-6 line-clamp-3 leading-relaxed">Dalam dunia arsitektur dan
+                            pemilihan properti di Asia, pertanyaan mengenai arah hadap rumah bukanlah hal yang sepele.
+                        </p>
+                        <a href="blog-8.html"
+                            class="inline-block text-[10px] text-gold uppercase tracking-widest border-b border-gold pb-1 hover:text-white hover:border-white transition-all">Baca
+                            Selengkapnya</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-obsidian pt-24 pb-10 border-t border-gold/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-10">
+
+                <div class="text-center md:text-left">
+                    <span class="font-serif text-3xl uppercase tracking-widest text-gold block mb-2">Gemilang</span>
+                    <span class="text-xs uppercase tracking-[0.4em] text-pewter">Properti Group</span>
+                    <p class="mt-6 text-pewter text-sm max-w-xs leading-relaxed">
+                        Membangun hunian dengan presisi geometris dan sentuhan kemewahan klasik untuk masa depan Anda.
+                    </p>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-8 md:gap-12 text-center md:text-left">
+
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Menu</h4>
+                        <div class="flex flex-col space-y-2">
+                            <a href="index.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Beranda</a>
+                            <a href="tentang.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Tentang</a>
+                            <a href="cluster.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Cluster</a>
+                            <a href="fasilitas.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Fasilitas</a>
+                            <a href="lokasi.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Lokasi</a>
+                            <a href="blog.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Marketing Gallery</h4>
+                        <p class="text-pewter text-sm mb-1">Jl. Puncak Tidar No. 88</p>
+                        <p class="text-pewter text-sm">Malang, Jawa Timur</p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Kontak</h4>
+                        <p class="text-pewter text-sm mb-1">0822-5739-1460</p>
+                        <p class="text-pewter text-sm">sales@gemilangproperti.id</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div
+                class="mt-20 border-t border-gold/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-pewter">
+                <p>&copy; 2026 Gemilang Properti. All Rights Reserved.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-gold">Privacy Policy</a>
+                    <a href="#" class="hover:text-gold">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Script Auto-Generate Table of Contents (TOC)
+        document.addEventListener('DOMContentLoaded', function () {
+            const articleContent = document.getElementById('article-content');
+            const tocDesktop = document.getElementById('toc-desktop');
+            const tocMobile = document.getElementById('toc-mobile');
+
+            if (articleContent) {
+                const headers = articleContent.querySelectorAll('h2, h3');
+
+                headers.forEach((header, index) => {
+                    // Berikan ID jika belum ada
+                    if (!header.id) {
+                        header.id = 'section-' + index;
+                    }
+
+                    // Buat Link Item
+                    const link = document.createElement('a');
+                    link.href = '#' + header.id;
+                    link.textContent = header.textContent;
+                    link.className = "toc-link block hover:text-gold transition-colors duration-300 border-l-2 border-transparent py-1";
+
+                    // Indentasi untuk H3
+                    if (header.tagName === 'H3') {
+                        link.classList.add('pl-4', 'opacity-80');
+                    } else {
+                        link.classList.add('font-bold');
+                    }
+
+                    // Clone untuk Mobile dan Desktop
+                    const linkMobile = link.cloneNode(true);
+
+                    // Event Listener untuk Smooth Scroll
+                    [link, linkMobile].forEach(l => {
+                        l.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        });
+                    });
+
+                    tocDesktop.appendChild(link);
+                    tocMobile.appendChild(linkMobile);
+                });
+
+                // Intersection Observer untuk Highlight TOC Aktif
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-100px 0px -60% 0px',
+                    threshold: 0
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Hapus aktif dari semua link
+                            document.querySelectorAll('.toc-link').forEach(link => link.classList.remove('active'));
+
+                            // Tambah aktif ke link yang sesuai
+                            const activeId = entry.target.id;
+                            const activeLinks = document.querySelectorAll(`.toc-link[href="#${activeId}"]`);
+                            activeLinks.forEach(link => link.classList.add('active'));
+                        }
+                    });
+                }, observerOptions);
+
+                headers.forEach(header => observer.observe(header));
+            }
+        });
+
+        // 2. Script Share Buttons
+        function shareSocial(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(document.title);
+            let shareUrl = '';
+
+            switch (platform) {
+                case 'wa':
+                    shareUrl = `https://wa.me/?text=${title}%20${url}`;
+                    break;
+                case 'fb':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                    break;
+                case 'x':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+                    break;
+            }
+
+            if (shareUrl) window.open(shareUrl, '_blank', 'width=600,height=400');
+        }
+    </script>
+</body>
+
+</html>

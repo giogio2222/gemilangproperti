@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koleksi Cluster | Gemilang Properti</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&family=Marcellus&display=swap"
+        rel="stylesheet">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0A0A0A',
+                        charcoal: '#141414',
+                        champagne: '#F2F0E4',
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            light: '#F2E8C4',
+                            dim: 'rgba(212, 175, 55, 0.1)',
+                        },
+                        pewter: '#888888',
+                    },
+                    fontFamily: {
+                        sans: ['"Josefin Sans"', 'sans-serif'],
+                        serif: ['"Marcellus"', 'serif'],
+                    },
+                    letterSpacing: {
+                        'deco': '0.2em',
+                    },
+                    backgroundImage: {
+                        'deco-lines': "repeating-linear-gradient(45deg, #D4AF37 0, #D4AF37 1px, transparent 0, transparent 50%)",
+                        'gold-gradient': "linear-gradient(135deg, #D4AF37 0%, #F2E8C4 50%, #D4AF37 100%)",
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(212, 175, 55, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .bg-grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 50;
+            mix-blend-mode: overlay;
+        }
+
+        .clip-deco-corner {
+            clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0% 100%);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-obsidian text-champagne font-sans antialiased overflow-x-hidden relative selection:bg-gold selection:text-obsidian">
+
+    <div class="bg-grain"></div>
+
+    <div class="fixed inset-0 pointer-events-none z-0 flex justify-between px-6 md:px-24 opacity-10">
+        <div class="w-px h-full bg-gold"></div>
+        <div class="w-px h-full bg-gold"></div>
+        <div class="w-px h-full bg-gold"></div>
+    </div>
+
+    <nav x-data="{ open: false, scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 50)"
+        :class="scrolled ? 'bg-obsidian/95 border-b border-gold/30 backdrop-blur-md' : 'bg-transparent border-b border-white/5'"
+        class="fixed w-full z-40 transition-all duration-500 ease-out top-0">
+
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-4 group cursor-pointer">
+                <div
+                    class="w-10 h-10 border border-gold rotate-45 flex items-center justify-center transition-transform duration-500 group-hover:rotate-0">
+                    <div class="w-5 h-5 bg-gold -rotate-45 group-hover:rotate-0 transition-transform duration-500">
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-2xl uppercase tracking-widest text-gold leading-none">Gemilang</span>
+                    <span class="text-[10px] uppercase tracking-[0.4em] text-pewter mt-1">Properti Group</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Beranda</a>
+                <a href="tentang.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Tentang</a>
+                <a href="cluster.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Cluster</a>
+                <a href="fasilitas.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Fasilitas</a>
+                <a href="lokasi.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Lokasi</a>
+                <a href="blog.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Blog</a>
+                <a href="https://wa.me/6282257391460"
+                    class="relative px-8 py-3 border border-gold text-gold hover:bg-gold hover:text-obsidian transition-all duration-300 group overflow-hidden ml-4">
+                    <span class="relative z-10 text-xs uppercase tracking-widest font-bold">Hubungi Kami</span>
+                    <div
+                        class="absolute inset-0 bg-gold transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out">
+                    </div>
+                </a>
+            </div>
+
+            <button @click="open = !open" class="md:hidden text-gold focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="square" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div x-show="open" class="md:hidden bg-charcoal border-b border-gold absolute w-full shadow-2xl"
+            @click.away="open = false">
+            <div class="flex flex-col p-8 space-y-6 text-center">
+                <a href="index.html"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Beranda</a>
+                <a href="cluster.html"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Cluster</a>
+                <a href="https://wa.me/6282257391460"
+                    class="text-sm uppercase tracking-widest text-gold font-bold">Hubungi Kami</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative h-[60vh] flex items-center justify-center overflow-hidden pt-20">
+        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent z-10"></div>
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2400&auto=format&fit=crop"
+                class="w-full h-full object-cover grayscale opacity-50" alt="Luxury Cluster">
+        </div>
+        <div class="relative z-20 text-center max-w-4xl px-6 mt-10">
+            <span class="text-xs text-gold uppercase tracking-[0.4em] mb-4 block">Masterpiece Collection</span>
+            <h1 class="font-serif text-5xl md:text-7xl text-champagne uppercase tracking-widest leading-none mb-6">
+                Katalog <br /> <span class="text-transparent bg-clip-text bg-gold-gradient">Hunian</span>
+            </h1>
+            <div class="w-24 h-1 bg-gold mx-auto border-t border-b border-obsidian"></div>
+        </div>
+    </header>
+
+    <section class="py-24 relative bg-charcoal border-t border-gold/20">
+        <div class="absolute inset-0 opacity-5"
+            style="background-image: repeating-linear-gradient(45deg, #D4AF37 0, #D4AF37 1px, transparent 0, transparent 40px);">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <span class="font-serif text-gold uppercase tracking-deco text-sm">Series I</span>
+                <h2 class="font-serif text-4xl mt-2 text-champagne uppercase tracking-widest">The Exclusive Series</h2>
+                <p class="text-pewter text-sm mt-4 tracking-widest">Kemewahan Klasik dengan Ruang Luas</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <a href="cluster-sapphire.html"
+                    class="block group bg-obsidian border border-gold/20 hover:border-gold transition-all duration-500 hover:-translate-y-2 clip-deco-corner cursor-pointer">
+                    <div class="relative h-72 overflow-hidden border-b border-gold/20">
+                        <div
+                            class="absolute inset-0 bg-obsidian/20 z-10 group-hover:bg-transparent transition-colors duration-500">
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1600596542815-e32870110232?q=80&w=1200&auto=format&fit=crop"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-obsidian border border-gold px-4 py-2 z-20">
+                            <span class="text-xs text-gold uppercase tracking-widest">Tipe 120/150</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl text-gold uppercase tracking-widest mb-2">Sapphire</h3>
+                        <p class="text-xs text-pewter uppercase tracking-widest mb-6">Konsep: Modern Classic</p>
+                        <div class="space-y-3 mb-8 border-l border-gold/20 pl-4">
+                            <p class="text-sm text-champagne flex justify-between"><span>Kamar Tidur</span> <span
+                                    class="text-gold">4</span></p>
+                            <p class="text-sm text-champagne flex justify-between"><span>Kamar Mandi</span> <span
+                                    class="text-gold">3</span></p>
+                            <p class="text-sm text-champagne flex justify-between"><span>Garasi</span> <span
+                                    class="text-gold">2 Mobil</span></p>
+                        </div>
+                        <div class="pt-6 border-t border-gold/20 flex justify-between items-center">
+                            <span
+                                class="text-pewter text-sm group-hover:text-gold uppercase tracking-widest transition-colors duration-300">Mulai
+                                IDR 2.5 M</span>
+                            <span
+                                class="text-gold text-2xl group-hover:translate-x-2 transition-transform duration-300">&rarr;</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="cluster-emerald.html"
+                    class="block group bg-obsidian border border-gold/20 hover:border-gold transition-all duration-500 hover:-translate-y-2 clip-deco-corner cursor-pointer">
+                    <div class="relative h-72 overflow-hidden border-b border-gold/20">
+                        <div
+                            class="absolute inset-0 bg-obsidian/20 z-10 group-hover:bg-transparent transition-colors duration-500">
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-obsidian border border-gold px-4 py-2 z-20">
+                            <span class="text-xs text-gold uppercase tracking-widest">Tipe 90/120</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl text-gold uppercase tracking-widest mb-2">Emerald</h3>
+                        <p class="text-xs text-pewter uppercase tracking-widest mb-6">Konsep: Eco Living</p>
+                        <div class="space-y-3 mb-8 border-l border-gold/20 pl-4">
+                            <p class="text-sm text-champagne flex justify-between"><span>Kamar Tidur</span> <span
+                                    class="text-gold">3</span></p>
+                            <p class="text-sm text-champagne flex justify-between"><span>Kamar Mandi</span> <span
+                                    class="text-gold">2</span></p>
+                            <p class="text-sm text-champagne flex justify-between"><span>Garasi</span> <span
+                                    class="text-gold">1 Mobil</span></p>
+                        </div>
+                        <div class="pt-6 border-t border-gold/20 flex justify-between items-center">
+                            <span
+                                class="text-pewter text-sm group-hover:text-gold uppercase tracking-widest transition-colors duration-300">Mulai
+                                IDR 1.8 M</span>
+                            <span
+                                class="text-gold text-2xl group-hover:translate-x-2 transition-transform duration-300">&rarr;</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="cluster-diamond.html"
+                    class="block group bg-obsidian border border-gold/20 hover:border-gold transition-all duration-500 hover:-translate-y-2 clip-deco-corner cursor-pointer">
+                    <div class="relative h-72 overflow-hidden border-b border-gold/20">
+                        <div
+                            class="absolute inset-0 bg-obsidian/20 z-10 group-hover:bg-transparent transition-colors duration-500">
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?q=80&w=1200&auto=format&fit=crop"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-obsidian border border-gold px-4 py-2 z-20">
+                            <span class="text-xs text-gold uppercase tracking-widest">Tipe Villa</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl text-gold uppercase tracking-widest mb-2">Diamond</h3>
+                        <p class="text-xs text-pewter uppercase tracking-widest mb-6">Konsep: Resort Hill</p>
+                        <div class="space-y-3 mb-8 border-l border-gold/20 pl-4">
+                            <p class="text-sm text-champagne flex justify-between"><span>Kamar Tidur</span> <span
+                                    class="text-gold">5</span></p>
+                            <p class="text-sm text-champagne flex justify-between"><span>Kamar Mandi</span> <span
+                                    class="text-gold">4</span></p>
+                            <p class="text-sm text-champagne flex justify-between"><span>Pool</span> <span
+                                    class="text-gold">Private</span></p>
+                        </div>
+                        <div class="pt-6 border-t border-gold/20 flex justify-between items-center">
+                            <span
+                                class="text-pewter text-sm group-hover:text-gold uppercase tracking-widest transition-colors duration-300">Mulai
+                                IDR 4.2 M</span>
+                            <span
+                                class="text-gold text-2xl group-hover:translate-x-2 transition-transform duration-300">&rarr;</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 relative bg-obsidian border-t border-gold/20">
+        <div class="absolute inset-0 opacity-5"
+            style="background-image: radial-gradient(circle at center, #D4AF37 1px, transparent 1px); background-size: 20px 20px;">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <span class="font-serif text-gold uppercase tracking-deco text-sm">Series II</span>
+                <h2 class="font-serif text-4xl mt-2 text-champagne uppercase tracking-widest">The Minimalist Series</h2>
+                <p class="text-pewter text-sm mt-4 tracking-widest">Efisiensi Modern untuk Gaya Hidup Dinamis</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <a href="cluster-ruby.html"
+                    class="block group bg-charcoal border border-gold/20 hover:border-gold transition-all duration-500 hover:-translate-y-2 clip-deco-corner cursor-pointer">
+                    <div class="relative h-72 overflow-hidden border-b border-gold/20">
+                        <div
+                            class="absolute inset-0 bg-obsidian/20 z-10 group-hover:bg-transparent transition-colors duration-500">
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-obsidian border border-gold px-4 py-2 z-20">
+                            <span class="text-xs text-gold uppercase tracking-widest">Tipe 45/70</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl text-gold uppercase tracking-widest mb-2">Ruby</h3>
+                        <p class="text-xs text-pewter uppercase tracking-widest mb-6">Konsep: Compact Elegance</p>
+                        <div class="space-y-3 mb-8 border-l border-gold/20 pl-4">
+                            <p class="text-sm text-champagne flex justify-between"><span>Kamar Tidur</span> <span
+                                    class="text-gold">2</span></p>
+                            <p class="text-sm text-champagne flex justify-between"><span>Kamar Mandi</span> <span
+                                    class="text-gold">1</span></p>
+                            <p class="text-sm text-champagne flex justify-between"><span>Carport</span> <span
+                                    class="text-gold">1 Mobil</span></p>
+                        </div>
+                        <div class="pt-6 border-t border-gold/20 flex justify-between items-center">
+                            <span class="text-pewter text-sm">Start IDR 900 Jt</span>
+                            <span class="text-gold uppercase tracking-widest text-sm hover:underline">Detail
+                                &rarr;</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="cluster-topaz.html"
+                    class="block group bg-charcoal border border-gold/20 hover:border-gold transition-all duration-500 hover:-translate-y-2 clip-deco-corner cursor-pointer">
+                    <div class="relative h-72 overflow-hidden border-b border-gold/20">
+                        <div
+                            class="absolute inset-0 bg-obsidian/20 z-10 group-hover:bg-transparent transition-colors duration-500">
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=1200&auto=format&fit=crop"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-obsidian border border-gold px-4 py-2 z-20">
+                            <span class="text-xs text-gold uppercase tracking-widest">Tipe 60/90</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl text-gold uppercase tracking-widest mb-2">Topaz</h3>
+                        <p class="text-xs text-pewter uppercase tracking-widest mb-6">Konsep: Urban Sanctuary</p>
+                        <div class="space-y-3 mb-8 border-l border-gold/20 pl-4">
+                            <p class="text-sm text-champagne flex justify-between"><span>Kamar Tidur</span> <span
+                                    class="text-gold">3</span></p>
+                            <p class="text-sm text-champagne flex justify-between"><span>Kamar Mandi</span> <span
+                                    class="text-gold">2</span></p>
+                            <p class="text-sm text-champagne flex justify-between"><span>Carport</span> <span
+                                    class="text-gold">1 Mobil</span></p>
+                        </div>
+                        <div class="pt-6 border-t border-gold/20 flex justify-between items-center">
+                            <span class="text-pewter text-sm">Start IDR 1.2 M</span>
+                            <span class="text-gold uppercase tracking-widest text-sm hover:underline">Detail
+                                &rarr;</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="cluster-onyx.html"
+                    class="block group bg-charcoal border border-gold/20 hover:border-gold transition-all duration-500 hover:-translate-y-2 clip-deco-corner cursor-pointer">
+                    <div class="relative h-72 overflow-hidden border-b border-gold/20">
+                        <div
+                            class="absolute inset-0 bg-obsidian/20 z-10 group-hover:bg-transparent transition-colors duration-500">
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1200&auto=format&fit=crop"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-obsidian border border-gold px-4 py-2 z-20">
+                            <span class="text-xs text-gold uppercase tracking-widest">Tipe 72/100</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl text-gold uppercase tracking-widest mb-2">Onyx</h3>
+                        <p class="text-xs text-pewter uppercase tracking-widest mb-6">Konsep: Modern Monochrome</p>
+                        <div class="space-y-3 mb-8 border-l border-gold/20 pl-4">
+                            <p class="text-sm text-champagne flex justify-between"><span>Kamar Tidur</span> <span
+                                    class="text-gold">3 + 1</span></p>
+                            <p class="text-sm text-champagne flex justify-between"><span>Workspace</span> <span
+                                    class="text-gold">Available</span></p>
+                            <p class="text-sm text-champagne flex justify-between"><span>Carport</span> <span
+                                    class="text-gold">2 Mobil</span></p>
+                        </div>
+                        <div class="pt-6 border-t border-gold/20 flex justify-between items-center">
+                            <span class="text-pewter text-sm">Start IDR 1.5 M</span>
+                            <span class="text-gold uppercase tracking-widest text-sm hover:underline">Detail
+                                &rarr;</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-charcoal border-t border-gold/20 relative">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="font-serif text-3xl md:text-5xl text-champagne uppercase tracking-widest mb-8">
+                Temukan Unit <br /> <span class="text-gold">Impian Anda</span>
+            </h2>
+            <p class="text-pewter text-lg mb-12 max-w-2xl mx-auto">
+                Setiap cluster dirancang dengan filosofi Art Deco yang berbeda. Konsultasikan kebutuhan keluarga Anda,
+                kami akan merekomendasikan unit terbaik.
+            </p>
+            <button onclick="kirimKeWhatsApp()"
+                class="px-12 py-5 bg-transparent border-2 border-gold text-gold font-serif uppercase tracking-widest hover:bg-gold hover:text-obsidian hover:shadow-glow transition-all duration-300">
+                Jadwalkan Kunjungan
+            </button>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent">
+        </div>
+    </section>
+
+    <footer class="bg-obsidian pt-24 pb-10 border-t border-gold/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-10">
+                <div class="text-center md:text-left">
+                    <span class="font-serif text-3xl uppercase tracking-widest text-gold block mb-2">Gemilang</span>
+                    <span class="text-xs uppercase tracking-[0.4em] text-pewter">Properti Group</span>
+                    <p class="mt-6 text-pewter text-sm max-w-xs leading-relaxed">
+                        Membangun hunian dengan presisi geometris dan sentuhan kemewahan klasik untuk masa depan Anda.
+                    </p>
+                </div>
+                <div class="flex flex-col md:flex-row gap-8 md:gap-12 text-center md:text-left">
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Menu</h4>
+                        <div class="flex flex-col space-y-2">
+                            <a href="index.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Beranda</a>
+                            <a href="tentang.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Tentang</a>
+                            <a href="cluster.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Cluster</a>
+                            <a href="fasilitas.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Fasilitas</a>
+                            <a href="lokasi.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Lokasi</a>
+                            <a href="blog.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Marketing Gallery</h4>
+                        <p class="text-pewter text-sm mb-1">Jl. Puncak Tidar No. 88</p>
+                        <p class="text-pewter text-sm">Malang, Jawa Timur</p>
+                    </div>
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Kontak</h4>
+                        <p class="text-pewter text-sm mb-1">0822-5739-1460</p>
+                        <p class="text-pewter text-sm">sales@gemilangproperti.id</p>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="mt-20 border-t border-gold/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-pewter">
+                <p>&copy; 2026 Gemilang Properti. All Rights Reserved.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-gold">Privacy Policy</a>
+                    <a href="#" class="hover:text-gold">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function kirimKeWhatsApp(clusterName) {
+            var nomorTujuan = "6282257391460"; // Ganti dengan nomor Anda
+            var pesan = "";
+
+            if (clusterName) {
+                // Fungsi ini tidak lagi dipanggil dari tombol di dalam kartu, 
+                // tapi masih disimpan jika dibutuhkan untuk tombol lain di masa depan.
+                pesan = "Halo Gemilang Properti, saya tertarik dan ingin info lebih lanjut mengenai *Cluster " + clusterName + "*. Mohon kirimkan pricelist dan simulasi pembayarannya.";
+            } else {
+                pesan = "Halo Gemilang Properti, saya ingin menjadwalkan kunjungan (Site Visit) untuk melihat lokasi dan show unit yang tersedia.";
+            }
+
+            var link = "https://wa.me/" + nomorTujuan + "?text=" + encodeURIComponent(pesan);
+            window.open(link, '_blank');
+        }
+    </script>
+</body>
+
+</html>

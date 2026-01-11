@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemilang Properti | Hunian Mewah & Investasi Klasik</title>
+
+    <meta name="description"
+        content="Gemilang Properti menghadirkan hunian klasik berkonsep Art Deco dengan fasilitas modern di lokasi prestisius Malang. Temukan kemewahan abadi dan investasi properti terbaik.">
+    <meta name="keywords"
+        content="Gemilang Properti, rumah mewah Malang, perumahan art deco, investasi properti, rumah dijual malang, real estate indonesia">
+    <meta name="author" content="Gemilang Properti Group">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gemilangproperti.id/">
+    <meta property="og:title" content="Gemilang Properti | Luxury Living">
+    <meta property="og:description"
+        content="Hunian Klasik Kemewahan Abadi. Harmoni arsitektur Art Deco dan kenyamanan modern.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=1200&auto=format&fit=crop">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#0A0A0A">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&family=Marcellus&display=swap"
+        rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Gemilang Properti",
+      "image": "https://images.unsplash.com/photo-1600607686527-6fb886090705",
+      "description": "Pengembang hunian mewah berkonsep Art Deco di Malang.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Puncak Tidar No. 88",
+        "addressLocality": "Malang",
+        "addressRegion": "Jawa Timur",
+        "postalCode": "65100",
+        "addressCountry": "ID"
+      },
+      "telephone": "+6282257391460",
+      "priceRange": "$$$",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    }
+    </script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0A0A0A',
+                        charcoal: '#141414',
+                        champagne: '#F2F0E4',
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            light: '#F2E8C4',
+                            dim: 'rgba(212, 175, 55, 0.1)',
+                        },
+                        pewter: '#888888',
+                    },
+                    fontFamily: {
+                        sans: ['"Josefin Sans"', 'sans-serif'],
+                        serif: ['"Marcellus"', 'serif'],
+                    },
+                    letterSpacing: {
+                        'deco': '0.2em',
+                    },
+                    backgroundImage: {
+                        'deco-lines': "repeating-linear-gradient(45deg, #D4AF37 0, #D4AF37 1px, transparent 0, transparent 50%)",
+                        'gold-gradient': "linear-gradient(135deg, #D4AF37 0%, #F2E8C4 50%, #D4AF37 100%)",
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(212, 175, 55, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .bg-grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Menggunakan base64 noise yang sudah ada */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 50;
+            mix-blend-mode: overlay;
+        }
+
+        .clip-deco-corner {
+            clip-path: polygon(0% 0%,
+                    100% 0%,
+                    100% calc(100% - 15px),
+                    calc(100% - 15px) 100%,
+                    0% 100%);
+        }
+
+        .vertical-line {
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, #D4AF37, transparent);
+            opacity: 0.2;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-obsidian text-champagne font-sans antialiased overflow-x-hidden relative selection:bg-gold selection:text-obsidian">
+
+    <div class="bg-grain"></div>
+
+    <div class="fixed inset-0 pointer-events-none z-0 flex justify-between px-6 md:px-24 opacity-10">
+        <div class="w-px h-full bg-gold"></div>
+        <div class="w-px h-full bg-gold"></div>
+        <div class="w-px h-full bg-gold"></div>
+    </div>
+
+    <nav x-data="{ open: false, scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 50)"
+        :class="scrolled ? 'bg-obsidian/95 border-b border-gold/30 backdrop-blur-md' : 'bg-transparent border-b border-white/5'"
+        class="fixed w-full z-40 transition-all duration-500 ease-out top-0">
+
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+
+            <a href="index.html" class="flex items-center gap-4 group cursor-pointer"
+                aria-label="Beranda Gemilang Properti">
+                <div
+                    class="w-10 h-10 border border-gold rotate-45 flex items-center justify-center transition-transform duration-500 group-hover:rotate-0">
+                    <div class="w-5 h-5 bg-gold -rotate-45 group-hover:rotate-0 transition-transform duration-500">
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-2xl uppercase tracking-widest text-gold leading-none">Gemilang</span>
+                    <span class="text-[10px] uppercase tracking-[0.4em] text-pewter mt-1">Properti Group</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Beranda</a>
+
+                <a href="tentang.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Tentang</a>
+
+                <a href="cluster.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Cluster</a>
+
+                <a href="fasilitas.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Fasilitas</a>
+
+                <a href="lokasi.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Lokasi</a>
+
+                <a href="blog.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Blog</a>
+
+                <a href="https://wa.me/6282257391460"
+                    class="relative px-8 py-3 border border-gold text-gold hover:bg-gold hover:text-obsidian transition-all duration-300 group overflow-hidden ml-4">
+                    <span class="relative z-10 text-xs uppercase tracking-widest font-bold">Hubungi Kami</span>
+                    <div
+                        class="absolute inset-0 bg-gold transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out">
+                    </div>
+                </a>
+            </div>
+
+            <button @click="open = !open" class="md:hidden text-gold focus:outline-none" aria-label="Buka Menu">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="square" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div x-show="open" x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-4" @click.away="open = false" style="display: none;"
+            class="md:hidden bg-charcoal border-b border-gold absolute w-full shadow-2xl">
+
+            <div class="flex flex-col p-8 space-y-6 text-center">
+                <a href="index.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Beranda</a>
+                <a href="tentang.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Tentang</a>
+                <a href="cluster.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Cluster</a>
+                <a href="fasilitas.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Fasilitas</a>
+                <a href="lokasi.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Lokasi</a>
+                <a href="blog.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Blog</a>
+
+                <div class="h-px w-10 bg-gold/30 mx-auto my-2"></div>
+
+                <a href="https://wa.me/6282257391460" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-gold font-bold">Hubungi Kami</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gold/10 via-obsidian/60 to-obsidian pointer-events-none">
+        </div>
+
+        <div class="absolute inset-0 z-[-1] opacity-40">
+            <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=75&w=1920&auto=format&fit=crop"
+                width="1920" height="1080" fetchpriority="high" class="w-full h-full object-cover grayscale"
+                alt="Luxury Art Deco Interior Design">
+        </div>
+
+        <div class="relative z-10 text-center max-w-5xl px-6 w-full">
+
+            <div class="flex items-center justify-center gap-4 mb-6 md:mb-8">
+                <div class="h-px w-12 md:w-16 bg-gold"></div>
+                <span class="text-[10px] md:text-xs text-gold uppercase tracking-[0.3em]">Est. 2024</span>
+                <div class="h-px w-12 md:w-16 bg-gold"></div>
+            </div>
+
+            <h1
+                class="font-serif text-4xl md:text-7xl lg:text-8xl text-champagne uppercase tracking-widest leading-[1.1] mb-6 md:mb-8">
+                Hunian Klasik <br />
+                <span class="text-transparent bg-clip-text bg-gold-gradient">Kemewahan Abadi</span>
+            </h1>
+
+            <p class="font-sans text-pewter text-base md:text-xl max-w-2xl mx-auto leading-relaxed mb-10 md:mb-12 px-4">
+                Menghadirkan harmoni arsitektur Art Deco dan kenyamanan modern di lokasi paling prestisius. Lebih dari
+                sekadar rumah, ini adalah warisan.
+            </p>
+
+            <div
+                class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6 w-full max-w-sm mx-auto md:max-w-none">
+
+                <a href="cluster.html"
+                    class="w-full md:w-auto text-center block px-10 py-4 bg-gold text-obsidian font-serif uppercase tracking-deco text-sm hover:shadow-glow transition-all duration-300">
+                    Lihat Koleksi
+                </a>
+
+                <div x-data="{ showVideo: false }" class="w-full md:w-auto"
+                    x-init="$watch('showVideo', value => document.body.classList.toggle('overflow-hidden', value))">
+
+                    <a href="#" @click.prevent="showVideo = true"
+                        class="w-full md:w-auto text-center block md:inline-block px-10 py-4 border border-pewter text-pewter hover:border-gold hover:text-gold font-serif uppercase tracking-deco text-sm transition-all duration-300">
+                        Putar Video
+                    </a>
+
+                    <div x-show="showVideo" style="z-index: 9999; display: none;"
+                        x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
+                        x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200"
+                        x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+                        class="fixed inset-0 flex items-center justify-center bg-obsidian/95 backdrop-blur-md p-4">
+
+                        <div @click.away="showVideo = false"
+                            class="relative w-full max-w-3xl bg-black shadow-2xl border border-gold/30 rounded-lg">
+
+                            <button @click="showVideo = false" aria-label="Tutup Video"
+                                class="absolute -top-10 right-0 md:-right-10 text-white hover:text-gold transition-colors duration-300 flex items-center gap-2">
+                                <span class="text-[10px] uppercase tracking-widest hidden md:block">Tutup</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="square" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+
+                            <div class="aspect-w-16 aspect-h-9 w-full relative pt-[56.25%]">
+                                <iframe class="absolute inset-0 w-full h-full rounded-sm"
+                                    :src="showVideo ? 'https://www.youtube.com/embed/t5SAfEkkjzM?autoplay=1&rel=0' : ''"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="koleksi" class="py-32 bg-charcoal relative border-t border-gold/20">
+        <div class="absolute inset-0 opacity-5"
+            style="background-image: repeating-linear-gradient(45deg, #D4AF37 0, #D4AF37 1px, transparent 0, transparent 40px);">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-20">
+                <span class="font-serif text-gold uppercase tracking-deco text-sm">Portofolio Kami</span>
+                <h2 class="font-serif text-4xl md:text-5xl mt-4 text-champagne uppercase tracking-widest">Pilihan
+                    Cluster Eksklusif</h2>
+                <div class="w-24 h-1 bg-gold mx-auto mt-8 border-t border-b border-obsidian"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <div
+                    class="group bg-obsidian border border-gold/20 hover:border-gold transition-all duration-500 hover:-translate-y-2 clip-deco-corner">
+                    <div class="relative h-72 overflow-hidden border-b border-gold/20">
+                        <div
+                            class="absolute inset-0 bg-obsidian/20 z-10 group-hover:bg-transparent transition-colors duration-500">
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1600596542815-e32870110232?q=60&w=800&auto=format&fit=crop"
+                            width="800" height="600" loading="lazy"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110"
+                            alt="Rumah Modern Classic Cluster Sapphire">
+                        <div class="absolute top-4 right-4 bg-obsidian border border-gold px-4 py-2 z-20">
+                            <span class="text-xs text-gold uppercase tracking-widest">Tipe 120/150</span>
+                        </div>
+                    </div>
+
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl text-gold uppercase tracking-widest mb-2">Cluster Sapphire</h3>
+                        <p class="text-xs text-pewter uppercase tracking-widest mb-6">Konsep: Modern Classic</p>
+
+                        <div class="space-y-3 mb-8 border-l border-gold/20 pl-4">
+                            <p class="text-sm text-champagne flex justify-between"><span>Kamar Tidur</span> <span
+                                    class="text-gold">4</span></p>
+                            <p class="text-sm text-champagne flex justify-between"><span>Kamar Mandi</span> <span
+                                    class="text-gold">3</span></p>
+                            <p class="text-sm text-champagne flex justify-between"><span>Garasi</span> <span
+                                    class="text-gold">2 Mobil</span></p>
+                        </div>
+
+                        <div class="pt-6 border-t border-gold/20 flex justify-between items-center">
+                            <span class="text-pewter text-sm">Mulai IDR 2.5 M</span>
+                            <span
+                                class="text-gold text-2xl group-hover:translate-x-2 transition-transform duration-300">&rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="group bg-obsidian border border-gold/20 hover:border-gold transition-all duration-500 hover:-translate-y-2 clip-deco-corner">
+                    <div class="relative h-72 overflow-hidden border-b border-gold/20">
+                        <div
+                            class="absolute inset-0 bg-obsidian/20 z-10 group-hover:bg-transparent transition-colors duration-500">
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=60&w=800&auto=format&fit=crop"
+                            width="800" height="600" loading="lazy"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110"
+                            alt="Rumah Eco Living Cluster Emerald">
+                        <div class="absolute top-4 right-4 bg-obsidian border border-gold px-4 py-2 z-20">
+                            <span class="text-xs text-gold uppercase tracking-widest">Tipe 90/120</span>
+                        </div>
+                    </div>
+
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl text-gold uppercase tracking-widest mb-2">Cluster Emerald</h3>
+                        <p class="text-xs text-pewter uppercase tracking-widest mb-6">Konsep: Eco Living</p>
+
+                        <div class="space-y-3 mb-8 border-l border-gold/20 pl-4">
+                            <p class="text-sm text-champagne flex justify-between"><span>Kamar Tidur</span> <span
+                                    class="text-gold">3</span></p>
+                            <p class="text-sm text-champagne flex justify-between"><span>Kamar Mandi</span> <span
+                                    class="text-gold">2</span></p>
+                            <p class="text-sm text-champagne flex justify-between"><span>Garasi</span> <span
+                                    class="text-gold">1 Mobil</span></p>
+                        </div>
+
+                        <div class="pt-6 border-t border-gold/20 flex justify-between items-center">
+                            <span class="text-pewter text-sm">Mulai IDR 1.8 M</span>
+                            <span
+                                class="text-gold text-2xl group-hover:translate-x-2 transition-transform duration-300">&rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="group bg-obsidian border border-gold/20 hover:border-gold transition-all duration-500 hover:-translate-y-2 clip-deco-corner">
+                    <div class="relative h-72 overflow-hidden border-b border-gold/20">
+                        <div
+                            class="absolute inset-0 bg-obsidian/20 z-10 group-hover:bg-transparent transition-colors duration-500">
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?q=60&w=800&auto=format&fit=crop"
+                            width="800" height="600" loading="lazy"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110"
+                            alt="Villa Mewah Cluster Diamond">
+                        <div class="absolute top-4 right-4 bg-obsidian border border-gold px-4 py-2 z-20">
+                            <span class="text-xs text-gold uppercase tracking-widest">Tipe Villa</span>
+                        </div>
+                    </div>
+
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl text-gold uppercase tracking-widest mb-2">Cluster Diamond</h3>
+                        <p class="text-xs text-pewter uppercase tracking-widest mb-6">Konsep: Resort Hill</p>
+
+                        <div class="space-y-3 mb-8 border-l border-gold/20 pl-4">
+                            <p class="text-sm text-champagne flex justify-between"><span>Kamar Tidur</span> <span
+                                    class="text-gold">5</span></p>
+                            <p class="text-sm text-champagne flex justify-between"><span>Kamar Mandi</span> <span
+                                    class="text-gold">4</span></p>
+                            <p class="text-sm text-champagne flex justify-between"><span>Kolam Renang</span> <span
+                                    class="text-gold">Private</span></p>
+                        </div>
+
+                        <div class="pt-6 border-t border-gold/20 flex justify-between items-center">
+                            <span class="text-pewter text-sm">Mulai IDR 4.2 M</span>
+                            <span
+                                class="text-gold text-2xl group-hover:translate-x-2 transition-transform duration-300">&rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="fasilitas" class="py-20 md:py-32 relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+
+                <div>
+                    <div class="flex items-center gap-4 mb-4 md:mb-6">
+                        <span
+                            class="font-serif text-gold text-2xl md:text-3xl border border-gold w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full shrink-0">I</span>
+                        <h3 class="text-champagne uppercase tracking-widest text-base md:text-lg">Keamanan Berlapis</h3>
+                    </div>
+                    <p
+                        class="text-pewter text-sm md:text-base leading-relaxed mb-8 md:mb-10 pl-0 md:pl-16 text-justify md:text-left">
+                        Sistem keamanan One Gate dengan teknologi pengenalan plat nomor dan CCTV 24 jam. Privasi Anda
+                        adalah prioritas mutlak kami.
+                    </p>
+
+                    <div class="flex items-center gap-4 mb-4 md:mb-6">
+                        <span
+                            class="font-serif text-gold text-2xl md:text-3xl border border-gold w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full shrink-0">II</span>
+                        <h3 class="text-champagne uppercase tracking-widest text-base md:text-lg">Clubhouse Eksklusif
+                        </h3>
+                    </div>
+                    <p
+                        class="text-pewter text-sm md:text-base leading-relaxed mb-8 md:mb-10 pl-0 md:pl-16 text-justify md:text-left">
+                        Pusat kebugaran, kolam renang infinity, dan lounge bergaya Gatsby untuk menjamu tamu kehormatan
+                        Anda.
+                    </p>
+
+                    <div class="flex items-center gap-4 mb-4 md:mb-6">
+                        <span
+                            class="font-serif text-gold text-2xl md:text-3xl border border-gold w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full shrink-0">III</span>
+                        <h3 class="text-champagne uppercase tracking-widest text-base md:text-lg">Green Architecture
+                        </h3>
+                    </div>
+                    <p
+                        class="text-pewter text-sm md:text-base leading-relaxed mb-8 md:mb-10 pl-0 md:pl-16 text-justify md:text-left">
+                        40% area didedikasikan untuk ruang terbuka hijau, taman geometris, dan jalur pedestrian yang
+                        asri.
+                    </p>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gold/5 blur-3xl rounded-full"></div>
+
+                    <div class="grid grid-cols-2 gap-3 md:gap-4">
+
+                        <div
+                            class="aspect-square border border-gold/30 bg-charcoal group hover:border-gold transition-colors duration-500 relative">
+                            <div class="absolute top-2 left-2 w-3 h-3 border-t border-l border-gold"></div>
+                            <div class="absolute bottom-2 right-2 w-3 h-3 border-b border-r border-gold"></div>
+
+                            <div class="absolute inset-0 flex flex-col items-center justify-center p-2">
+                                <div
+                                    class="w-12 h-12 md:w-16 md:h-16 border border-gold rotate-45 flex items-center justify-center group-hover:bg-gold transition-colors duration-300 mb-4 md:mb-6">
+                                    <svg class="w-6 h-6 md:w-8 md:h-8 text-gold -rotate-45 group-hover:text-obsidian"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="square" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <span
+                                    class="text-[10px] uppercase tracking-widest text-pewter text-center leading-tight">
+                                    Kesehatan
+                                </span>
+                            </div>
+                        </div>
+
+                        <div
+                            class="aspect-square border border-gold/30 bg-charcoal group hover:border-gold transition-colors duration-500 relative">
+                            <div class="absolute top-2 left-2 w-3 h-3 border-t border-l border-gold"></div>
+                            <div class="absolute bottom-2 right-2 w-3 h-3 border-b border-r border-gold"></div>
+
+                            <div class="absolute inset-0 flex flex-col items-center justify-center p-2">
+                                <div
+                                    class="w-12 h-12 md:w-16 md:h-16 border border-gold rotate-45 flex items-center justify-center group-hover:bg-gold transition-colors duration-300 mb-4 md:mb-6">
+                                    <svg class="w-6 h-6 md:w-8 md:h-8 text-gold -rotate-45 group-hover:text-obsidian"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="square" stroke-width="1.5"
+                                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <span
+                                    class="text-[10px] uppercase tracking-widest text-pewter text-center leading-tight">
+                                    Hunian
+                                </span>
+                            </div>
+                        </div>
+
+                        <div
+                            class="aspect-square border border-gold/30 bg-charcoal group hover:border-gold transition-colors duration-500 relative">
+                            <div class="absolute top-2 left-2 w-3 h-3 border-t border-l border-gold"></div>
+                            <div class="absolute bottom-2 right-2 w-3 h-3 border-b border-r border-gold"></div>
+
+                            <div class="absolute inset-0 flex flex-col items-center justify-center p-2">
+                                <div
+                                    class="w-12 h-12 md:w-16 md:h-16 border border-gold rotate-45 flex items-center justify-center group-hover:bg-gold transition-colors duration-300 mb-4 md:mb-6">
+                                    <svg class="w-6 h-6 md:w-8 md:h-8 text-gold -rotate-45 group-hover:text-obsidian"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="square" stroke-width="1.5"
+                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <span
+                                    class="text-[10px] uppercase tracking-widest text-pewter text-center leading-tight">
+                                    Akses 24H
+                                </span>
+                            </div>
+                        </div>
+
+                        <div
+                            class="aspect-square border border-gold/30 bg-charcoal group hover:border-gold transition-colors duration-500 relative">
+                            <div class="absolute top-2 left-2 w-3 h-3 border-t border-l border-gold"></div>
+                            <div class="absolute bottom-2 right-2 w-3 h-3 border-b border-r border-gold"></div>
+
+                            <div class="absolute inset-0 flex flex-col items-center justify-center p-2">
+                                <div
+                                    class="w-12 h-12 md:w-16 md:h-16 border border-gold rotate-45 flex items-center justify-center group-hover:bg-gold transition-colors duration-300 mb-4 md:mb-6">
+                                    <svg class="w-6 h-6 md:w-8 md:h-8 text-gold -rotate-45 group-hover:text-obsidian"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="square" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <span
+                                    class="text-[10px] uppercase tracking-widest text-pewter text-center leading-tight">
+                                    Listrik Bawah
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-32 bg-obsidian relative border-t border-gold/20">
+        <div class="absolute inset-0 bg-lines opacity-5 pointer-events-none"></div>
+
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="font-serif text-gold uppercase tracking-[0.2em] text-sm">Informasi</span>
+                <h2 class="font-serif text-4xl md:text-5xl mt-4 text-champagne uppercase tracking-widest">Pertanyaan
+                    Umum</h2>
+                <div class="w-16 h-1 bg-gold mx-auto mt-8 border-t border-b border-obsidian"></div>
+            </div>
+
+            <div class="space-y-0 border-t border-gold/20" x-data="{ selected: 1 }">
+
+                <div class="group border-b border-gold/20 overflow-hidden transition-colors duration-500"
+                    :class="selected === 1 ? 'bg-white/5' : 'hover:bg-white/5'">
+
+                    <button @click="selected !== 1 ? selected = 1 : selected = null"
+                        class="w-full flex items-center justify-between py-8 text-left focus:outline-none">
+                        <div class="flex items-center gap-8">
+                            <span class="font-serif text-xl w-8 text-right transition-colors duration-300"
+                                :class="selected === 1 ? 'text-gold' : 'text-pewter'">I</span>
+                            <span
+                                class="font-serif text-lg md:text-xl uppercase tracking-widest transition-colors duration-300"
+                                :class="selected === 1 ? 'text-gold' : 'text-champagne'">
+                                Bagaimana status legalitas lahan?
+                            </span>
+                        </div>
+                        <div class="relative w-8 h-8 flex items-center justify-center border border-gold/50 transition-all duration-300"
+                            :class="selected === 1 ? 'rotate-90 border-gold' : 'rotate-0'">
+                            <div class="absolute w-4 h-px bg-gold transition-all duration-300"></div>
+                            <div class="absolute h-4 w-px bg-gold transition-all duration-300"
+                                :class="selected === 1 ? 'rotate-90' : 'rotate-0'"></div>
+                        </div>
+                    </button>
+
+                    <div x-show="selected === 1" style="display: none;"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 -translate-y-2"
+                        x-transition:enter-end="opacity-100 translate-y-0" class="pl-16 pr-4 pb-8">
+                        <p class="text-pewter leading-loose font-sans max-w-2xl">
+                            Seluruh unit di Gemilang Properti telah bersertifikat <strong class="text-champagne">SHM
+                                (Sertifikat Hak Milik)</strong> yang sudah pecah per kaveling. Kami menjamin
+                            transparansi hukum 100% aman sebelum Anda melakukan akad jual beli.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="group border-b border-gold/20 overflow-hidden transition-colors duration-500"
+                    :class="selected === 2 ? 'bg-white/5' : 'hover:bg-white/5'">
+
+                    <button @click="selected !== 2 ? selected = 2 : selected = null"
+                        class="w-full flex items-center justify-between py-8 text-left focus:outline-none">
+                        <div class="flex items-center gap-8">
+                            <span class="font-serif text-xl w-8 text-right transition-colors duration-300"
+                                :class="selected === 2 ? 'text-gold' : 'text-pewter'">II</span>
+                            <span
+                                class="font-serif text-lg md:text-xl uppercase tracking-widest transition-colors duration-300"
+                                :class="selected === 2 ? 'text-gold' : 'text-champagne'">
+                                Apakah tersedia opsi pembayaran KPR?
+                            </span>
+                        </div>
+                        <div class="relative w-8 h-8 flex items-center justify-center border border-gold/50 transition-all duration-300"
+                            :class="selected === 2 ? 'rotate-90 border-gold' : 'rotate-0'">
+                            <div class="absolute w-4 h-px bg-gold transition-all duration-300"></div>
+                            <div class="absolute h-4 w-px bg-gold transition-all duration-300"
+                                :class="selected === 2 ? 'rotate-90' : 'rotate-0'"></div>
+                        </div>
+                    </button>
+
+                    <div x-show="selected === 2" style="display: none;"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 -translate-y-2"
+                        x-transition:enter-end="opacity-100 translate-y-0" class="pl-16 pr-4 pb-8">
+                        <p class="text-pewter leading-loose font-sans max-w-2xl">
+                            Tentu. Kami bekerjasama dengan bank-bank terkemuka (BCA, Mandiri, BNI, CIMB Niaga) dengan
+                            suku bunga prioritas. Tersedia juga opsi <strong class="text-champagne">In-House
+                                Installment</strong> hingga 24x tanpa bunga langsung ke developer.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="group border-b border-gold/20 overflow-hidden transition-colors duration-500"
+                    :class="selected === 3 ? 'bg-white/5' : 'hover:bg-white/5'">
+
+                    <button @click="selected !== 3 ? selected = 3 : selected = null"
+                        class="w-full flex items-center justify-between py-8 text-left focus:outline-none">
+                        <div class="flex items-center gap-8">
+                            <span class="font-serif text-xl w-8 text-right transition-colors duration-300"
+                                :class="selected === 3 ? 'text-gold' : 'text-pewter'">III</span>
+                            <span
+                                class="font-serif text-lg md:text-xl uppercase tracking-widest transition-colors duration-300"
+                                :class="selected === 3 ? 'text-gold' : 'text-champagne'">
+                                Berapa lama masa serah terima unit?
+                            </span>
+                        </div>
+                        <div class="relative w-8 h-8 flex items-center justify-center border border-gold/50 transition-all duration-300"
+                            :class="selected === 3 ? 'rotate-90 border-gold' : 'rotate-0'">
+                            <div class="absolute w-4 h-px bg-gold transition-all duration-300"></div>
+                            <div class="absolute h-4 w-px bg-gold transition-all duration-300"
+                                :class="selected === 3 ? 'rotate-90' : 'rotate-0'"></div>
+                        </div>
+                    </button>
+
+                    <div x-show="selected === 3" style="display: none;"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 -translate-y-2"
+                        x-transition:enter-end="opacity-100 translate-y-0" class="pl-16 pr-4 pb-8">
+                        <p class="text-pewter leading-loose font-sans max-w-2xl">
+                            Untuk menjaga kualitas detail Art Deco yang presisi, masa pembangunan memakan waktu <strong
+                                class="text-champagne">12 - 18 bulan</strong> tergantung tipe unit. Kami memberlakukan
+                            garansi bangunan selama 100 hari setelah serah terima kunci.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="group border-b border-gold/20 overflow-hidden transition-colors duration-500"
+                    :class="selected === 4 ? 'bg-white/5' : 'hover:bg-white/5'">
+
+                    <button @click="selected !== 4 ? selected = 4 : selected = null"
+                        class="w-full flex items-center justify-between py-8 text-left focus:outline-none">
+                        <div class="flex items-center gap-8">
+                            <span class="font-serif text-xl w-8 text-right transition-colors duration-300"
+                                :class="selected === 4 ? 'text-gold' : 'text-pewter'">IV</span>
+                            <span
+                                class="font-serif text-lg md:text-xl uppercase tracking-widest transition-colors duration-300"
+                                :class="selected === 4 ? 'text-gold' : 'text-champagne'">
+                                Apakah desain interior bisa diubah?
+                            </span>
+                        </div>
+                        <div class="relative w-8 h-8 flex items-center justify-center border border-gold/50 transition-all duration-300"
+                            :class="selected === 4 ? 'rotate-90 border-gold' : 'rotate-0'">
+                            <div class="absolute w-4 h-px bg-gold transition-all duration-300"></div>
+                            <div class="absolute h-4 w-px bg-gold transition-all duration-300"
+                                :class="selected === 4 ? 'rotate-90' : 'rotate-0'"></div>
+                        </div>
+                    </button>
+
+                    <div x-show="selected === 4" style="display: none;"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 -translate-y-2"
+                        x-transition:enter-end="opacity-100 translate-y-0" class="pl-16 pr-4 pb-8">
+                        <p class="text-pewter leading-loose font-sans max-w-2xl">
+                            Fasad depan wajib mengikuti standar estetika kawasan untuk menjaga nilai investasi. Namun,
+                            <strong class="text-champagne">tata ruang dalam (layout)</strong> dapat disesuaikan (Custom
+                            Layout) sesuai kebutuhan keluarga Anda selama tidak mengubah struktur utama.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="kontak" class="py-32 bg-charcoal relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-32 h-32 border-l border-t border-gold opacity-20"></div>
+        <div class="absolute bottom-0 right-0 w-32 h-32 border-r border-b border-gold opacity-20"></div>
+
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="font-serif text-4xl text-champagne uppercase tracking-widest mb-16">Miliki Kuncinya</h2>
+
+            <form class="space-y-12 text-left bg-obsidian p-10 md:p-16 border border-gold/20 shadow-glow relative">
+                <div class="absolute top-2 left-2 right-2 bottom-2 border border-gold/10 pointer-events-none"></div>
+
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="relative group">
+                        <input type="text" id="nama" placeholder=" " required aria-label="Nama Lengkap"
+                            class="block w-full px-0 py-4 text-champagne bg-transparent border-b-2 border-gold/50 appearance-none focus:outline-none focus:border-gold peer transition-colors" />
+                        <label for="nama"
+                            class="absolute text-sm text-pewter duration-300 transform -translate-y-6 scale-75 top-3 z-10 origin-[0] peer-focus:left-0 peer-focus:text-gold peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 uppercase tracking-widest pointer-events-none">
+                            Nama Lengkap
+                        </label>
+                    </div>
+
+                    <div class="relative group">
+                        <input type="number" id="wa" placeholder=" " required aria-label="Nomor WhatsApp"
+                            class="block w-full px-0 py-4 text-champagne bg-transparent border-b-2 border-gold/50 appearance-none focus:outline-none focus:border-gold peer transition-colors" />
+                        <label for="wa"
+                            class="absolute text-sm text-pewter duration-300 transform -translate-y-6 scale-75 top-3 z-10 origin-[0] peer-focus:left-0 peer-focus:text-gold peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 uppercase tracking-widest pointer-events-none">
+                            No. WhatsApp
+                        </label>
+                    </div>
+                </div>
+
+                <div class="relative group">
+                    <select id="tipe" aria-label="Pilih Cluster"
+                        class="block w-full px-0 py-4 text-champagne bg-transparent border-b-2 border-gold/50 appearance-none focus:outline-none focus:border-gold peer transition-colors">
+                        <option class="bg-charcoal text-pewter" value="">Pilih Cluster yang Diminati</option>
+                        <option class="bg-charcoal" value="Cluster Sapphire">Cluster Sapphire
+                        </option>
+                        <option class="bg-charcoal" value="Cluster Emerald">Cluster Emerald</option>
+                        <option class="bg-charcoal" value="Cluster Diamond">Cluster Diamond</option>
+                        <option class="bg-charcoal" value="Cluster Ruby">Cluster Ruby</option>
+                        <option class="bg-charcoal" value="Cluster Topaz">Cluster Topaz</option>
+                        <option class="bg-charcoal" value="Cluster Onyx">Cluster Onyx</option>
+                    </select>
+                    <label for="tipe"
+                        class="absolute text-sm text-gold duration-300 transform -translate-y-6 scale-75 top-3 z-10 origin-[0] uppercase tracking-widest pointer-events-none">
+                        Minat
+                    </label>
+                </div>
+
+                <div class="mt-12 w-full flex justify-center">
+                    <button type="button" onclick="kirimKeWhatsApp()"
+                        class="px-16 py-4 bg-gold text-obsidian font-serif uppercase tracking-deco hover:bg-white transition-colors duration-300 shadow-[0_0_15px_rgba(212,175,55,0.4)]">
+                        Kirim Permintaan
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+    <script>
+        function kirimKeWhatsApp() {
+            var nama = document.getElementById("nama").value;
+            var waUser = document.getElementById("wa").value;
+            var tipe = document.getElementById("tipe").value;
+
+            if (nama === "" || waUser === "") {
+                alert("Mohon lengkapi Nama dan Nomor WhatsApp Anda.");
+                return;
+            }
+
+            var nomorTujuan = "6282257391460"; // Ganti dengan nomor Anda
+            var pesan = "Halo Gemilang Properti, saya tertarik dengan hunian Anda.%0A%0A" +
+                "📋 *Data Diri Calon Pembeli* %0A" +
+                "Nama: " + nama + "%0A" +
+                "No. WA: " + waUser + "%0A" +
+                "Minat Unit: " + tipe + "%0A%0A" +
+                "Mohon info lebih lanjut mengenai pricelist dan promo. Terima kasih.";
+
+            var link = "https://wa.me/" + nomorTujuan + "?text=" + pesan;
+            window.open(link, '_blank');
+        }
+    </script>
+
+    <footer class="bg-obsidian pt-24 pb-10 border-t border-gold/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-10">
+
+                <div class="text-center md:text-left">
+                    <span class="font-serif text-3xl uppercase tracking-widest text-gold block mb-2">Gemilang</span>
+                    <span class="text-xs uppercase tracking-[0.4em] text-pewter">Properti Group</span>
+                    <p class="mt-6 text-pewter text-sm max-w-xs leading-relaxed">
+                        Membangun hunian dengan presisi geometris dan sentuhan kemewahan klasik untuk masa depan Anda.
+                    </p>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-8 md:gap-12 text-center md:text-left">
+
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Menu</h4>
+                        <div class="flex flex-col space-y-2">
+                            <a href="index.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Beranda</a>
+                            <a href="tentang.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Tentang</a>
+                            <a href="cluster.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Cluster</a>
+                            <a href="fasilitas.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Fasilitas</a>
+                            <a href="lokasi.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Lokasi</a>
+                            <a href="blog.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Marketing Gallery</h4>
+                        <p class="text-pewter text-sm mb-1">Jl. Puncak Tidar No. 88</p>
+                        <p class="text-pewter text-sm">Malang, Jawa Timur</p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Kontak</h4>
+                        <p class="text-pewter text-sm mb-1">0822-5739-1460</p>
+                        <p class="text-pewter text-sm">sales@gemilangproperti.id</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div
+                class="mt-20 border-t border-gold/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-pewter">
+                <p>&copy; 2026 Gemilang Properti. All Rights Reserved.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-gold">Privacy Policy</a>
+                    <a href="#" class="hover:text-gold">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

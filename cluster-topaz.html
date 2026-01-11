@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cluster Topaz Detail | Gemilang Properti</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&family=Marcellus&display=swap"
+        rel="stylesheet">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0A0A0A',
+                        charcoal: '#141414',
+                        champagne: '#F2F0E4',
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            light: '#F2E8C4',
+                            dim: 'rgba(212, 175, 55, 0.1)',
+                        },
+                        pewter: '#888888',
+                    },
+                    fontFamily: {
+                        sans: ['"Josefin Sans"', 'sans-serif'],
+                        serif: ['"Marcellus"', 'serif'],
+                    },
+                    letterSpacing: {
+                        'deco': '0.2em',
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(212, 175, 55, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .bg-grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 50;
+            mix-blend-mode: overlay;
+        }
+
+        /* Transisi halus untuk gambar */
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: opacity 0.5s ease;
+        }
+
+        .fade-enter-from,
+        .fade-leave-to {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-obsidian text-champagne font-sans antialiased overflow-x-hidden relative selection:bg-gold selection:text-obsidian">
+
+    <div class="bg-grain"></div>
+    <div class="fixed inset-0 pointer-events-none z-0 flex justify-between px-6 md:px-24 opacity-10">
+        <div class="w-px h-full bg-gold"></div>
+        <div class="w-px h-full bg-gold"></div>
+        <div class="w-px h-full bg-gold"></div>
+    </div>
+
+    <nav x-data="{ open: false, scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 50)"
+        :class="scrolled ? 'bg-obsidian/95 border-b border-gold/30 backdrop-blur-md' : 'bg-transparent border-b border-white/5'"
+        class="fixed w-full z-40 transition-all duration-500 ease-out top-0">
+
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+
+            <a href="index.html" class="flex items-center gap-4 group cursor-pointer">
+                <div
+                    class="w-10 h-10 border border-gold rotate-45 flex items-center justify-center transition-transform duration-500 group-hover:rotate-0">
+                    <div class="w-5 h-5 bg-gold -rotate-45 group-hover:rotate-0 transition-transform duration-500">
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-2xl uppercase tracking-widest text-gold leading-none">Gemilang</span>
+                    <span class="text-[10px] uppercase tracking-[0.4em] text-pewter mt-1">Properti Group</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Beranda</a>
+
+                <a href="tentang.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Tentang</a>
+
+                <a href="cluster.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Cluster</a>
+
+                <a href="fasilitas.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Fasilitas</a>
+
+                <a href="lokasi.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Lokasi</a>
+
+                <a href="blog.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Blog</a>
+
+                <a href="https://wa.me/6282257391460"
+                    class="relative px-8 py-3 border border-gold text-gold hover:bg-gold hover:text-obsidian transition-all duration-300 group overflow-hidden ml-4">
+                    <span class="relative z-10 text-xs uppercase tracking-widest font-bold">Hubungi Kami</span>
+                    <div
+                        class="absolute inset-0 bg-gold transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out">
+                    </div>
+                </a>
+            </div>
+
+            <button @click="open = !open" class="md:hidden text-gold focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="square" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div x-show="open" x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-4" @click.away="open = false"
+            class="md:hidden bg-charcoal border-b border-gold absolute w-full shadow-2xl">
+
+            <div class="flex flex-col p-8 space-y-6 text-center">
+                <a href="index.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Beranda</a>
+                <a href="tentang.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Tentang</a>
+                <a href="cluster.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Cluster</a>
+                <a href="fasilitas.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Fasilitas</a>
+                <a href="lokasi.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Lokasi</a>
+                <a href="blog.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Blog</a>
+
+                <div class="h-px w-10 bg-gold/30 mx-auto my-2"></div>
+
+                <a href="https://wa.me/6282257391460" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-gold font-bold">Hubungi Kami</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-20 relative min-h-screen">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+
+                <div x-data="{ 
+                    activeImage: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=1200&auto=format&fit=crop',
+                    images: [
+                        'https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=1200&auto=format&fit=crop', // Exterior Cozy
+                        'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200&auto=format&fit=crop', // Living Room Sanctuary
+                        'https://images.unsplash.com/photo-1556910103-1c02745a30bf?q=80&w=1200&auto=format&fit=crop', // Kitchen / Dining
+                        'https://images.unsplash.com/photo-1598928636135-d146006ff4be?q=80&w=1200&auto=format&fit=crop'  // Bedroom
+                    ]
+                }">
+                    <div class="relative aspect-[4/3] w-full border border-gold/20 overflow-hidden mb-6 group">
+                        <div
+                            class="absolute inset-0 bg-obsidian/10 group-hover:bg-transparent transition-colors duration-500 z-10">
+                        </div>
+                        <img :src="activeImage" class="w-full h-full object-cover transition-all duration-700 transform"
+                            alt="Cluster Topaz View">
+
+                        <div class="absolute top-0 right-0 bg-obsidian border-l border-b border-gold px-6 py-3 z-20">
+                            <span class="text-xs text-gold uppercase tracking-widest">Tipe 60/90</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-4 gap-4">
+                        <template x-for="(img, index) in images" :key="index">
+                            <button @click="activeImage = img"
+                                class="aspect-square w-full border border-gold/20 overflow-hidden hover:border-gold transition-all duration-300 relative focus:outline-none"
+                                :class="activeImage === img ? 'border-gold opacity-100 ring-1 ring-gold' : 'opacity-60 hover:opacity-100'">
+                                <img :src="img" class="w-full h-full object-cover">
+                            </button>
+                        </template>
+                    </div>
+                    <p class="mt-4 text-[10px] text-pewter text-center uppercase tracking-widest italic">
+                        *Klik gambar kecil untuk melihat detail interior
+                    </p>
+                </div>
+
+                <div class="flex flex-col justify-center">
+
+                    <div class="mb-2">
+                        <span class="text-gold text-xs uppercase tracking-[0.3em]">Urban Sanctuary</span>
+                    </div>
+
+                    <h1 class="font-serif text-4xl md:text-5xl text-champagne uppercase tracking-widest mb-6">
+                        Cluster Topaz
+                    </h1>
+
+                    <p class="text-pewter font-sans leading-relaxed mb-8 text-justify">
+                        Sebuah oase ketenangan di tengah dinamika kota. Cluster Topaz menghadirkan konsep Urban
+                        Sanctuary yang menyeimbangkan kenyamanan modern dengan suasana hangat yang menenangkan. Pilihan
+                        tepat bagi Anda yang mendambakan kepulangan yang berkualitas.
+                    </p>
+
+                    <div class="bg-charcoal border border-gold/10 p-8 mb-10 relative">
+                        <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-gold"></div>
+                        <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-gold"></div>
+
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center border-b border-gold/20 pb-3">
+                                <span class="text-sm text-pewter uppercase tracking-widest">Kamar Tidur</span>
+                                <span class="font-serif text-xl text-gold">3</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-gold/20 pb-3">
+                                <span class="text-sm text-pewter uppercase tracking-widest">Kamar Mandi</span>
+                                <span class="font-serif text-xl text-gold">2</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-gold/20 pb-3">
+                                <span class="text-sm text-pewter uppercase tracking-widest">Carport</span>
+                                <span class="font-serif text-xl text-gold">1 Mobil</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-gold/20 pb-3">
+                                <span class="text-sm text-pewter uppercase tracking-widest">Luas Bangunan</span>
+                                <span class="font-serif text-xl text-champagne">60 m²</span>
+                            </div>
+                            <div class="flex justify-between items-center pt-2">
+                                <span class="text-sm text-pewter uppercase tracking-widest">Luas Tanah</span>
+                                <span class="font-serif text-xl text-champagne">90 m²</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 mb-10">
+                        <div class="flex items-center gap-3">
+                            <div class="w-1 h-1 bg-gold rounded-full"></div>
+                            <span class="text-xs text-champagne uppercase tracking-widest">Inner Garden</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-1 h-1 bg-gold rounded-full"></div>
+                            <span class="text-xs text-champagne uppercase tracking-widest">Skylight Roof</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-1 h-1 bg-gold rounded-full"></div>
+                            <span class="text-xs text-champagne uppercase tracking-widest">Premium Facade</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-1 h-1 bg-gold rounded-full"></div>
+                            <span class="text-xs text-champagne uppercase tracking-widest">24h Security</span>
+                        </div>
+                    </div>
+
+                    <div
+                        class="flex flex-col md:flex-row items-center justify-between gap-6 border-t border-gold/30 pt-8">
+                        <div>
+                            <span class="block text-xs text-pewter uppercase tracking-widest mb-1">Harga Mulai</span>
+                            <span class="font-serif text-3xl text-gold">IDR 1.2 M</span>
+                        </div>
+
+                        <a href="https://wa.me/6282257391460?text=Halo%20Gemilang%20Properti,%20saya%20tertarik%20dengan%20detail%20Cluster%20Topaz%20(Tipe%2060/90).%20Bisa%20info%20pricelist%20dan%20simulasi%20KPR?"
+                            target="_blank"
+                            class="w-full md:w-auto px-10 py-4 bg-gold text-obsidian font-serif uppercase tracking-deco text-sm text-center hover:bg-white transition-all duration-300 shadow-glow relative overflow-hidden group">
+                            <span class="relative z-10 font-bold">Pesan Unit</span>
+                            <div
+                                class="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out z-0">
+                            </div>
+                        </a>
+                    </div>
+                    <p class="text-[10px] text-pewter mt-4 text-center md:text-right">*Harga dapat berubah sewaktu-waktu
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-obsidian pt-24 pb-10 border-t border-gold/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-10">
+
+                <div class="text-center md:text-left">
+                    <span class="font-serif text-3xl uppercase tracking-widest text-gold block mb-2">Gemilang</span>
+                    <span class="text-xs uppercase tracking-[0.4em] text-pewter">Properti Group</span>
+                    <p class="mt-6 text-pewter text-sm max-w-xs leading-relaxed">
+                        Membangun hunian dengan presisi geometris dan sentuhan kemewahan klasik untuk masa depan Anda.
+                    </p>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-8 md:gap-12 text-center md:text-left">
+
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Menu</h4>
+                        <div class="flex flex-col space-y-2">
+                            <a href="index.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Beranda</a>
+                            <a href="tentang.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Tentang</a>
+                            <a href="cluster.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Cluster</a>
+                            <a href="fasilitas.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Fasilitas</a>
+                            <a href="lokasi.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Lokasi</a>
+                            <a href="blog.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Marketing Gallery</h4>
+                        <p class="text-pewter text-sm mb-1">Jl. Puncak Tidar No. 88</p>
+                        <p class="text-pewter text-sm">Malang, Jawa Timur</p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Kontak</h4>
+                        <p class="text-pewter text-sm mb-1">0822-5739-1460</p>
+                        <p class="text-pewter text-sm">sales@gemilangproperti.id</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div
+                class="mt-20 border-t border-gold/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-pewter">
+                <p>&copy; 2026 Gemilang Properti. All Rights Reserved.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-gold">Privacy Policy</a>
+                    <a href="#" class="hover:text-gold">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

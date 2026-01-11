@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feng Shui Hunian Menghadap Utara | Gemilang Properti</title>
+
+    <meta property="og:title" content="Feng Shui Hunian Menghadap Utara: Mitos dan Fakta">
+    <meta property="og:description"
+        content="Membahas tata letak rumah berdasarkan prinsip keseimbangan energi untuk kemakmuran penghuni. Temukan faktanya di sini.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1599809275671-b5942cabc7ad">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&family=Marcellus&display=swap"
+        rel="stylesheet">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0A0A0A',
+                        charcoal: '#141414',
+                        champagne: '#F2F0E4',
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            light: '#F2E8C4',
+                            dim: 'rgba(212, 175, 55, 0.1)',
+                        },
+                        pewter: '#888888',
+                    },
+                    fontFamily: {
+                        sans: ['"Josefin Sans"', 'sans-serif'],
+                        serif: ['"Marcellus"', 'serif'],
+                    },
+                    letterSpacing: {
+                        'deco': '0.2em',
+                    },
+                    backgroundImage: {
+                        'deco-lines': "repeating-linear-gradient(45deg, #D4AF37 0, #D4AF37 1px, transparent 0, transparent 50%)",
+                        'gold-gradient': "linear-gradient(135deg, #D4AF37 0%, #F2E8C4 50%, #D4AF37 100%)",
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(212, 175, 55, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .bg-grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 50;
+            mix-blend-mode: overlay;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+
+        /* Article Typography Overrides */
+        .article-content h2 {
+            font-family: "Marcellus", serif;
+            font-size: 1.875rem;
+            color: #F2F0E4;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .article-content h3 {
+            font-family: "Marcellus", serif;
+            font-size: 1.5rem;
+            color: #D4AF37;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-content p {
+            color: #888888;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .article-content strong {
+            color: #F2F0E4;
+            font-weight: 600;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            color: #888888;
+            margin-bottom: 1.5rem;
+            margin-left: 1.5rem;
+            list-style-type: disc;
+        }
+
+        .article-content li {
+            margin-bottom: 0.5rem;
+            padding-left: 0.5rem;
+        }
+
+        /* Dropcap */
+        .article-content p:first-of-type::first-letter {
+            float: left;
+            font-family: 'Marcellus', serif;
+            font-size: 4.5rem;
+            line-height: 0.85;
+            padding-right: 1rem;
+            padding-top: 0.2rem;
+            color: #D4AF37;
+        }
+
+        /* Toc Active State */
+        .toc-link.active {
+            color: #D4AF37;
+            border-left: 2px solid #D4AF37;
+            padding-left: 0.5rem;
+            background: rgba(212, 175, 55, 0.05);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-obsidian text-champagne font-sans antialiased overflow-x-hidden relative selection:bg-gold selection:text-obsidian">
+
+    <div class="bg-grain"></div>
+
+    <div class="fixed inset-0 pointer-events-none z-0 flex justify-between px-6 md:px-24 opacity-10">
+        <div class="w-px h-full bg-gold"></div>
+        <div class="w-px h-full bg-gold"></div>
+        <div class="w-px h-full bg-gold"></div>
+    </div>
+
+    <nav x-data="{ open: false, scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 50)"
+        :class="scrolled ? 'bg-obsidian/95 border-b border-gold/30 backdrop-blur-md' : 'bg-transparent border-b border-white/5'"
+        class="fixed w-full z-40 transition-all duration-500 ease-out top-0">
+
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+
+            <a href="index.html" class="flex items-center gap-4 group cursor-pointer">
+                <div
+                    class="w-10 h-10 border border-gold rotate-45 flex items-center justify-center transition-transform duration-500 group-hover:rotate-0">
+                    <div class="w-5 h-5 bg-gold -rotate-45 group-hover:rotate-0 transition-transform duration-500">
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-2xl uppercase tracking-widest text-gold leading-none">Gemilang</span>
+                    <span class="text-[10px] uppercase tracking-[0.4em] text-pewter mt-1">Properti Group</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Beranda</a>
+
+                <a href="tentang.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Tentang</a>
+
+                <a href="cluster.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Cluster</a>
+
+                <a href="fasilitas.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Fasilitas</a>
+
+                <a href="lokasi.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Lokasi</a>
+
+                <a href="blog.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Blog</a>
+
+                <a href="https://wa.me/6282257391460"
+                    class="relative px-8 py-3 border border-gold text-gold hover:bg-gold hover:text-obsidian transition-all duration-300 group overflow-hidden ml-4">
+                    <span class="relative z-10 text-xs uppercase tracking-widest font-bold">Hubungi Kami</span>
+                    <div
+                        class="absolute inset-0 bg-gold transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out">
+                    </div>
+                </a>
+            </div>
+
+            <button @click="open = !open" class="md:hidden text-gold focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="square" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div x-show="open" x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-4" @click.away="open = false"
+            class="md:hidden bg-charcoal border-b border-gold absolute w-full shadow-2xl">
+
+            <div class="flex flex-col p-8 space-y-6 text-center">
+                <a href="index.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Beranda</a>
+                <a href="tentang.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Tentang</a>
+                <a href="cluster.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Cluster</a>
+                <a href="fasilitas.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Fasilitas</a>
+                <a href="lokasi.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Lokasi</a>
+                <a href="blog.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Blog</a>
+
+                <div class="h-px w-10 bg-gold/30 mx-auto my-2"></div>
+
+                <a href="https://wa.me/6282257391460" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-gold font-bold">Hubungi Kami</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="relative pt-32 pb-20">
+
+        <header class="max-w-4xl mx-auto px-6 text-center mb-12 md:mb-16">
+
+            <h1 class="font-serif text-3xl md:text-5xl lg:text-6xl text-champagne uppercase leading-tight mb-8">
+                Feng Shui Hunian <br />
+                <span class="text-transparent bg-clip-text bg-gold-gradient">Menghadap Utara: Mitos dan Fakta</span>
+            </h1>
+
+            <div
+                class="flex items-center justify-center gap-6 text-sm text-pewter border-y border-gold/20 py-4 max-w-lg mx-auto">
+                <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                        </path>
+                    </svg>
+                    <span>10 Des 2025</span>
+                </div>
+                <div class="w-px h-4 bg-gold/30"></div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>12 Menit Baca</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="max-w-6xl mx-auto px-6 mb-16 relative">
+            <div class="relative aspect-w-16 aspect-h-9 md:aspect-h-7 border border-gold/20 p-2">
+                <div class="absolute inset-0 bg-obsidian/20 z-10 pointer-events-none mix-blend-color"></div>
+                <img src="https://images.unsplash.com/photo-1599809275671-b5942cabc7ad?q=80&w=2400&auto=format&fit=crop"
+                    alt="Kompas Feng Shui dan Arsitektur"
+                    class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000">
+            </div>
+            <p class="mt-4 text-center text-xs text-pewter italic">Arah mata angin dalam Feng Shui bukan sekadar
+                takhayul, melainkan pemetaan aliran energi alam.</p>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 relative">
+
+            <aside class="hidden lg:block lg:col-span-3">
+                <div class="sticky top-32">
+                    <div class="border border-gold/20 bg-charcoal/50 p-6 backdrop-blur-sm relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-8 h-8 border-t border-r border-gold/30"></div>
+                        <div class="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-gold/30"></div>
+
+                        <h4
+                            class="font-serif text-gold uppercase tracking-widest text-sm mb-6 pb-2 border-b border-gold/10">
+                            Daftar Isi</h4>
+                        <nav id="toc-desktop" class="space-y-3 text-xs uppercase tracking-widest text-pewter">
+                        </nav>
+                    </div>
+                </div>
+            </aside>
+
+            <article class="col-span-1 lg:col-span-8 lg:col-start-4">
+
+                <div class="lg:hidden mb-12 border border-gold/20 bg-charcoal/30 p-4" x-data="{ openToc: false }">
+                    <button @click="openToc = !openToc"
+                        class="w-full flex justify-between items-center text-gold font-serif uppercase tracking-widest text-sm">
+                        <span>Daftar Isi Artikel</span>
+                        <svg :class="openToc ? 'rotate-180' : ''" class="w-4 h-4 transition-transform duration-300"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="square" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <nav x-show="openToc" x-collapse id="toc-mobile"
+                        class="mt-4 pt-4 border-t border-gold/10 space-y-3 text-xs text-pewter uppercase tracking-widest">
+                    </nav>
+                </div>
+
+                <div id="article-content" class="article-content font-light">
+                    <p>
+                        Dalam dunia arsitektur dan pemilihan properti di Asia, pertanyaan mengenai arah hadap rumah
+                        bukanlah hal yang sepele. Seringkali, calon pembeli datang ke galeri pemasaran Gemilang Properti
+                        dengan membawa serta kompas Lo Pan atau setidaknya aplikasi kompas di ponsel mereka. Salah satu
+                        arah yang sering memicu perdebatan sengit adalah arah <strong>Utara</strong>.
+                    </p>
+                    <p>
+                        Ada anggapan bahwa rumah menghadap Utara itu "gelap" atau "kurang hoki" bagi sebagian orang,
+                        sementara di sisi lain, ada pakar Feng Shui yang justru merekomendasikannya untuk tipe
+                        kepribadian tertentu.
+                        Bagaimana sebenarnya pandangan Feng Shui klasik dan relevansinya dengan arsitektur tropis
+                        modern?
+                        Artikel ini akan mengupas tuntas mitos dan fakta seputar hunian menghadap Utara.
+                    </p>
+
+                    <div class="my-10 p-6 border-l-2 border-gold bg-charcoal/50">
+                        <span class="text-xs text-gold uppercase tracking-widest block mb-2">Baca Juga</span>
+                        <a href="blog-5.html"
+                            class="font-serif text-champagne text-lg hover:text-gold transition-colors">Panduan Merawat
+                            Lantai Marmer Agar Tetap Berkilau</a>
+                    </div>
+
+                    <h2>Elemen Air dan Simbol Karier</h2>
+                    <p>
+                        Dalam filosofi Feng Shui, arah Utara identik dengan sektor <strong>Kan</strong>, yang mewakili
+                        elemen <strong>Air</strong>.
+                        Air dalam metafisika Tiongkok bukanlah sekadar H2O, melainkan simbol dari kebijaksanaan,
+                        fleksibilitas,
+                        perjalanan hidup, dan yang paling utama: <strong>Karier</strong>.
+                    </p>
+                    <p>
+                        Rumah yang menghadap Utara dianggap memiliki "Pintu Gerbang Air". Jika dikelola dengan benar,
+                        rumah ini
+                        bisa membawa energi yang sangat kondusif bagi penghuni yang sedang meniti tangga karier korporat
+                        atau
+                        mereka yang bekerja di bidang jasa, komunikasi, dan transportasi. Aliran energi (Qi) yang masuk
+                        dari
+                        Utara cenderung tenang namun menghanyutkan, berbeda dengan energi Selatan (Api) yang
+                        meledak-ledak.
+                    </p>
+
+                    <h2>Mitos vs Fakta Arsitektural</h2>
+                    <p>
+                        Mari kita luruskan beberapa kesalahpahaman umum yang sering beredar di masyarakat mengenai rumah
+                        hadap Utara,
+                        khususnya dalam konteks iklim tropis di Indonesia (selatan khatulistiwa).
+                    </p>
+
+                    <h3>Mitos 1: Rumah Hadap Utara itu Lembap dan Gelap</h3>
+                    <p>
+                        <strong>Fakta:</strong> Ini adalah anggapan yang berasal dari literatur Feng Shui Tiongkok kuno
+                        di belahan bumi utara
+                        (sub-tropis), di mana angin utara membawa hawa dingin dari kutub. Di Indonesia, rumah menghadap
+                        Utara justru
+                        mendapatkan <strong>cahaya matahari tidak langsung (indirect sunlight)</strong> yang paling
+                        optimal sepanjang tahun.
+                    </p>
+                    <p>
+                        Berbeda dengan rumah hadap Timur/Barat yang terpapar terik matahari pagi/sore secara frontal,
+                        rumah hadap Utara
+                        mendapatkan terang langit tanpa panas yang menyengat. Ini membuat interior rumah terasa lebih
+                        sejuk, cat dinding
+                        lebih awet, dan penggunaan AC menjadi lebih efisien.
+                    </p>
+
+                    <h3>Mitos 2: Tidak Membawa Hoki Bisnis</h3>
+                    <p>
+                        <strong>Fakta:</strong> Feng Shui bersifat personal (Kua Number). Bagi individu yang termasuk
+                        dalam kelompok
+                        <strong>Kua Timur (East Group)</strong>—yaitu mereka dengan angka Kua 1, 3, 4, dan 9—arah Utara
+                        adalah salah satu arah terbaik.
+                    </p>
+                    <ul>
+                        <li>Bagi Kua 1: Utara adalah arah Fu Wei (Kestabilan Pribadi).</li>
+                        <li>Bagi Kua 3: Utara adalah arah Tian Yi (Kesehatan).</li>
+                        <li>Bagi Kua 4: Utara adalah arah Sheng Qi (Kesuksesan Maksimal).</li>
+                        <li>Bagi Kua 9: Utara adalah arah Yan Nian (Hubungan Harmonis).</li>
+                    </ul>
+
+                    <blockquote
+                        class="pl-6 border-l-4 border-gold italic text-champagne font-serif text-xl my-8 py-2 bg-gradient-to-r from-gold/10 to-transparent">
+                        "Rumah yang baik bukan hanya tentang arah mata angin, melainkan bagaimana arsitektur mampu
+                        'menangkap' dan 'menyimpan' energi Qi agar tidak terbuang percuma."
+                    </blockquote>
+
+                    <h2>Tips Dekorasi untuk Rumah Hadap Utara</h2>
+                    <p>
+                        Jika Anda sudah memiliki atau berencana membeli unit di Gemilang Properti yang menghadap Utara,
+                        berikut adalah strategi desain interior untuk memaksimalkan potensi Feng Shui-nya:
+                    </p>
+
+                    <h3>1. Perkuat Elemen Air dan Logam</h3>
+                    <p>
+                        Karena sektor Utara adalah Air, Anda bisa memperkuatnya dengan elemen <strong>Logam</strong>
+                        (karena Logam melahirkan Air dalam siklus 5 elemen).
+                        Gunakan dekorasi berwarna:
+                    </p>
+                    <ul>
+                        <li><strong>Warna Air:</strong> Hitam, Biru Navy, Abu-abu tua.</li>
+                        <li><strong>Warna Logam:</strong> Putih, Emas, Perak, Tembaga.</li>
+                    </ul>
+                    <p>
+                        Hindari penggunaan warna Tanah (Kuning, Coklat, Terracotta) atau Kayu (Hijau) yang berlebihan di
+                        area pintu utama (foyer),
+                        karena Tanah membendung Air dan Kayu menyerap Air.
+                    </p>
+
+                    <figure class="my-12 relative group cursor-pointer overflow-hidden border border-gold/30">
+                        <div
+                            class="absolute top-4 left-4 z-20 bg-gold text-obsidian px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
+                            Feng Shui Tips</div>
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2400&auto=format&fit=crop"
+                            alt="Interior Rumah Feng Shui Seimbang"
+                            class="w-full h-80 object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500">
+                        <div
+                            class="absolute inset-0 flex flex-col items-center justify-center bg-black/40 group-hover:bg-transparent transition-colors duration-500">
+                            <h3 class="text-white font-serif text-2xl uppercase tracking-widest mb-4 drop-shadow-lg">
+                                Konsultasi Layout</h3>
+                            <a href="kontak.html"
+                                class="px-6 py-2 border border-white text-white hover:bg-gold hover:border-gold hover:text-obsidian transition-all duration-300 uppercase text-xs tracking-widest">Hubungi
+                                Tim Desain</a>
+                        </div>
+                        <figcaption class="text-center text-xs text-pewter mt-2 italic">Penempatan elemen air (water
+                            feature) di sektor Utara ruang tamu.</figcaption>
+                    </figure>
+
+                    <h3>2. Bentuk Pintu dan Jendela</h3>
+                    <p>
+                        Bentuk yang diasosiasikan dengan air adalah bentuk yang bergelombang atau kurva. Namun, dalam
+                        desain klasik modern,
+                        ini bisa diterjemahkan menjadi penggunaan <em>arch</em> (lengkungan) pada kusen pintu atau
+                        cermin bulat di area foyer.
+                        Elemen Logam juga bisa dihadirkan lewat handle pintu berbahan <em>brass</em> atau
+                        <em>chrome</em> yang berkilau.
+                    </p>
+
+                    <h3>3. Pencahayaan adalah Kunci</h3>
+                    <p>
+                        Karena rumah menghadap Utara tidak mendapatkan sinar matahari langsung yang terik, area depan
+                        rumah berisiko memiliki energi Yin (pasif) yang berlebih.
+                        Seimbangkan dengan pencahayaan buatan yang hangat (Warm White 3000K) di teras. Pastikan lampu
+                        taman menyala terang di malam hari untuk mengundang energi Yang (aktif).
+                    </p>
+
+                    <h2>Studi Kasus: Cluster Emerald Utara</h2>
+                    <p>
+                        Di Cluster Emerald milik Gemilang Properti, unit-unit yang menghadap Utara didesain dengan
+                        <em>overstek</em> (topi-topi beton) yang lebih pendek
+                        dibandingkan unit hadap Barat. Mengapa? Untuk membiarkan cahaya langit (skylight) masuk lebih
+                        banyak.
+                    </p>
+                    <p>
+                        Kami juga menempatkan <em>Master Bedroom</em> di sisi belakang rumah untuk menciptakan zona
+                        istirahat yang tenang,
+                        sementara ruang kerja (Home Office) diletakkan di bagian depan untuk menangkap energi "Karier"
+                        dari sektor Utara tersebut.
+                        Hasilnya adalah hunian yang tidak hanya sejuk secara termal, tetapi juga produktif secara
+                        energi.
+                    </p>
+
+                    <figure class="my-12">
+                        <div class="relative border border-gold/20 p-2">
+                            <div class="absolute inset-0 bg-obsidian/10 z-10 pointer-events-none"></div>
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop"
+                                alt="Fasad Rumah Menghadap Utara"
+                                class="w-full h-[400px] object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                        </div>
+                        <figcaption class="text-center text-xs text-pewter mt-3 italic">
+                            Fasad klasik modern yang dirancang untuk memaksimalkan pencahayaan natural dari arah Utara.
+                        </figcaption>
+                    </figure>
+
+                    <h2>FAQ: Pertanyaan Seputar Arah Rumah</h2>
+
+                    <div class="border-t border-gold/20 mt-8 mb-12" x-data="{ selectedFaq: null }">
+
+                        <div class="border-b border-gold/20 py-4">
+                            <button @click="selectedFaq !== 1 ? selectedFaq = 1 : selectedFaq = null"
+                                class="w-full flex justify-between items-center text-left focus:outline-none group">
+                                <span
+                                    class="text-champagne font-serif group-hover:text-gold transition-colors">Bagaimana
+                                    jika saya Kua Barat tapi rumah hadap Utara?</span>
+                                <span class="text-gold text-xl transition-transform duration-300"
+                                    :class="selectedFaq === 1 ? 'rotate-45' : ''">+</span>
+                            </button>
+                            <div x-show="selectedFaq === 1" x-collapse class="mt-2 text-sm text-pewter">
+                                Jangan khawatir. Arah pintu utama hanyalah satu faktor (sekitar 30%). Anda bisa
+                                memanipulasi arah tidur kepala atau arah meja kerja menghadap ke arah baik Anda
+                                (Barat/Barat Laut/Timur Laut/Barat Daya) di dalam rumah tersebut.
+                            </div>
+                        </div>
+
+                        <div class="border-b border-gold/20 py-4">
+                            <button @click="selectedFaq !== 2 ? selectedFaq = 2 : selectedFaq = null"
+                                class="w-full flex justify-between items-center text-left focus:outline-none group">
+                                <span class="text-champagne font-serif group-hover:text-gold transition-colors">Warna
+                                    pintu apa yang bagus untuk hadap Utara?</span>
+                                <span class="text-gold text-xl transition-transform duration-300"
+                                    :class="selectedFaq === 2 ? 'rotate-45' : ''">+</span>
+                            </button>
+                            <div x-show="selectedFaq === 2" x-collapse class="mt-2 text-sm text-pewter">
+                                Warna terbaik adalah Hitam (elegan dan protektif), Biru Tua, Putih, atau Abu-abu
+                                metalik. Warna kayu gelap juga masih bisa diterima, tetapi hindari warna Merah menyala
+                                di pintu Utara karena akan terjadi konflik Air vs Api.
+                            </div>
+                        </div>
+
+                        <div class="border-b border-gold/20 py-4">
+                            <button @click="selectedFaq !== 3 ? selectedFaq = 3 : selectedFaq = null"
+                                class="w-full flex justify-between items-center text-left focus:outline-none group">
+                                <span class="text-champagne font-serif group-hover:text-gold transition-colors">Apa
+                                    benar rumah hadap Utara susah rejeki?</span>
+                                <span class="text-gold text-xl transition-transform duration-300"
+                                    :class="selectedFaq === 3 ? 'rotate-45' : ''">+</span>
+                            </button>
+                            <div x-show="selectedFaq === 3" x-collapse class="mt-2 text-sm text-pewter">
+                                Itu mitos total. Banyak konglomerat dan gedung perkantoran sukses menghadap Utara.
+                                Kuncinya ada pada aliran udara (sirkulasi) dan penataan ruang dalam. Rumah hadap Utara
+                                justru menyimpan rejeki dengan tenang dan stabil (akumulatif).
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <h2>Kesimpulan</h2>
+                    <p>
+                        Memilih arah rumah adalah preferensi pribadi yang dipadukan dengan kearifan lokal. Rumah
+                        menghadap Utara menawarkan
+                        keunggulan termal yang luar biasa di iklim tropis—sejuk, teduh, dan nyaman. Dari kacamata Feng
+                        Shui, arah ini
+                        adalah sumber energi kebijaksanaan dan kelancaran karier.
+                    </p>
+                    <p>
+                        Di Gemilang Properti, kami percaya bahwa arah mata angin manapun bisa menjadi hunian yang
+                        membawa keberuntungan
+                        asalkan dirancang dengan presisi arsitektur yang benar dan diisi dengan keharmonisan keluarga.
+                        Jadi, jangan ragu
+                        untuk memilih unit menghadap Utara dan rasakan kesejukan alaminya.
+                    </p>
+                </div>
+
+                <div class="mt-16 border border-gold/20 p-8 bg-charcoal relative">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gold"></div>
+                    <div class="flex flex-col md:flex-row gap-6 items-center md:items-start">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&fit=crop"
+                            alt="Penulis" class="w-20 h-20 rounded-full border-2 border-gold grayscale object-cover">
+                        <div class="text-center md:text-left">
+                            <span class="text-[10px] text-gold uppercase tracking-widest">Tentang Penulis</span>
+                            <h4 class="font-serif text-xl text-champagne mt-1 mb-2">Master Wijaya</h4>
+                            <p class="text-sm text-pewter leading-relaxed">Konsultan Feng Shui in-house Gemilang
+                                Properti. Memadukan prinsip arsitektur klasik Barat dengan kearifan metafisika Timur
+                                selama lebih dari 20 tahun.</p>
+                            <div class="mt-4 flex gap-4 justify-center md:justify-start">
+                                <a href="#"
+                                    class="text-pewter hover:text-gold text-xs uppercase tracking-widest">LinkedIn</a>
+                                <a href="#"
+                                    class="text-pewter hover:text-gold text-xs uppercase tracking-widest">Email</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-8 border-t border-gold/10 text-center">
+                    <span class="block text-xs text-gold uppercase tracking-[0.2em] mb-6">Bagikan Artikel Ini</span>
+                    <div class="flex justify-center gap-6">
+                        <button onclick="shareSocial('wa')"
+                            class="w-12 h-12 flex items-center justify-center border border-gold/30 rounded-full hover:bg-gold hover:text-obsidian hover:border-gold transition-all duration-300 group">
+                            <svg class="w-5 h-5 text-pewter group-hover:text-obsidian transition-colors"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.876 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                            </svg>
+                        </button>
+                        <button onclick="shareSocial('fb')"
+                            class="w-12 h-12 flex items-center justify-center border border-gold/30 rounded-full hover:bg-gold hover:text-obsidian hover:border-gold transition-all duration-300 group">
+                            <svg class="w-5 h-5 text-pewter group-hover:text-obsidian transition-colors"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+                            </svg>
+                        </button>
+                        <button onclick="shareSocial('x')"
+                            class="w-12 h-12 flex items-center justify-center border border-gold/30 rounded-full hover:bg-gold hover:text-obsidian hover:border-gold transition-all duration-300 group">
+                            <svg class="w-5 h-5 text-pewter group-hover:text-obsidian transition-colors"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+            </article>
+        </div>
+
+    </main>
+    <section class="py-20 bg-charcoal border-t border-gold/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center gap-4 mb-10">
+                <div class="h-px flex-1 bg-gold/20"></div>
+                <h3 class="font-serif text-2xl text-champagne uppercase tracking-widest">Artikel Terkait</h3>
+                <div class="h-px flex-1 bg-gold/20"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <div class="group bg-obsidian border border-gold/10 hover:border-gold transition-all duration-300">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&fit=crop"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute top-2 right-2 bg-obsidian border border-gold px-2 py-1">
+                            <span class="text-[10px] text-gold uppercase">Design</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4
+                            class="font-serif text-lg text-champagne mb-3 leading-tight group-hover:text-gold transition-colors">
+                            Perbedaan Sertifikat SHM dan HGB: Panduan Pembeli</h4>
+                        <p class="text-xs text-pewter mb-6 line-clamp-3 leading-relaxed">Membeli properti adalah salah
+                            satu keputusan finansial terbesar dalam hidup. Anda jatuh cinta pada arsitekturnya,
+                            lokasinya yang strategis, dan tata ruangnya yang elegan.</p>
+                        <a href="blog-7.html"
+                            class="inline-block text-[10px] text-gold uppercase tracking-widest border-b border-gold pb-1 hover:text-white hover:border-white transition-all">Baca
+                            Selengkapnya</a>
+                    </div>
+                </div>
+
+                <div class="group bg-obsidian border border-gold/10 hover:border-gold transition-all duration-300">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?q=80&w=800&fit=crop"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute top-2 right-2 bg-obsidian border border-gold px-2 py-1">
+                            <span class="text-[10px] text-gold uppercase">Finance</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4
+                            class="font-serif text-lg text-champagne mb-3 leading-tight group-hover:text-gold transition-colors">
+                            Proses Serah Terima Kunci: Apa yang Perlu Disiapkan?</h4>
+                        <p class="text-xs text-pewter mb-6 line-clamp-3 leading-relaxed">Setelah berbulan-bulan, bahkan
+                            mungkin bertahun-tahun menabung, memilih lokasi, memantau progres pembangunan, akhirnya
+                            momen yang paling ditunggu itu tiba: Serah Terima Kunci.</p>
+                        <a href="blog-9.html"
+                            class="inline-block text-[10px] text-gold uppercase tracking-widest border-b border-gold pb-1 hover:text-white hover:border-white transition-all">Baca
+                            Selengkapnya</a>
+                    </div>
+                </div>
+
+                <div class="group bg-obsidian border border-gold/10 hover:border-gold transition-all duration-300">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=800&fit=crop"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute top-2 right-2 bg-obsidian border border-gold px-2 py-1">
+                            <span class="text-[10px] text-gold uppercase">Technology</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4
+                            class="font-serif text-lg text-champagne mb-3 leading-tight group-hover:text-gold transition-colors">
+                            Investasi Properti di 2026: Mengapa Klasik Tak Pernah Mati</h4>
+                        <p class="text-xs text-pewter mb-6 line-clamp-3 leading-relaxed">Tahun 2026 dibuka dengan sebuah
+                            paradoks yang menarik di dunia properti Indonesia.</p>
+                        <a href="blog-1.html"
+                            class="inline-block text-[10px] text-gold uppercase tracking-widest border-b border-gold pb-1 hover:text-white hover:border-white transition-all">Baca
+                            Selengkapnya</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-obsidian pt-24 pb-10 border-t border-gold/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-10">
+
+                <div class="text-center md:text-left">
+                    <span class="font-serif text-3xl uppercase tracking-widest text-gold block mb-2">Gemilang</span>
+                    <span class="text-xs uppercase tracking-[0.4em] text-pewter">Properti Group</span>
+                    <p class="mt-6 text-pewter text-sm max-w-xs leading-relaxed">
+                        Membangun hunian dengan presisi geometris dan sentuhan kemewahan klasik untuk masa depan Anda.
+                    </p>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-8 md:gap-12 text-center md:text-left">
+
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Menu</h4>
+                        <div class="flex flex-col space-y-2">
+                            <a href="index.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Beranda</a>
+                            <a href="tentang.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Tentang</a>
+                            <a href="cluster.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Cluster</a>
+                            <a href="fasilitas.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Fasilitas</a>
+                            <a href="lokasi.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Lokasi</a>
+                            <a href="blog.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Marketing Gallery</h4>
+                        <p class="text-pewter text-sm mb-1">Jl. Puncak Tidar No. 88</p>
+                        <p class="text-pewter text-sm">Malang, Jawa Timur</p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Kontak</h4>
+                        <p class="text-pewter text-sm mb-1">0822-5739-1460</p>
+                        <p class="text-pewter text-sm">sales@gemilangproperti.id</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div
+                class="mt-20 border-t border-gold/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-pewter">
+                <p>&copy; 2026 Gemilang Properti. All Rights Reserved.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-gold">Privacy Policy</a>
+                    <a href="#" class="hover:text-gold">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Script Auto-Generate Table of Contents (TOC)
+        document.addEventListener('DOMContentLoaded', function () {
+            const articleContent = document.getElementById('article-content');
+            const tocDesktop = document.getElementById('toc-desktop');
+            const tocMobile = document.getElementById('toc-mobile');
+
+            if (articleContent) {
+                const headers = articleContent.querySelectorAll('h2, h3');
+
+                headers.forEach((header, index) => {
+                    // Berikan ID jika belum ada
+                    if (!header.id) {
+                        header.id = 'section-' + index;
+                    }
+
+                    // Buat Link Item
+                    const link = document.createElement('a');
+                    link.href = '#' + header.id;
+                    link.textContent = header.textContent;
+                    link.className = "toc-link block hover:text-gold transition-colors duration-300 border-l-2 border-transparent py-1";
+
+                    // Indentasi untuk H3
+                    if (header.tagName === 'H3') {
+                        link.classList.add('pl-4', 'opacity-80');
+                    } else {
+                        link.classList.add('font-bold');
+                    }
+
+                    // Clone untuk Mobile dan Desktop
+                    const linkMobile = link.cloneNode(true);
+
+                    // Event Listener untuk Smooth Scroll
+                    [link, linkMobile].forEach(l => {
+                        l.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        });
+                    });
+
+                    tocDesktop.appendChild(link);
+                    tocMobile.appendChild(linkMobile);
+                });
+
+                // Intersection Observer untuk Highlight TOC Aktif
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-100px 0px -60% 0px',
+                    threshold: 0
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Hapus aktif dari semua link
+                            document.querySelectorAll('.toc-link').forEach(link => link.classList.remove('active'));
+
+                            // Tambah aktif ke link yang sesuai
+                            const activeId = entry.target.id;
+                            const activeLinks = document.querySelectorAll(`.toc-link[href="#${activeId}"]`);
+                            activeLinks.forEach(link => link.classList.add('active'));
+                        }
+                    });
+                }, observerOptions);
+
+                headers.forEach(header => observer.observe(header));
+            }
+        });
+
+        // 2. Script Share Buttons
+        function shareSocial(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(document.title);
+            let shareUrl = '';
+
+            switch (platform) {
+                case 'wa':
+                    shareUrl = `https://wa.me/?text=${title}%20${url}`;
+                    break;
+                case 'fb':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                    break;
+                case 'x':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+                    break;
+            }
+
+            if (shareUrl) window.open(shareUrl, '_blank', 'width=600,height=400');
+        }
+    </script>
+</body>
+
+</html>

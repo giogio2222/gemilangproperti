@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lokasi & Peta | Gemilang Properti</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&family=Marcellus&display=swap"
+        rel="stylesheet">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0A0A0A',   // Hitam Pekat
+                        charcoal: '#141414',   // Abu Gelap
+                        champagne: '#F2F0E4',  // Putih Gading
+                        gold: {
+                            DEFAULT: '#D4AF37', // Emas Metalik
+                            light: '#F2E8C4',
+                            dim: 'rgba(212, 175, 55, 0.1)',
+                        },
+                        pewter: '#888888',     // Abu-abu muted
+                    },
+                    fontFamily: {
+                        sans: ['"Josefin Sans"', 'sans-serif'],
+                        serif: ['"Marcellus"', 'serif'],
+                    },
+                    letterSpacing: {
+                        'deco': '0.2em',
+                    },
+                    backgroundImage: {
+                        'deco-lines': "repeating-linear-gradient(45deg, #D4AF37 0, #D4AF37 1px, transparent 0, transparent 50%)",
+                        'gold-gradient': "linear-gradient(135deg, #D4AF37 0%, #F2E8C4 50%, #D4AF37 100%)",
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(212, 175, 55, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Efek Grain */
+        .bg-grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 50;
+            mix-blend-mode: overlay;
+        }
+
+        /* Clip Path Sudut */
+        .clip-deco-corner {
+            clip-path: polygon(0% 0%,
+                    100% 0%,
+                    100% calc(100% - 15px),
+                    calc(100% - 15px) 100%,
+                    0% 100%);
+        }
+
+        /* Filter Peta agar Dark Mode */
+        .map-filter {
+            filter: grayscale(100%) invert(90%) contrast(85%);
+            transition: filter 0.5s ease;
+        }
+
+        .map-container:hover .map-filter {
+            filter: grayscale(0%) invert(0%) contrast(100%);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-obsidian text-champagne font-sans antialiased overflow-x-hidden relative selection:bg-gold selection:text-obsidian">
+
+    <div class="bg-grain"></div>
+
+    <div class="fixed inset-0 pointer-events-none z-0 flex justify-between px-6 md:px-24 opacity-10">
+        <div class="w-px h-full bg-gold"></div>
+        <div class="w-px h-full bg-gold"></div>
+        <div class="w-px h-full bg-gold"></div>
+    </div>
+
+    <nav x-data="{ open: false, scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 50)"
+        :class="scrolled ? 'bg-obsidian/95 border-b border-gold/30 backdrop-blur-md' : 'bg-transparent border-b border-white/5'"
+        class="fixed w-full z-40 transition-all duration-500 ease-out top-0">
+
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+
+            <a href="index.html" class="flex items-center gap-4 group cursor-pointer">
+                <div
+                    class="w-10 h-10 border border-gold rotate-45 flex items-center justify-center transition-transform duration-500 group-hover:rotate-0">
+                    <div class="w-5 h-5 bg-gold -rotate-45 group-hover:rotate-0 transition-transform duration-500">
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-2xl uppercase tracking-widest text-gold leading-none">Gemilang</span>
+                    <span class="text-[10px] uppercase tracking-[0.4em] text-pewter mt-1">Properti Group</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Beranda</a>
+
+                <a href="tentang.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Tentang</a>
+
+                <a href="cluster.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Cluster</a>
+
+                <a href="fasilitas.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Fasilitas</a>
+
+                <a href="lokasi.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Lokasi</a>
+
+                <a href="blog.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Blog</a>
+
+                <a href="https://wa.me/6282257391460"
+                    class="relative px-8 py-3 border border-gold text-gold hover:bg-gold hover:text-obsidian transition-all duration-300 group overflow-hidden ml-4">
+                    <span class="relative z-10 text-xs uppercase tracking-widest font-bold">Hubungi Kami</span>
+                    <div
+                        class="absolute inset-0 bg-gold transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out">
+                    </div>
+                </a>
+            </div>
+
+            <button @click="open = !open" class="md:hidden text-gold focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="square" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div x-show="open" x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-4" @click.away="open = false"
+            class="md:hidden bg-charcoal border-b border-gold absolute w-full shadow-2xl">
+
+            <div class="flex flex-col p-8 space-y-6 text-center">
+                <a href="index.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Beranda</a>
+                <a href="tentang.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Tentang</a>
+                <a href="cluster.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Cluster</a>
+                <a href="fasilitas.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Fasilitas</a>
+                <a href="lokasi.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Lokasi</a>
+                <a href="blog.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Blog</a>
+
+                <div class="h-px w-10 bg-gold/30 mx-auto my-2"></div>
+
+                <a href="https://wa.me/6282257391460" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-gold font-bold">Hubungi Kami</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative pt-40 pb-20 overflow-hidden">
+        <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-gold/10 via-obsidian/60 to-obsidian pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <div class="flex items-center justify-center gap-4 mb-6">
+                <div class="h-px w-12 bg-gold"></div>
+                <span class="text-xs text-gold uppercase tracking-[0.3em]">Destinasi</span>
+                <div class="h-px w-12 bg-gold"></div>
+            </div>
+            <h1 class="font-serif text-4xl md:text-6xl text-champagne uppercase tracking-widest mb-6">
+                Peta & <span class="text-transparent bg-clip-text bg-gold-gradient">Kawasan</span>
+            </h1>
+            <p class="font-sans text-pewter text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+                Terletak di jantung perbukitan premium Malang. Menawarkan ketenangan alam namun tetap terkoneksi dengan
+                dinamika kota.
+            </p>
+        </div>
+    </header>
+
+    <section class="py-20 relative border-t border-gold/20">
+        <div class="absolute inset-0 opacity-5"
+            style="background-image: repeating-linear-gradient(45deg, #D4AF37 0, #D4AF37 1px, transparent 0, transparent 40px);">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+
+                <div class="w-full map-container group">
+                    <div
+                        class="relative w-full h-[500px] border border-gold/30 p-2 bg-charcoal clip-deco-corner shadow-glow">
+                        <div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-gold z-20"></div>
+                        <div class="absolute bottom-4 right-0 w-8 h-8 border-b-2 border-r-2 border-gold z-20"></div>
+
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.213600527387!2d112.59960207595568!3d-7.976824992048455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78829c362f6057%3A0x627d794d21626280!2sJl.%20Puncak%20Tidar%2C%20Karangwidoro%2C%20Kec.%20Dau%2C%20Kabupaten%20Malang%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1709123456789!5m2!1sid!2sid"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="w-full h-full object-cover map-filter relative z-10">
+                        </iframe>
+
+                        <div
+                            class="absolute inset-0 flex items-center justify-center pointer-events-none group-hover:opacity-0 transition-opacity duration-500 z-30">
+                            <div class="bg-obsidian/80 backdrop-blur-sm border border-gold px-6 py-3">
+                                <span class="text-gold uppercase tracking-widest text-xs">Hover untuk Melihat
+                                    Peta</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col justify-center h-full pt-4">
+                    <span class="font-serif text-gold uppercase tracking-deco text-sm mb-4">Aksesibilitas</span>
+                    <h2 class="font-serif text-3xl md:text-4xl text-champagne uppercase tracking-widest mb-10">
+                        Pusat Konektivitas
+                    </h2>
+
+                    <div class="flex items-start gap-6 mb-10 pb-10 border-b border-gold/20">
+                        <div
+                            class="w-12 h-12 border border-gold flex-shrink-0 flex items-center justify-center bg-charcoal">
+                            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="square" stroke-width="1.5"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="square" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-gold uppercase tracking-widest text-sm mb-2 font-bold">Alamat Marketing
+                                Gallery</h3>
+                            <p class="text-pewter text-lg leading-relaxed font-serif">
+                                Jl. Puncak Tidar No. 88<br>
+                                Malang, Jawa Timur, Indonesia
+                            </p>
+                            <a href="https://maps.google.com" target="_blank"
+                                class="text-xs text-champagne underline mt-2 hover:text-gold block uppercase tracking-widest">Buka
+                                di Google Maps &rarr;</a>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6 mb-12">
+                        <div class="flex items-center gap-4 group">
+                            <div
+                                class="w-2 h-2 bg-gold rotate-45 group-hover:scale-150 transition-transform duration-300">
+                            </div>
+                            <p class="text-pewter uppercase tracking-widest text-sm"><span
+                                    class="text-champagne font-bold mr-2">5 Menit</span> ke Universitas Ma Chung</p>
+                        </div>
+                        <div class="flex items-center gap-4 group">
+                            <div
+                                class="w-2 h-2 bg-gold rotate-45 group-hover:scale-150 transition-transform duration-300">
+                            </div>
+                            <p class="text-pewter uppercase tracking-widest text-sm"><span
+                                    class="text-champagne font-bold mr-2">10 Menit</span> ke Cyber Mall & City Point</p>
+                        </div>
+                        <div class="flex items-center gap-4 group">
+                            <div
+                                class="w-2 h-2 bg-gold rotate-45 group-hover:scale-150 transition-transform duration-300">
+                            </div>
+                            <p class="text-pewter uppercase tracking-widest text-sm"><span
+                                    class="text-champagne font-bold mr-2">15 Menit</span> ke Mall Olympic Garden (MOG)
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-4 group">
+                            <div
+                                class="w-2 h-2 bg-gold rotate-45 group-hover:scale-150 transition-transform duration-300">
+                            </div>
+                            <p class="text-pewter uppercase tracking-widest text-sm"><span
+                                    class="text-champagne font-bold mr-2">15 Menit</span> ke Alun-Alun Kota Malang</p>
+                        </div>
+                        <div class="flex items-center gap-4 group">
+                            <div
+                                class="w-2 h-2 bg-gold rotate-45 group-hover:scale-150 transition-transform duration-300">
+                            </div>
+                            <p class="text-pewter uppercase tracking-widest text-sm"><span
+                                    class="text-champagne font-bold mr-2">35 Menit</span> ke Bandara Abdul Rachman Saleh
+                            </p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button onclick="jadwalkanKunjungan()"
+                            class="px-10 py-4 bg-gold text-obsidian font-serif uppercase tracking-deco hover:bg-white transition-colors duration-300 shadow-[0_0_15px_rgba(212,175,55,0.4)] w-full md:w-auto text-center">
+                            Jadwalkan Survey Lokasi
+                        </button>
+                        <p class="text-xs text-pewter mt-4 uppercase tracking-widest text-center md:text-left">*Harap
+                            konfirmasi H-1 sebelum kunjungan</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-obsidian pt-24 pb-10 border-t border-gold/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-10">
+
+                <div class="text-center md:text-left">
+                    <span class="font-serif text-3xl uppercase tracking-widest text-gold block mb-2">Gemilang</span>
+                    <span class="text-xs uppercase tracking-[0.4em] text-pewter">Properti Group</span>
+                    <p class="mt-6 text-pewter text-sm max-w-xs leading-relaxed">
+                        Membangun hunian dengan presisi geometris dan sentuhan kemewahan klasik untuk masa depan Anda.
+                    </p>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-8 md:gap-12 text-center md:text-left">
+
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Menu</h4>
+                        <div class="flex flex-col space-y-2">
+                            <a href="index.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Beranda</a>
+                            <a href="tentang.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Tentang</a>
+                            <a href="cluster.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Cluster</a>
+                            <a href="fasilitas.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Fasilitas</a>
+                            <a href="lokasi.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Lokasi</a>
+                            <a href="blog.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Marketing Gallery</h4>
+                        <p class="text-pewter text-sm mb-1">Jl. Puncak Tidar No. 88</p>
+                        <p class="text-pewter text-sm">Malang, Jawa Timur</p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Kontak</h4>
+                        <p class="text-pewter text-sm mb-1">0822-5739-1460</p>
+                        <p class="text-pewter text-sm">sales@gemilangproperti.id</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div
+                class="mt-20 border-t border-gold/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-pewter">
+                <p>&copy; 2026 Gemilang Properti. All Rights Reserved.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-gold">Privacy Policy</a>
+                    <a href="#" class="hover:text-gold">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function jadwalkanKunjungan() {
+            var nomorTujuan = "6282257391460"; // Ganti dengan nomor WhatsApp Admin Anda
+            var pesan = "Halo Gemilang Properti, saya ingin menjadwalkan survey lokasi.%0A%0A" +
+                "Mohon infokan ketersediaan waktu untuk kunjungan ke Marketing Gallery dan Site Project.%0A%0A" +
+                "Terima kasih.";
+
+            var link = "https://wa.me/" + nomorTujuan + "?text=" + pesan;
+            window.open(link, '_blank');
+        }
+    </script>
+
+</body>
+
+</html>

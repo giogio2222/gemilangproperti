@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Blog & Jurnal Properti Mewah | Gemilang Properti Malang</title>
+    <meta name="description"
+        content="Temukan wawasan terbaru seputar investasi properti, desain interior klasik, dan gaya hidup mewah di Malang. Panduan lengkap dari Gemilang Properti.">
+    <meta name="keywords"
+        content="Investasi Properti, Rumah Mewah Malang, Desain Klasik, Gemilang Properti, Interior Art Deco, Tips Properti 2026">
+    <meta name="author" content="Gemilang Properti">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://gemilangproperti.id/blog.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gemilangproperti.id/blog.html">
+    <meta property="og:title" content="Jurnal Investasi & Gaya Hidup Mewah | Gemilang Properti">
+    <meta property="og:description"
+        content="Wawasan eksklusif seputar hunian klasik dan investasi cerdas di kawasan Puncak Tidar, Malang.">
+    <meta property="og:image" content="https://gemilangproperti.id/assets/og-image.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#0A0A0A">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&family=Marcellus&display=swap"
+        rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Gemilang Properti",
+      "image": "https://gemilangproperti.id/logo.png",
+      "url": "https://gemilangproperti.id",
+      "telephone": "+6282257391460",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Puncak Tidar No. 88",
+        "addressLocality": "Malang",
+        "addressRegion": "Jawa Timur",
+        "postalCode": "65100",
+        "addressCountry": "ID"
+      },
+      "description": "Pengembang hunian mewah dengan konsep klasik dan fasilitas premium di Malang."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Jurnal Gemilang Properti",
+      "description": "Artikel seputar investasi properti dan desain interior."
+    }
+    </script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0A0A0A',
+                        charcoal: '#141414',
+                        champagne: '#F2F0E4',
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            light: '#F2E8C4',
+                            dim: 'rgba(212, 175, 55, 0.1)',
+                        },
+                        pewter: '#888888',
+                    },
+                    fontFamily: {
+                        sans: ['"Josefin Sans"', 'sans-serif'],
+                        serif: ['"Marcellus"', 'serif'],
+                    },
+                    letterSpacing: {
+                        'deco': '0.2em',
+                    },
+                    backgroundImage: {
+                        'deco-lines': "repeating-linear-gradient(45deg, #D4AF37 0, #D4AF37 1px, transparent 0, transparent 50%)",
+                        'gold-gradient': "linear-gradient(135deg, #D4AF37 0%, #F2E8C4 50%, #D4AF37 100%)",
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(212, 175, 55, 0.15)',
+                    },
+                    aspectRatio: {
+                        '4/3': '4 / 3',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Mengurangi Layout Shift dari background noise */
+        .bg-grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 50;
+            mix-blend-mode: overlay;
+            /* Optimasi rendering */
+            backface-visibility: hidden;
+            transform: translateZ(0);
+        }
+
+        .clip-deco-corner {
+            clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0% 100%);
+        }
+
+        /* Mencegah FOUC (Flash of Unstyled Content) saat pakai CDN Tailwind */
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-obsidian text-champagne font-sans antialiased overflow-x-hidden relative selection:bg-gold selection:text-obsidian">
+
+    <div class="bg-grain"></div>
+    <div class="fixed inset-0 pointer-events-none z-0 flex justify-between px-6 md:px-24 opacity-10" aria-hidden="true">
+        <div class="w-px h-full bg-gold"></div>
+        <div class="w-px h-full bg-gold"></div>
+        <div class="w-px h-full bg-gold"></div>
+    </div>
+
+    <nav x-data="{ open: false, scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 50)"
+        :class="scrolled ? 'bg-obsidian/95 border-b border-gold/30 backdrop-blur-md' : 'bg-transparent border-b border-white/5'"
+        class="fixed w-full z-40 transition-all duration-500 ease-out top-0">
+
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-4 group cursor-pointer"
+                aria-label="Gemilang Properti Home">
+                <div
+                    class="w-10 h-10 border border-gold rotate-45 flex items-center justify-center transition-transform duration-500 group-hover:rotate-0">
+                    <div class="w-5 h-5 bg-gold -rotate-45 group-hover:rotate-0 transition-transform duration-500">
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-2xl uppercase tracking-widest text-gold leading-none">Gemilang</span>
+                    <span class="text-[10px] uppercase tracking-[0.4em] text-pewter mt-1">Properti Group</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Beranda</a>
+                <a href="tentang.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Tentang</a>
+                <a href="cluster.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Cluster</a>
+                <a href="fasilitas.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Fasilitas</a>
+                <a href="lokasi.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Lokasi</a>
+                <a href="blog.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300 font-bold text-gold">Blog</a>
+
+                <a href="https://wa.me/6282257391460"
+                    class="relative px-8 py-3 border border-gold text-gold hover:bg-gold hover:text-obsidian transition-all duration-300 group overflow-hidden ml-4">
+                    <span class="relative z-10 text-xs uppercase tracking-widest font-bold">Hubungi Kami</span>
+                    <div
+                        class="absolute inset-0 bg-gold transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out">
+                    </div>
+                </a>
+            </div>
+
+            <button @click="open = !open" class="md:hidden text-gold focus:outline-none" aria-label="Buka Menu">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="square" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div x-show="open" x-cloak x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-4" @click.away="open = false"
+            class="md:hidden bg-charcoal border-b border-gold absolute w-full shadow-2xl">
+
+            <div class="flex flex-col p-8 space-y-6 text-center">
+                <a href="index.html"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Beranda</a>
+                <a href="tentang.html"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Tentang</a>
+                <a href="cluster.html"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Cluster</a>
+                <a href="fasilitas.html"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Fasilitas</a>
+                <a href="lokasi.html"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Lokasi</a>
+                <a href="blog.html" class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Blog</a>
+                <div class="h-px w-10 bg-gold/30 mx-auto my-2"></div>
+                <a href="https://wa.me/6282257391460"
+                    class="text-sm uppercase tracking-widest text-gold font-bold">Hubungi Kami</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative pt-40 pb-20 flex items-center justify-center overflow-hidden">
+        <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gold/5 via-obsidian/60 to-obsidian pointer-events-none">
+        </div>
+        <div class="relative z-10 text-center max-w-4xl px-6">
+            <h1 class="font-serif text-4xl md:text-5xl text-champagne uppercase tracking-widest mb-4">Jurnal & Berita
+            </h1>
+            <p class="font-sans text-pewter text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+                Wawasan terbaru seputar investasi properti, desain interior klasik, dan gaya hidup mewah.
+            </p>
+        </div>
+    </header>
+
+    <section class="pb-32 relative min-h-screen" x-data="{ 
+            search: '', 
+            posts: [
+                {
+                    id: 1,
+                    title: 'Investasi Properti di 2026: Mengapa Klasik Tak Pernah Mati',
+                    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop',
+                    excerpt: 'Tahun 2026 dibuka dengan sebuah paradoks yang menarik di dunia properti Indonesia.',
+                    date: '10 Jan 2026',
+                    link: 'blog-1.html'
+                },
+                {
+                    id: 2,
+                    title: '5 Tips Menata Interior Ruang Tamu Bergaya Gatsby',
+                    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop',
+                    excerpt: 'Era 1920-an, atau yang sering disebut sebagai The Roaring Twenties, adalah masa keemasan desain.',
+                    date: '08 Jan 2026',
+                    link: 'blog-2.html'
+                },
+                {
+                    id: 3,
+                    title: 'Smart Home di Balik Dinding Klasik: Harmoni Teknologi',
+                    image: 'https://images.unsplash.com/photo-1558002038-1091a166111c?q=80&w=800&auto=format&fit=crop',
+                    excerpt: 'Bayangkan Anda memasuki sebuah hunian dengan pilar-pilar megah ala Art Deco dengan teknologi terkini.',
+                    date: '05 Jan 2026',
+                    link: 'blog-3.html'
+                },
+                {
+                    id: 4,
+                    title: 'Keuntungan Memiliki Hunian di Kawasan Puncak Tidar',
+                    image: 'https://images.unsplash.com/photo-1448630360428-65456885c650?q=80&w=800&auto=format&fit=crop',
+                    excerpt: 'Jika Jakarta memiliki Pondok Indah dan Surabaya memiliki CitraLand, maka Malang memiliki Puncak Tidar.',
+                    date: '02 Jan 2026',
+                    link: 'blog-4.html'
+                },
+                {
+                    id: 5,
+                    title: 'Panduan Merawat Lantai Marmer Agar Tetap Berkilau',
+                    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop',
+                    excerpt: 'Marmer bukan sekadar bahan bangunan; ia adalah simbol kemewahan, sejarah, dan keabadian.',
+                    date: '28 Des 2025',
+                    link: 'blog-5.html'
+                },
+                {
+                    id: 6,
+                    title: 'Mengenal Fasilitas Clubhouse Eksklusif Kami',
+                    image: 'https://images.unsplash.com/photo-1561501900-3701fa6a36a6?q=80&w=800&auto=format&fit=crop',
+                    excerpt: 'Seringkali terdapat dikotomi yang keliru dalam dunia properti antara Kenyamanan Teknologi dan Estetika.',
+                    date: '20 Des 2025',
+                    link: 'blog-6.html'
+                },
+                {
+                    id: 7,
+                    title: 'Perbedaan Sertifikat SHM dan HGB: Panduan Pembeli',
+                    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop',
+                    excerpt: 'Membeli properti adalah salah satu keputusan finansial terbesar dalam hidup. Pahami legalitasnya.',
+                    date: '15 Des 2025',
+                    link: 'blog-7.html'
+                },
+                {
+                    id: 8,
+                    title: 'Feng Shui Hunian Menghadap Utara: Mitos dan Fakta',
+                    image: 'https://images.unsplash.com/photo-1513584685908-22746531f5a9?q=80&w=800&auto=format&fit=crop',
+                    excerpt: 'Dalam dunia arsitektur dan pemilihan properti di Asia, pertanyaan mengenai arah hadap rumah sangat krusial.',
+                    date: '10 Des 2025',
+                    link: 'blog-8.html'
+                },
+                {
+                    id: 9,
+                    title: 'Proses Serah Terima Kunci: Apa yang Perlu Disiapkan?',
+                    image: 'https://images.unsplash.com/photo-1584622050111-993a426fbf0a?q=80&w=800&auto=format&fit=crop',
+                    excerpt: 'Setelah berbulan-bulan menunggu, akhirnya momen yang paling ditunggu tiba: Serah Terima Kunci.',
+                    date: '01 Des 2025',
+                    link: 'blog-9.html'
+                }
+            ],
+            filteredPosts() {
+                return this.posts.filter(post => post.title.toLowerCase().includes(this.search.toLowerCase()));
+            }
+        }">
+
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="max-w-xl mx-auto mb-16 relative group">
+                <input type="text" x-model="search" placeholder="Cari artikel..." aria-label="Cari artikel"
+                    class="w-full bg-transparent border-b border-gold/50 py-3 pl-4 pr-12 text-champagne placeholder-pewter focus:outline-none focus:border-gold transition-colors duration-300 font-serif tracking-wide text-lg">
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 absolute right-2 top-3 text-gold opacity-70"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="square" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <template x-for="post in filteredPosts()" :key="post.id">
+
+                    <article
+                        class="group bg-obsidian border border-gold/20 hover:border-gold transition-all duration-500 hover:-translate-y-2 clip-deco-corner flex flex-col h-full">
+
+                        <div class="relative w-full aspect-[4/3] overflow-hidden border-b border-gold/20 bg-charcoal">
+                            <div
+                                class="absolute inset-0 bg-obsidian/20 z-10 group-hover:bg-transparent transition-colors duration-500">
+                            </div>
+
+                            <img :src="post.image" :alt="post.title" width="800" height="600" loading="lazy"
+                                decoding="async"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110">
+
+                            <div class="absolute top-4 right-4 bg-obsidian border border-gold px-3 py-1 z-20">
+                                <span class="text-[10px] text-gold uppercase tracking-widest" x-text="post.date"></span>
+                            </div>
+                        </div>
+
+                        <div class="p-8 flex flex-col flex-grow">
+                            <h2 class="font-serif text-xl text-champagne group-hover:text-gold transition-colors duration-300 uppercase tracking-wide mb-4 leading-snug"
+                                x-text="post.title"></h2>
+
+                            <p class="text-pewter text-sm leading-relaxed mb-6 flex-grow" x-text="post.excerpt"></p>
+
+                            <div class="mt-auto pt-6 border-t border-gold/20 flex justify-between items-center">
+                                <a :href="post.link"
+                                    class="text-xs uppercase tracking-widest text-gold hover:text-white transition-colors duration-300 font-bold flex items-center gap-2"
+                                    :aria-label="'Baca selengkapnya tentang ' + post.title">
+                                    Baca Selengkapnya
+                                </a>
+                                <span
+                                    class="text-gold text-lg group-hover:translate-x-2 transition-transform duration-300">&rarr;</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </template>
+
+                <div x-show="filteredPosts().length === 0" class="col-span-full text-center py-20" x-cloak>
+                    <p class="text-pewter font-serif text-xl">Artikel tidak ditemukan.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-obsidian pt-24 pb-10 border-t border-gold/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-10">
+
+                <div class="text-center md:text-left">
+                    <span class="font-serif text-3xl uppercase tracking-widest text-gold block mb-2">Gemilang</span>
+                    <span class="text-xs uppercase tracking-[0.4em] text-pewter">Properti Group</span>
+                    <p class="mt-6 text-pewter text-sm max-w-xs leading-relaxed">
+                        Membangun hunian dengan presisi geometris dan sentuhan kemewahan klasik untuk masa depan Anda.
+                    </p>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-8 md:gap-12 text-center md:text-left">
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Menu</h4>
+                        <div class="flex flex-col space-y-2">
+                            <a href="index.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Beranda</a>
+                            <a href="tentang.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Tentang</a>
+                            <a href="cluster.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Cluster</a>
+                            <a href="fasilitas.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Fasilitas</a>
+                            <a href="lokasi.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Lokasi</a>
+                            <a href="blog.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Marketing Gallery</h4>
+                        <address class="text-pewter text-sm not-italic">
+                            <p class="mb-1">Jl. Puncak Tidar No. 88</p>
+                            <p>Malang, Jawa Timur</p>
+                        </address>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Kontak</h4>
+                        <p class="text-pewter text-sm mb-1"><a href="tel:+6282257391460"
+                                class="hover:text-gold">0822-5739-1460</a></p>
+                        <p class="text-pewter text-sm"><a href="mailto:sales@gemilangproperti.id"
+                                class="hover:text-gold">sales@gemilangproperti.id</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="mt-20 border-t border-gold/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-pewter">
+                <p>&copy; 2026 Gemilang Properti. All Rights Reserved.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-gold">Privacy Policy</a>
+                    <a href="#" class="hover:text-gold">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

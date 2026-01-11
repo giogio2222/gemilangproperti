@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami | Gemilang Properti</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&family=Marcellus&display=swap"
+        rel="stylesheet">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0A0A0A',   // Hitam Pekat
+                        charcoal: '#141414',   // Abu Gelap
+                        champagne: '#F2F0E4',  // Putih Gading
+                        gold: {
+                            DEFAULT: '#D4AF37', // Emas Metalik
+                            light: '#F2E8C4',
+                            dim: 'rgba(212, 175, 55, 0.1)',
+                        },
+                        pewter: '#888888',     // Abu-abu muted
+                    },
+                    fontFamily: {
+                        sans: ['"Josefin Sans"', 'sans-serif'],
+                        serif: ['"Marcellus"', 'serif'],
+                    },
+                    letterSpacing: {
+                        'deco': '0.2em',
+                    },
+                    backgroundImage: {
+                        'deco-lines': "repeating-linear-gradient(45deg, #D4AF37 0, #D4AF37 1px, transparent 0, transparent 50%)",
+                        'gold-gradient': "linear-gradient(135deg, #D4AF37 0%, #F2E8C4 50%, #D4AF37 100%)",
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(212, 175, 55, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Efek Grain (Sama seperti Index) */
+        .bg-grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 50;
+            mix-blend-mode: overlay;
+        }
+
+        /* Clip Path Sudut Berundak */
+        .clip-deco-corner {
+            clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0% 100%);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-obsidian text-champagne font-sans antialiased overflow-x-hidden relative selection:bg-gold selection:text-obsidian">
+
+    <div class="bg-grain"></div>
+
+    <div class="fixed inset-0 pointer-events-none z-0 flex justify-between px-6 md:px-24 opacity-10">
+        <div class="w-px h-full bg-gold"></div>
+        <div class="w-px h-full bg-gold"></div>
+        <div class="w-px h-full bg-gold"></div>
+    </div>
+
+    <nav x-data="{ open: false, scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 50)"
+        :class="scrolled ? 'bg-obsidian/95 border-b border-gold/30 backdrop-blur-md' : 'bg-transparent border-b border-white/5'"
+        class="fixed w-full z-40 transition-all duration-500 ease-out top-0">
+
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+
+            <a href="index.html" class="flex items-center gap-4 group cursor-pointer">
+                <div
+                    class="w-10 h-10 border border-gold rotate-45 flex items-center justify-center transition-transform duration-500 group-hover:rotate-0">
+                    <div class="w-5 h-5 bg-gold -rotate-45 group-hover:rotate-0 transition-transform duration-500">
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-2xl uppercase tracking-widest text-gold leading-none">Gemilang</span>
+                    <span class="text-[10px] uppercase tracking-[0.4em] text-pewter mt-1">Properti Group</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Beranda</a>
+
+                <a href="tentang.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Tentang</a>
+
+                <a href="cluster.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Cluster</a>
+
+                <a href="fasilitas.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Fasilitas</a>
+
+                <a href="lokasi.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Lokasi</a>
+
+                <a href="blog.html"
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Blog</a>
+
+                <a href="https://wa.me/6282257391460"
+                    class="relative px-8 py-3 border border-gold text-gold hover:bg-gold hover:text-obsidian transition-all duration-300 group overflow-hidden ml-4">
+                    <span class="relative z-10 text-xs uppercase tracking-widest font-bold">Hubungi Kami</span>
+                    <div
+                        class="absolute inset-0 bg-gold transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out">
+                    </div>
+                </a>
+            </div>
+
+            <button @click="open = !open" class="md:hidden text-gold focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="square" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div x-show="open" x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-4" @click.away="open = false"
+            class="md:hidden bg-charcoal border-b border-gold absolute w-full shadow-2xl">
+
+            <div class="flex flex-col p-8 space-y-6 text-center">
+                <a href="index.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Beranda</a>
+                <a href="tentang.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Tentang</a>
+                <a href="cluster.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Cluster</a>
+                <a href="fasilitas.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Fasilitas</a>
+                <a href="lokasi.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Lokasi</a>
+                <a href="blog.html" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Blog</a>
+
+                <div class="h-px w-10 bg-gold/30 mx-auto my-2"></div>
+
+                <a href="https://wa.me/6282257391460" @click="open = false"
+                    class="text-sm uppercase tracking-widest text-gold font-bold">Hubungi Kami</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative h-[60vh] flex items-center justify-center overflow-hidden pt-20">
+        <div class="absolute inset-0 bg-gradient-to-b from-obsidian/40 via-obsidian/80 to-obsidian z-10"></div>
+
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1551189671-d6824ee1822c?q=80&w=2400&auto=format&fit=crop"
+                class="w-full h-full object-cover grayscale opacity-50" alt="Architecture History">
+        </div>
+
+        <div class="relative z-20 text-center max-w-4xl px-6 mt-10">
+            <span class="text-xs text-gold uppercase tracking-[0.4em] mb-4 block animate-pulse">Est. 2024</span>
+            <h1 class="font-serif text-5xl md:text-7xl text-champagne uppercase tracking-widest leading-none mb-6">
+                Warisan & <br /> <span class="text-transparent bg-clip-text bg-gold-gradient">Visi Kami</span>
+            </h1>
+            <div class="w-24 h-1 bg-gold mx-auto border-t border-b border-obsidian"></div>
+        </div>
+    </header>
+
+    <section class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+
+                <div class="w-full md:w-1/2 relative group">
+                    <div
+                        class="absolute inset-0 bg-gold/20 transform translate-x-4 translate-y-4 border border-gold clip-deco-corner transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2">
+                    </div>
+                    <div class="relative z-10 clip-deco-corner border border-gold/50 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=1200&auto=format&fit=crop"
+                            alt="Founder Meeting"
+                            class="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110">
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/2">
+                    <h2
+                        class="font-serif text-3xl md:text-4xl text-champagne uppercase tracking-widest mb-8 relative inline-block">
+                        Awal Mula
+                        <div class="absolute -bottom-2 left-0 w-1/2 h-px bg-gold"></div>
+                    </h2>
+
+                    <p class="text-pewter leading-loose mb-6">
+                        <strong class="text-gold">Gemilang Properti</strong> lahir dari sebuah kerinduan akan era di
+                        mana detail adalah segalanya. Di tengah maraknya pembangunan minimalis yang seragam, kami
+                        memilih jalan yang berbeda.
+                    </p>
+                    <p class="text-pewter leading-loose mb-6">
+                        Didirikan pada tahun 2024 di jantung Jawa Timur, kami mengadopsi filosofi <em>"Art Deco
+                            Renaissance"</em>. Kami percaya bahwa rumah bukan sekadar tempat berteduh, melainkan sebuah
+                        karya seni yang layak diwariskan kepada generasi berikutnya.
+                    </p>
+                    <p class="text-pewter leading-loose">
+                        Setiap pilar yang kami bangun dan setiap sudut geometris yang kami rancang adalah penghormatan
+                        terhadap ketepatan matematis dan kemewahan yang tak lekang oleh waktu.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-charcoal relative border-t border-gold/20">
+        <div class="absolute inset-0 opacity-5"
+            style="background-image: repeating-linear-gradient(-45deg, #D4AF37 0, #D4AF37 1px, transparent 0, transparent 60px);">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-20">
+                <span class="font-serif text-gold uppercase tracking-deco text-sm">Pilar Pondasi</span>
+                <h2 class="font-serif text-4xl text-champagne uppercase tracking-widest mt-4">Nilai Utama</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div
+                    class="group bg-obsidian p-10 border border-gold/20 hover:border-gold transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 p-4 font-serif text-4xl text-gold/10 group-hover:text-gold/20 transition-colors">
+                        I</div>
+                    <div
+                        class="mb-6 w-12 h-12 bg-gold/10 flex items-center justify-center rotate-45 group-hover:bg-gold group-hover:text-obsidian transition-colors duration-500">
+                        <div class="-rotate-45">
+                            <svg class="w-6 h-6 text-gold group-hover:text-obsidian" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="square" stroke-width="1.5"
+                                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="font-serif text-xl text-champagne uppercase tracking-widest mb-4">Presisi</h3>
+                    <p class="text-pewter text-sm leading-relaxed">
+                        Kami tidak mentolerir ketidaksempurnaan. Setiap ukuran, sudut, dan material dipilih melalui
+                        proses kurasi yang ketat.
+                    </p>
+                </div>
+
+                <div
+                    class="group bg-obsidian p-10 border border-gold/20 hover:border-gold transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 p-4 font-serif text-4xl text-gold/10 group-hover:text-gold/20 transition-colors">
+                        II</div>
+                    <div
+                        class="mb-6 w-12 h-12 bg-gold/10 flex items-center justify-center rotate-45 group-hover:bg-gold group-hover:text-obsidian transition-colors duration-500">
+                        <div class="-rotate-45">
+                            <svg class="w-6 h-6 text-gold group-hover:text-obsidian" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="square" stroke-width="1.5"
+                                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="font-serif text-xl text-champagne uppercase tracking-widest mb-4">Integritas</h3>
+                    <p class="text-pewter text-sm leading-relaxed">
+                        Transparansi adalah kemewahan tertinggi. Legalitas SHM dan kejelasan spesifikasi bangunan adalah
+                        janji kami kepada Anda.
+                    </p>
+                </div>
+
+                <div
+                    class="group bg-obsidian p-10 border border-gold/20 hover:border-gold transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 p-4 font-serif text-4xl text-gold/10 group-hover:text-gold/20 transition-colors">
+                        III</div>
+                    <div
+                        class="mb-6 w-12 h-12 bg-gold/10 flex items-center justify-center rotate-45 group-hover:bg-gold group-hover:text-obsidian transition-colors duration-500">
+                        <div class="-rotate-45">
+                            <svg class="w-6 h-6 text-gold group-hover:text-obsidian" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="square" stroke-width="1.5"
+                                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="font-serif text-xl text-champagne uppercase tracking-widest mb-4">Eksklusivitas</h3>
+                    <p class="text-pewter text-sm leading-relaxed">
+                        Kami membangun komunitas, bukan sekadar perumahan. Tetangga Anda adalah cerminan gaya hidup dan
+                        status Anda.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-obsidian border-t border-gold/20 relative">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="font-serif text-3xl md:text-5xl text-champagne uppercase tracking-widest mb-8">
+                Bergabunglah dengan <br /> <span class="text-gold">Sejarah Kami</span>
+            </h2>
+            <p class="text-pewter text-lg mb-12 max-w-2xl mx-auto">
+                Diskusikan impian hunian Anda bersama konsultan properti kami. Kami siap memandu Anda menemukan aset
+                terbaik.
+            </p>
+
+            <button onclick="kirimKeWhatsApp()"
+                class="px-12 py-5 bg-transparent border-2 border-gold text-gold font-serif uppercase tracking-widest hover:bg-gold hover:text-obsidian hover:shadow-glow transition-all duration-300">
+                Konsultasi via WhatsApp
+            </button>
+        </div>
+
+        <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent">
+        </div>
+    </section>
+
+    <footer class="bg-obsidian pt-24 pb-10 border-t border-gold/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-10">
+
+                <div class="text-center md:text-left">
+                    <span class="font-serif text-3xl uppercase tracking-widest text-gold block mb-2">Gemilang</span>
+                    <span class="text-xs uppercase tracking-[0.4em] text-pewter">Properti Group</span>
+                    <p class="mt-6 text-pewter text-sm max-w-xs leading-relaxed">
+                        Membangun hunian dengan presisi geometris dan sentuhan kemewahan klasik untuk masa depan Anda.
+                    </p>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-8 md:gap-12 text-center md:text-left">
+
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Menu</h4>
+                        <div class="flex flex-col space-y-2">
+                            <a href="index.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Beranda</a>
+                            <a href="tentang.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Tentang</a>
+                            <a href="cluster.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Cluster</a>
+                            <a href="fasilitas.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Fasilitas</a>
+                            <a href="lokasi.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Lokasi</a>
+                            <a href="blog.html"
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Marketing Gallery</h4>
+                        <p class="text-pewter text-sm mb-1">Jl. Puncak Tidar No. 88</p>
+                        <p class="text-pewter text-sm">Malang, Jawa Timur</p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Kontak</h4>
+                        <p class="text-pewter text-sm mb-1">0822-5739-1460</p>
+                        <p class="text-pewter text-sm">sales@gemilangproperti.id</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div
+                class="mt-20 border-t border-gold/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-pewter">
+                <p>&copy; 2026 Gemilang Properti. All Rights Reserved.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-gold">Privacy Policy</a>
+                    <a href="#" class="hover:text-gold">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function kirimKeWhatsApp() {
+            var nomorTujuan = "6282257391460"; // Nomor WA tujuan
+            var pesan = "Halo Gemilang Properti, saya telah melihat halaman Tentang Kami dan tertarik untuk berdiskusi lebih lanjut mengenai portofolio dan unit yang tersedia.";
+
+            var link = "https://wa.me/" + nomorTujuan + "?text=" + pesan;
+            window.open(link, '_blank');
+        }
+    </script>
+</body>
+
+</html>
