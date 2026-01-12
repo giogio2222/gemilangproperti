@@ -213,13 +213,25 @@
         </div>
     </nav>
 
-    <header class="relative pt-40 pb-20 flex items-center justify-center overflow-hidden">
-        <div
-            class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gold/5 via-obsidian/60 to-obsidian pointer-events-none">
+    <header class="relative h-[60vh] flex items-center justify-center overflow-hidden pt-20">
+        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent z-10"></div>
+
+        <div class="absolute inset-0 z-0">
+            <img src="img/detail/klasik.jpeg" class="w-full h-full object-cover grayscale opacity-50"
+                alt="Jurnal dan Berita Properti" width="2400" height="1600">
         </div>
-        <div class="relative z-10 text-center max-w-4xl px-6">
-            <h1 class="font-serif text-4xl md:text-5xl text-champagne uppercase tracking-widest mb-4">Jurnal & Berita
+
+        <div class="relative z-20 text-center max-w-4xl px-6">
+            <div class="flex items-center justify-center gap-4 mb-4 md:mb-6">
+                <div class="h-px w-8 md:w-12 bg-gold"></div>
+                <span class="text-[10px] md:text-xs text-gold uppercase tracking-[0.3em]">Lifestyle</span>
+                <div class="h-px w-8 md:w-12 bg-gold"></div>
+            </div>
+
+            <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-champagne uppercase tracking-widest mb-6">
+                Jurnal & <span class="text-transparent bg-clip-text bg-gold-gradient">Berita</span>
             </h1>
+
             <p class="font-sans text-pewter text-sm md:text-base max-w-xl mx-auto leading-relaxed">
                 Wawasan terbaru seputar investasi properti, desain interior klasik, dan gaya hidup mewah.
             </p>
@@ -232,7 +244,7 @@
                 {
                     id: 1,
                     title: 'Investasi Properti di 2026: Mengapa Klasik Tak Pernah Mati',
-                    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop',
+                    image: 'img/cluster/sapphire.jpeg',
                     excerpt: 'Tahun 2026 dibuka dengan sebuah paradoks yang menarik di dunia properti Indonesia.',
                     date: '10 Jan 2026',
                     link: 'blog-1.html'
@@ -240,7 +252,7 @@
                 {
                     id: 2,
                     title: '5 Tips Menata Interior Ruang Tamu Bergaya Gatsby',
-                    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop',
+                    image: 'img/detail/ruangtamu.jpeg',
                     excerpt: 'Era 1920-an, atau yang sering disebut sebagai The Roaring Twenties, adalah masa keemasan desain.',
                     date: '08 Jan 2026',
                     link: 'blog-2.html'
@@ -248,7 +260,7 @@
                 {
                     id: 3,
                     title: 'Smart Home di Balik Dinding Klasik: Harmoni Teknologi',
-                    image: 'https://images.unsplash.com/photo-1558002038-1091a166111c?q=80&w=800&auto=format&fit=crop',
+                    image: 'img/cluster/onyx.jpeg',
                     excerpt: 'Bayangkan Anda memasuki sebuah hunian dengan pilar-pilar megah ala Art Deco dengan teknologi terkini.',
                     date: '05 Jan 2026',
                     link: 'blog-3.html'
@@ -256,7 +268,7 @@
                 {
                     id: 4,
                     title: 'Keuntungan Memiliki Hunian di Kawasan Puncak Tidar',
-                    image: 'https://images.unsplash.com/photo-1448630360428-65456885c650?q=80&w=800&auto=format&fit=crop',
+                    image: 'img/detail/garden.jpeg',
                     excerpt: 'Jika Jakarta memiliki Pondok Indah dan Surabaya memiliki CitraLand, maka Malang memiliki Puncak Tidar.',
                     date: '02 Jan 2026',
                     link: 'blog-4.html'
@@ -264,7 +276,7 @@
                 {
                     id: 5,
                     title: 'Panduan Merawat Lantai Marmer Agar Tetap Berkilau',
-                    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop',
+                    image: 'img/detail/kamar.jpeg',
                     excerpt: 'Marmer bukan sekadar bahan bangunan; ia adalah simbol kemewahan, sejarah, dan keabadian.',
                     date: '28 Des 2025',
                     link: 'blog-5.html'
@@ -272,15 +284,15 @@
                 {
                     id: 6,
                     title: 'Mengenal Fasilitas Clubhouse Eksklusif Kami',
-                    image: 'https://images.unsplash.com/photo-1561501900-3701fa6a36a6?q=80&w=800&auto=format&fit=crop',
-                    excerpt: 'Seringkali terdapat dikotomi yang keliru dalam dunia properti antara Kenyamanan Teknologi dan Estetika.',
+                    image: 'img/detail/clubhouse.jpeg',
+                    excerpt: 'Membeli properti bukan lagi sekadar tentang memiliki atap di atas kepala atau dinding yang melindungi privasi.',
                     date: '20 Des 2025',
                     link: 'blog-6.html'
                 },
                 {
                     id: 7,
                     title: 'Perbedaan Sertifikat SHM dan HGB: Panduan Pembeli',
-                    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop',
+                    image: 'img/cluster/ruby.jpeg',
                     excerpt: 'Membeli properti adalah salah satu keputusan finansial terbesar dalam hidup. Pahami legalitasnya.',
                     date: '15 Des 2025',
                     link: 'blog-7.html'
@@ -288,7 +300,7 @@
                 {
                     id: 8,
                     title: 'Feng Shui Hunian Menghadap Utara: Mitos dan Fakta',
-                    image: 'https://images.unsplash.com/photo-1513584685908-22746531f5a9?q=80&w=800&auto=format&fit=crop',
+                    image: 'img/cluster/topas.jpeg',
                     excerpt: 'Dalam dunia arsitektur dan pemilihan properti di Asia, pertanyaan mengenai arah hadap rumah sangat krusial.',
                     date: '10 Des 2025',
                     link: 'blog-8.html'
@@ -296,7 +308,7 @@
                 {
                     id: 9,
                     title: 'Proses Serah Terima Kunci: Apa yang Perlu Disiapkan?',
-                    image: 'https://images.unsplash.com/photo-1584622050111-993a426fbf0a?q=80&w=800&auto=format&fit=crop',
+                    image: 'img/cluster/diamond.jpeg',
                     excerpt: 'Setelah berbulan-bulan menunggu, akhirnya momen yang paling ditunggu tiba: Serah Terima Kunci.',
                     date: '01 Des 2025',
                     link: 'blog-9.html'
@@ -427,6 +439,51 @@
             </div>
         </div>
     </footer>
+
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-4 items-center">
+
+        <button id="btn-back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});"
+            class="p-3 bg-gold text-obsidian rounded-full shadow-[0_0_15px_rgba(212,175,55,0.6)] transform translate-y-10 opacity-0 transition-all duration-500 hover:bg-white hover:scale-110 focus:outline-none pointer-events-none"
+            aria-label="Kembali ke Atas">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="square" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
+        </button>
+
+        <a href="https://wa.me/6282257391460?text=Halo%20Gemilang%20Properti,%20saya%20tertarik%20dengan%20info%20hunian%20klasik%20Anda."
+            target="_blank"
+            class="p-3 bg-[#25D366] text-white rounded-full shadow-[0_4px_14px_rgba(37,211,102,0.5)] hover:bg-[#128C7E] hover:scale-110 transition-all duration-300 flex items-center justify-center group relative"
+            aria-label="Chat WhatsApp">
+
+            <span
+                class="absolute right-full mr-3 bg-white text-obsidian text-xs font-bold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap hidden md:block pointer-events-none">
+                Hubungi Kami
+            </span>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                    d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+            </svg>
+        </a>
+
+    </div>
+
+    <script>
+        const backToTopButton = document.getElementById('btn-back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                // Munculkan tombol
+                backToTopButton.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
+                backToTopButton.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            } else {
+                // Sembunyikan tombol
+                backToTopButton.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+                backToTopButton.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            }
+        });
+    </script>
 
 </body>
 

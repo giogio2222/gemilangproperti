@@ -4,13 +4,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fasilitas | Gemilang Properti</title>
+
+    <title>Fasilitas Mewah & Eksklusif - The Gatsby Clubhouse | Gemilang Properti</title>
+    <meta name="description"
+        content="Nikmati fasilitas hunian kelas dunia di Gemilang Properti Malang. Dilengkapi The Gatsby Clubhouse, Infinity Pool, Smart Gate System, dan 40% Ruang Terbuka Hijau.">
+    <meta name="keywords"
+        content="Fasilitas Gemilang Properti, Perumahan Mewah Malang, The Gatsby Clubhouse, Infinity Pool Malang, Smart Home System, Perumahan Elit Jawa Timur">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://gemilangproperti.id/fasilitas.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Fasilitas Mewah - Gemilang Properti">
+    <meta property="og:description"
+        content="Jelajahi kenyamanan paripurna: Clubhouse Art Deco, Zen Garden, hingga Keamanan AI 24 Jam.">
+    <meta property="og:url" content="https://gemilangproperti.id/fasilitas.html">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200&auto=format&fit=crop">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="assets/site.webmanifest">
+    <meta name="theme-color" content="#0A0A0A">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&family=Marcellus&display=swap"
         rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Gemilang Properti",
+      "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945",
+      "description": "Pengembang hunian mewah di Malang dengan fasilitas The Gatsby Clubhouse, kolam renang olympic, dan smart gate system.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Puncak Tidar No. 88",
+        "addressLocality": "Malang",
+        "addressRegion": "Jawa Timur",
+        "addressCountry": "ID"
+      },
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "The Gatsby Clubhouse",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Olympic Size Swimming Pool",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "2.5km Jogging Track",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Smart Gate System (RFID)",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Masjid Jami'",
+          "value": true
+        }
+      ]
+    }
+    </script>
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
@@ -20,15 +85,15 @@
             theme: {
                 extend: {
                     colors: {
-                        obsidian: '#0A0A0A',   // Hitam Pekat
-                        charcoal: '#141414',   // Abu Gelap
-                        champagne: '#F2F0E4',  // Putih Gading
+                        obsidian: '#0A0A0A',
+                        charcoal: '#141414',
+                        champagne: '#F2F0E4',
                         gold: {
-                            DEFAULT: '#D4AF37', // Emas Metalik
+                            DEFAULT: '#D4AF37',
                             light: '#F2E8C4',
                             dim: 'rgba(212, 175, 55, 0.1)',
                         },
-                        pewter: '#888888',     // Abu-abu muted
+                        pewter: '#888888',
                     },
                     fontFamily: {
                         sans: ['"Josefin Sans"', 'sans-serif'],
@@ -88,7 +153,8 @@
 
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
 
-            <a href="index.html" class="flex items-center gap-4 group cursor-pointer">
+            <a href="index.html" class="flex items-center gap-4 group cursor-pointer"
+                aria-label="Beranda Gemilang Properti">
                 <div
                     class="w-10 h-10 border border-gold rotate-45 flex items-center justify-center transition-transform duration-500 group-hover:rotate-0">
                     <div class="w-5 h-5 bg-gold -rotate-45 group-hover:rotate-0 transition-transform duration-500">
@@ -111,7 +177,7 @@
                     class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Cluster</a>
 
                 <a href="fasilitas.html"
-                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Fasilitas</a>
+                    class="text-xs uppercase tracking-widest text-gold transition-colors duration-300">Fasilitas</a>
 
                 <a href="lokasi.html"
                     class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Lokasi</a>
@@ -128,7 +194,7 @@
                 </a>
             </div>
 
-            <button @click="open = !open" class="md:hidden text-gold focus:outline-none">
+            <button @click="open = !open" class="md:hidden text-gold focus:outline-none" aria-label="Buka Menu">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="square" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -149,7 +215,7 @@
                 <a href="cluster.html" @click="open = false"
                     class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Cluster</a>
                 <a href="fasilitas.html" @click="open = false"
-                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Fasilitas</a>
+                    class="text-sm uppercase tracking-widest text-gold">Fasilitas</a>
                 <a href="lokasi.html" @click="open = false"
                     class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Lokasi</a>
                 <a href="blog.html" @click="open = false"
@@ -165,8 +231,9 @@
 
     <header class="relative h-[60vh] flex items-center justify-center overflow-hidden pt-20">
         <div class="absolute inset-0 z-[-1]">
-            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2400&auto=format&fit=crop"
-                class="w-full h-full object-cover grayscale brightness-50" alt="Luxury Facility">
+            <img src="img/detail/klasik.jpeg" fetchpriority="high" width="2400" height="1600"
+                class="w-full h-full object-cover grayscale brightness-50"
+                alt="Fasilitas Mewah Clubhouse Gemilang Properti">
             <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent"></div>
         </div>
 
@@ -189,7 +256,7 @@
     <section class="py-20 bg-obsidian relative">
         <div class="max-w-4xl mx-auto px-6 text-center">
             <span
-                class="font-serif text-gold text-5xl opacity-20 absolute top-10 left-1/2 transform -translate-x-1/2">GEMILANG</span>
+                class="font-serif text-gold text-5xl opacity-20 absolute top-10 left-1/2 transform -translate-x-1/2 select-none">GEMILANG</span>
             <p class="relative z-10 text-xl md:text-2xl font-serif leading-loose text-champagne">
                 "Kami percaya bahwa kemewahan sejati bukan hanya tentang bangunan, tetapi tentang kualitas hidup yang
                 Anda rasakan setiap hari."
@@ -207,9 +274,9 @@
                         class="absolute -inset-4 border border-gold/30 translate-x-2 translate-y-2 transition-transform duration-500 group-hover:translate-x-0 group-hover:translate-y-0">
                     </div>
                     <div class="relative clip-deco-corner overflow-hidden h-[400px]">
-                        <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=1200&auto=format&fit=crop"
+                        <img src="img/detail/clubhouse.jpeg" loading="lazy" width="1200" height="800"
                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110"
-                            alt="Infinity Pool">
+                            alt="Infinity Pool di The Gatsby Clubhouse Malang">
                     </div>
                 </div>
                 <div class="text-left">
@@ -268,9 +335,9 @@
                         class="absolute -inset-4 border border-gold/30 -translate-x-2 -translate-y-2 transition-transform duration-500 group-hover:translate-x-0 group-hover:translate-y-0">
                     </div>
                     <div class="relative clip-deco-corner overflow-hidden h-[400px]">
-                        <img src="https://images.unsplash.com/photo-1558036117-15db63622051?q=80&w=1200&auto=format&fit=crop"
+                        <img src="img/detail/garden.jpeg" loading="lazy" width="1200" height="800"
                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110"
-                            alt="Garden">
+                            alt="Taman Royal Garden dan Jogging Track">
                     </div>
                 </div>
             </div>
@@ -281,9 +348,9 @@
                         class="absolute -inset-4 border border-gold/30 translate-x-2 translate-y-2 transition-transform duration-500 group-hover:translate-x-0 group-hover:translate-y-0">
                     </div>
                     <div class="relative clip-deco-corner overflow-hidden h-[400px]">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop"
+                        <img src="img/detail/gate.jpeg" loading="lazy" width="1200" height="800"
                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110"
-                            alt="Security Gate">
+                            alt="Sistem Keamanan Smart Gate RFID 24 Jam">
                     </div>
                 </div>
                 <div class="text-left">
@@ -461,6 +528,51 @@
             </div>
         </div>
     </footer>
+
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-4 items-center">
+
+        <button id="btn-back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});"
+            class="p-3 bg-gold text-obsidian rounded-full shadow-[0_0_15px_rgba(212,175,55,0.6)] transform translate-y-10 opacity-0 transition-all duration-500 hover:bg-white hover:scale-110 focus:outline-none pointer-events-none"
+            aria-label="Kembali ke Atas">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="square" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
+        </button>
+
+        <a href="https://wa.me/6282257391460?text=Halo%20Gemilang%20Properti,%20saya%20tertarik%20dengan%20info%20hunian%20klasik%20Anda."
+            target="_blank"
+            class="p-3 bg-[#25D366] text-white rounded-full shadow-[0_4px_14px_rgba(37,211,102,0.5)] hover:bg-[#128C7E] hover:scale-110 transition-all duration-300 flex items-center justify-center group relative"
+            aria-label="Chat WhatsApp">
+
+            <span
+                class="absolute right-full mr-3 bg-white text-obsidian text-xs font-bold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap hidden md:block pointer-events-none">
+                Hubungi Kami
+            </span>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                    d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+            </svg>
+        </a>
+
+    </div>
+
+    <script>
+        const backToTopButton = document.getElementById('btn-back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                // Munculkan tombol
+                backToTopButton.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
+                backToTopButton.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            } else {
+                // Sembunyikan tombol
+                backToTopButton.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+                backToTopButton.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            }
+        });
+    </script>
 
 </body>
 
