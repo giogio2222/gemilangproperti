@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Gemilang Properti | Hunian Mewah & Investasi Klasik</title>
 
     <meta name="description"
@@ -16,8 +16,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://gemilangproperti.id/">
     <meta property="og:title" content="Gemilang Properti | Luxury Living">
-    <meta property="og:description"
-        content="Hunian Klasik Kemewahan Abadi. Harmoni arsitektur Art Deco dan kenyamanan modern.">
+    <meta property="og:description" content="Hunian Klasik Kemewahan Abadi. Harmoni arsitektur Art Deco.">
     <meta property="og:image"
         content="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=1200&auto=format&fit=crop">
 
@@ -29,7 +28,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
 
     <link
         href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&family=Marcellus&display=swap"
@@ -54,15 +53,7 @@
       "priceRange": "$$$",
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
-        ],
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
         "opens": "09:00",
         "closes": "18:00"
       }
@@ -107,7 +98,6 @@
     </script>
 
     <style>
-        /* FIX: Memastikan tidak ada scroll horizontal */
         html,
         body {
             overflow-x: hidden;
@@ -116,24 +106,26 @@
             position: relative;
         }
 
-        .bg-grain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 50;
-            mix-blend-mode: overlay;
+        /* OPTIMASI: Grain effect hanya jalan di Desktop (min-width 768px). 
+           Di Mobile ini dimatikan karena sangat berat untuk GPU. */
+        @media (min-width: 768px) {
+            .bg-grain {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+                pointer-events: none;
+                z-index: 50;
+                mix-blend-mode: overlay;
+                will-change: transform;
+                /* Hint to browser */
+            }
         }
 
         .clip-deco-corner {
-            clip-path: polygon(0% 0%,
-                    100% 0%,
-                    100% calc(100% - 15px),
-                    calc(100% - 15px) 100%,
-                    0% 100%);
+            clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0% 100%);
         }
 
         .vertical-line {
@@ -159,10 +151,9 @@
 
     <nav x-data="{ open: false, scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 50)"
         :class="scrolled ? 'bg-obsidian/95 border-b border-gold/30 backdrop-blur-md' : 'bg-transparent border-b border-white/5'"
-        class="fixed w-full z-40 transition-all duration-500 ease-out top-0">
+        class="fixed w-full z-40 transition-all duration-500 ease-out top-0 will-change-transform">
 
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-
             <a href="index.html" class="flex items-center gap-3 md:gap-4 group cursor-pointer"
                 aria-label="Beranda Gemilang Properti">
                 <div
@@ -182,22 +173,16 @@
             <div class="hidden md:flex items-center space-x-8">
                 <a href="index.html"
                     class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Beranda</a>
-
                 <a href="tentang.html"
                     class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Tentang</a>
-
                 <a href="cluster.html"
                     class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Cluster</a>
-
                 <a href="fasilitas.html"
                     class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Fasilitas</a>
-
                 <a href="lokasi.html"
                     class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Lokasi</a>
-
                 <a href="blog.html"
                     class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Blog</a>
-
                 <a href="https://wa.me/6282257391460"
                     class="relative px-8 py-3 border border-gold text-gold hover:bg-gold hover:text-obsidian transition-all duration-300 group overflow-hidden ml-4">
                     <span class="relative z-10 text-xs uppercase tracking-widest font-bold">Hubungi Kami</span>
@@ -219,7 +204,6 @@
             x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0"
             x-transition:leave-end="opacity-0 -translate-y-4" @click.away="open = false" style="display: none;"
             class="md:hidden bg-charcoal border-b border-gold absolute left-0 w-full shadow-2xl">
-
             <div class="flex flex-col p-8 space-y-6 text-center">
                 <a href="index.html" @click="open = false"
                     class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Beranda</a>
@@ -233,9 +217,7 @@
                     class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Lokasi</a>
                 <a href="blog.html" @click="open = false"
                     class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Blog</a>
-
                 <div class="h-px w-10 bg-gold/30 mx-auto my-2"></div>
-
                 <a href="https://wa.me/6282257391460" @click="open = false"
                     class="text-sm uppercase tracking-widest text-gold font-bold">Hubungi Kami</a>
             </div>
@@ -248,12 +230,11 @@
         </div>
 
         <div class="absolute inset-0 z-[-1] opacity-40">
-            <img src="img/detail/klasik.jpeg" width="1920" height="1080" fetchpriority="high"
+            <img src="img/detail/klasik.jpeg" width="1920" height="1080" fetchpriority="high" decoding="sync"
                 class="w-full h-full object-cover grayscale" alt="Luxury Art Deco Interior Design">
         </div>
 
         <div class="relative z-10 text-center max-w-5xl px-6 w-full">
-
             <div class="flex items-center justify-center gap-4 mb-6 md:mb-8">
                 <div class="h-px w-8 md:w-16 bg-gold"></div>
                 <span class="text-[10px] md:text-xs text-gold uppercase tracking-[0.3em]">Est. 2024</span>
@@ -275,29 +256,23 @@
 
             <div
                 class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6 w-full max-w-xs md:max-w-none mx-auto">
-
                 <a href="cluster.html"
                     class="w-full md:w-auto text-center block px-10 py-4 bg-gold text-obsidian font-serif uppercase tracking-deco text-sm hover:shadow-glow transition-all duration-300">
                     Lihat Koleksi
                 </a>
-
                 <div x-data="{ showVideo: false }" class="w-full md:w-auto"
                     x-init="$watch('showVideo', value => document.body.classList.toggle('overflow-hidden', value))">
-
                     <a href="#" @click.prevent="showVideo = true"
                         class="w-full md:w-auto text-center block md:inline-block px-10 py-4 border border-pewter text-pewter hover:border-gold hover:text-gold font-serif uppercase tracking-deco text-sm transition-all duration-300">
                         Putar Video
                     </a>
-
                     <div x-show="showVideo" style="z-index: 9999; display: none;"
                         x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
                         x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200"
                         x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
                         class="fixed inset-0 flex items-center justify-center bg-obsidian/95 backdrop-blur-md p-4">
-
                         <div @click.away="showVideo = false"
                             class="relative w-full max-w-3xl bg-black shadow-2xl border border-gold/30 rounded-lg">
-
                             <button @click="showVideo = false" aria-label="Tutup Video"
                                 class="absolute -top-10 right-0 md:-right-10 text-white hover:text-gold transition-colors duration-300 flex items-center gap-2">
                                 <span class="text-[10px] uppercase tracking-widest hidden md:block">Tutup</span>
@@ -306,9 +281,8 @@
                                     <path stroke-linecap="square" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                             </button>
-
                             <div class="aspect-w-16 aspect-h-9 w-full relative pt-[56.25%]">
-                                <iframe class="absolute inset-0 w-full h-full rounded-sm"
+                                <iframe class="absolute inset-0 w-full h-full rounded-sm" loading="lazy"
                                     :src="showVideo ? 'https://www.youtube.com/embed/t5SAfEkkjzM?autoplay=1&rel=0' : ''"
                                     title="YouTube video player" frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -317,7 +291,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -332,13 +305,11 @@
             <div class="text-center mb-16 md:mb-20">
                 <span class="font-serif text-gold uppercase tracking-deco text-xs md:text-sm">Portofolio Kami</span>
                 <h2 class="font-serif text-3xl md:text-5xl mt-4 text-champagne uppercase tracking-widest leading-tight">
-                    Pilihan
-                    Cluster Eksklusif</h2>
+                    Pilihan Cluster Eksklusif</h2>
                 <div class="w-16 md:w-24 h-1 bg-gold mx-auto mt-6 md:mt-8 border-t border-b border-obsidian"></div>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-
                 <a href="cluster-sapphire.html"
                     class="block group bg-obsidian border border-gold/20 hover:border-gold transition-all duration-500 hover:-translate-y-2 clip-deco-corner cursor-pointer">
                     <div class="relative h-64 md:h-72 overflow-hidden border-b border-gold/20">
@@ -347,7 +318,8 @@
                         </div>
                         <img src="img/cluster/sapphire.jpeg"
                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110"
-                            alt="Cluster Sapphire - Modern Classic" width="600" height="400" loading="lazy">
+                            alt="Cluster Sapphire - Modern Classic" width="600" height="400" loading="lazy"
+                            decoding="async">
                         <div class="absolute top-4 right-4 bg-obsidian border border-gold px-4 py-2 z-20">
                             <span class="text-[10px] md:text-xs text-gold uppercase tracking-widest">Tipe 120/150</span>
                         </div>
@@ -381,7 +353,7 @@
                         </div>
                         <img src="img/cluster/emerald.jpeg"
                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110"
-                            alt="Cluster Emerald - Eco Living" width="600" height="400" loading="lazy">
+                            alt="Cluster Emerald - Eco Living" width="600" height="400" loading="lazy" decoding="async">
                         <div class="absolute top-4 right-4 bg-obsidian border border-gold px-4 py-2 z-20">
                             <span class="text-[10px] md:text-xs text-gold uppercase tracking-widest">Tipe 90/120</span>
                         </div>
@@ -415,7 +387,8 @@
                         </div>
                         <img src="img/cluster/diamond.jpeg"
                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110"
-                            alt="Cluster Diamond - Resort Hill" width="600" height="400" loading="lazy">
+                            alt="Cluster Diamond - Resort Hill" width="600" height="400" loading="lazy"
+                            decoding="async">
                         <div class="absolute top-4 right-4 bg-obsidian border border-gold px-4 py-2 z-20">
                             <span class="text-[10px] md:text-xs text-gold uppercase tracking-widest">Tipe Villa</span>
                         </div>
@@ -799,7 +772,7 @@
                 return;
             }
 
-            var nomorTujuan = "6282257391460"; // Ganti dengan nomor Anda
+            var nomorTujuan = "6282257391460";
             var pesan = "Halo Gemilang Properti, saya tertarik dengan hunian Anda.%0A%0A" +
                 "📋 *Data Diri Calon Pembeli* %0A" +
                 "Nama: " + nama + "%0A" +
@@ -905,11 +878,9 @@
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) {
-                // Munculkan tombol
                 backToTopButton.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
                 backToTopButton.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
             } else {
-                // Sembunyikan tombol
                 backToTopButton.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
                 backToTopButton.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
             }
