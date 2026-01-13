@@ -4,14 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0A0A0A">
 
     <title>5 Tips Interior Ruang Tamu Gaya Gatsby & Art Deco | Gemilang Properti</title>
     <meta name="description"
-        content="Ingin menghadirkan kemewahan era 1920-an di rumah Anda? Simak 5 tips menata interior ruang tamu bergaya Gatsby dengan sentuhan Art Deco modern.">
+        content="Panduan eksklusif menata ruang tamu gaya Gatsby era 1920-an. Paduan warna emas, beludru, dan pola geometris Art Deco untuk hunian mewah masa kini.">
     <meta name="keywords"
-        content="Interior Art Deco, Gaya Gatsby, Ruang Tamu Mewah, Desain Interior Klasik, Gemilang Properti, Tips Dekorasi Rumah">
+        content="Interior Art Deco, Gaya Gatsby, Ruang Tamu Mewah, Desain Interior Klasik, Gemilang Properti, Tips Dekorasi Rumah, The Roaring Twenties, Furniture Beludru">
     <meta name="author" content="Sarah Adeline - Gemilang Properti">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://gemilangproperti.id/blog-2.html">
 
     <meta property="og:type" content="article">
@@ -24,15 +25,22 @@
     <meta property="og:site_name" content="Gemilang Properti">
     <meta property="article:published_time" content="2026-01-08T09:00:00+07:00">
     <meta property="article:author" content="Sarah Adeline">
+    <meta property="article:section" content="Interior Design">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#0A0A0A">
+    <meta name="msapplication-TileColor" content="#0A0A0A">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+
+    <link rel="preload" as="image" href="img/detail/ruangtamu.jpeg" fetchpriority="high">
+
     <link
         href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&family=Marcellus&display=swap"
         rel="stylesheet">
@@ -46,12 +54,16 @@
         "@id": "https://gemilangproperti.id/blog-2.html"
       },
       "headline": "5 Tips Menata Interior Ruang Tamu Bergaya Gatsby",
-      "description": "Panduan lengkap menghadirkan gaya Art Deco 1920-an ke dalam hunian modern.",
-      "image": "https://images.unsplash.com/photo-1596230529625-7ee541fb3556?q=80&w=1200",
+      "description": "Panduan lengkap menghadirkan gaya Art Deco 1920-an ke dalam hunian modern dengan sentuhan kemewahan.",
+      "image": [
+        "https://images.unsplash.com/photo-1596230529625-7ee541fb3556?q=80&w=1200",
+        "img/detail/ruangtamu.jpeg"
+      ],
       "author": {
         "@type": "Person",
         "name": "Sarah Adeline",
-        "jobTitle": "Lead Interior Designer"
+        "jobTitle": "Lead Interior Designer",
+        "url": "https://gemilangproperti.id/tentang.html"
       },
       "publisher": {
         "@type": "Organization",
@@ -61,8 +73,16 @@
           "url": "https://gemilangproperti.id/logo.png"
         }
       },
-      "datePublished": "2026-01-08",
-      "dateModified": "2026-01-11"
+      "datePublished": "2026-01-08T09:00:00+07:00",
+      "dateModified": "2026-01-11T10:00:00+07:00",
+      "keywords": ["Interior Art Deco", "Desain Gatsby", "Ruang Tamu Mewah", "Tips Interior"],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "xpath": [
+          "/html/head/title",
+          "/html/head/meta[@name='description']/@content"
+        ]
+      }
     }
     </script>
     <script type="application/ld+json">
@@ -88,8 +108,8 @@
     </script>
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
     <script src="https://cdn.tailwindcss.com"></script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -125,6 +145,7 @@
     </script>
 
     <style>
+        /* CSS Optimization: Contain paint untuk elemen berat */
         .bg-grain {
             position: fixed;
             top: 0;
@@ -135,9 +156,15 @@
             pointer-events: none;
             z-index: 50;
             mix-blend-mode: overlay;
-            /* Performance Fix: Hardware Acceleration */
             backface-visibility: hidden;
             transform: translateZ(0);
+            contain: paint;
+        }
+
+        /* Accessibility Focus Ring */
+        *:focus-visible {
+            outline: 2px solid #D4AF37;
+            outline-offset: 2px;
         }
 
         /* Custom Scrollbar */
@@ -158,7 +185,7 @@
             background: #D4AF37;
         }
 
-        /* Article Typography Overrides */
+        /* Article Typography */
         .article-content h2 {
             font-family: "Marcellus", serif;
             font-size: 1.875rem;
@@ -224,6 +251,12 @@
             background: rgba(212, 175, 55, 0.05);
         }
 
+        /* Defer content outside viewport for performance */
+        .defer-render {
+            content-visibility: auto;
+            contain-intrinsic-size: 1000px;
+        }
+
         [x-cloak] {
             display: none !important;
         }
@@ -248,7 +281,7 @@
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
 
             <a href="index.html" class="flex items-center gap-4 group cursor-pointer"
-                aria-label="Gemilang Properti Home">
+                aria-label="Kembali ke Beranda Gemilang Properti">
                 <div
                     class="w-10 h-10 border border-gold rotate-45 flex items-center justify-center transition-transform duration-500 group-hover:rotate-0">
                     <div class="w-5 h-5 bg-gold -rotate-45 group-hover:rotate-0 transition-transform duration-500">
@@ -262,20 +295,20 @@
 
             <div class="hidden md:flex items-center space-x-8">
                 <a href="index.html"
-                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Beranda</a>
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300 py-2">Beranda</a>
                 <a href="tentang.html"
-                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Tentang</a>
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300 py-2">Tentang</a>
                 <a href="cluster.html"
-                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Cluster</a>
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300 py-2">Cluster</a>
                 <a href="fasilitas.html"
-                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Fasilitas</a>
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300 py-2">Fasilitas</a>
                 <a href="lokasi.html"
-                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Lokasi</a>
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300 py-2">Lokasi</a>
                 <a href="blog.html"
-                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300 font-bold text-gold">Blog</a>
+                    class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300 font-bold text-gold py-2">Blog</a>
 
                 <a href="https://wa.me/6282257391460"
-                    class="relative px-8 py-3 border border-gold text-gold hover:bg-gold hover:text-obsidian transition-all duration-300 group overflow-hidden ml-4">
+                    class="relative px-8 py-3 border border-gold text-gold hover:bg-gold hover:text-obsidian transition-all duration-300 group overflow-hidden ml-4 focus:outline-none focus:ring-2 focus:ring-gold">
                     <span class="relative z-10 text-xs uppercase tracking-widest font-bold">Hubungi Kami</span>
                     <div
                         class="absolute inset-0 bg-gold transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out">
@@ -283,7 +316,8 @@
                 </a>
             </div>
 
-            <button @click="open = !open" class="md:hidden text-gold focus:outline-none" aria-label="Menu">
+            <button @click="open = !open" class="md:hidden text-gold focus:outline-none p-2"
+                aria-label="Buka Menu Navigasi" :aria-expanded="open" aria-controls="mobile-menu">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="square" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -293,24 +327,25 @@
         <div x-show="open" x-cloak x-transition:enter="transition ease-out duration-300"
             x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
             x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0"
-            x-transition:leave-end="opacity-0 -translate-y-4" @click.away="open = false"
+            x-transition:leave-end="opacity-0 -translate-y-4" @click.away="open = false" id="mobile-menu"
             class="md:hidden bg-charcoal border-b border-gold absolute w-full shadow-2xl">
 
             <div class="flex flex-col p-8 space-y-6 text-center">
                 <a href="index.html"
-                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Beranda</a>
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold py-2">Beranda</a>
                 <a href="tentang.html"
-                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Tentang</a>
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold py-2">Tentang</a>
                 <a href="cluster.html"
-                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Cluster</a>
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold py-2">Cluster</a>
                 <a href="fasilitas.html"
-                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Fasilitas</a>
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold py-2">Fasilitas</a>
                 <a href="lokasi.html"
-                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Lokasi</a>
-                <a href="blog.html" class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Blog</a>
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold py-2">Lokasi</a>
+                <a href="blog.html"
+                    class="text-sm uppercase tracking-widest text-champagne hover:text-gold py-2">Blog</a>
                 <div class="h-px w-10 bg-gold/30 mx-auto my-2"></div>
                 <a href="https://wa.me/6282257391460"
-                    class="text-sm uppercase tracking-widest text-gold font-bold">Hubungi Kami</a>
+                    class="text-sm uppercase tracking-widest text-gold font-bold py-2">Hubungi Kami</a>
             </div>
         </div>
     </nav>
@@ -326,7 +361,8 @@
             <div
                 class="flex items-center justify-center gap-6 text-sm text-pewter border-y border-gold/20 py-4 max-w-lg mx-auto">
                 <div class="flex items-center gap-2">
-                    <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
                         </path>
@@ -335,7 +371,8 @@
                 </div>
                 <div class="w-px h-4 bg-gold/30"></div>
                 <div class="flex items-center gap-2">
-                    <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
@@ -348,8 +385,8 @@
             <div class="relative aspect-w-16 aspect-h-9 md:aspect-h-7 border border-gold/20 p-2">
                 <div class="absolute inset-0 bg-obsidian/20 z-10 pointer-events-none mix-blend-color"></div>
 
-                <img src="img/detail/ruangtamu.jpeg" alt="Interior Ruang Tamu Mewah Bergaya Art Deco Gatsby"
-                    width="1200" height="675" fetchpriority="high" decoding="async"
+                <img src="img/detail/ruangtamu.jpeg" alt="Interior Ruang Tamu Mewah Bergaya Art Deco Gatsby di Malang"
+                    width="1200" height="675" fetchpriority="high" decoding="sync"
                     class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000">
             </div>
             <p class="mt-4 text-center text-xs text-pewter italic">Estetika Art Deco yang memadukan garis geometris
@@ -376,8 +413,8 @@
             <article class="col-span-1 lg:col-span-8 lg:col-start-4">
 
                 <div class="lg:hidden mb-12 border border-gold/20 bg-charcoal/30 p-4" x-data="{ openToc: false }">
-                    <button @click="openToc = !openToc"
-                        class="w-full flex justify-between items-center text-gold font-serif uppercase tracking-widest text-sm">
+                    <button @click="openToc = !openToc" :aria-expanded="openToc" aria-controls="toc-mobile"
+                        class="w-full flex justify-between items-center text-gold font-serif uppercase tracking-widest text-sm p-2 focus:outline-none focus:bg-charcoal">
                         <span>Daftar Isi Artikel</span>
                         <svg :class="openToc ? 'rotate-180' : ''" class="w-4 h-4 transition-transform duration-300"
                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -407,7 +444,7 @@
                     <div class="my-10 p-6 border-l-2 border-gold bg-charcoal/50">
                         <span class="text-xs text-gold uppercase tracking-widest block mb-2">Baca Juga</span>
                         <a href="blog-6.html"
-                            class="font-serif text-champagne text-lg hover:text-gold transition-colors">
+                            class="font-serif text-champagne text-lg hover:text-gold transition-colors focus:outline-none focus:underline">
                             Mengenal Fasilitas Clubhouse Eksklusif Kami
                         </a>
                     </div>
@@ -478,7 +515,7 @@
                                 Gratis Konsultasi Interior <br /> Khusus Pembelian Bulan Ini
                             </h3>
                             <a href="https://wa.me/6282257391460"
-                                class="px-6 py-2 border border-white text-white hover:bg-gold hover:border-gold hover:text-obsidian transition-all duration-300 uppercase text-xs tracking-widest">
+                                class="px-6 py-2 border border-white text-white hover:bg-gold hover:border-gold hover:text-obsidian transition-all duration-300 uppercase text-xs tracking-widest focus:outline-none focus:ring-2 focus:ring-white">
                                 Klaim Sekarang
                             </a>
                         </div>
@@ -531,7 +568,7 @@
                         <div>
                             <span class="text-xs text-gold uppercase tracking-widest block mb-1">Artikel Terkait</span>
                             <a href="blog-8.html"
-                                class="font-serif text-champagne text-lg hover:text-gold transition-colors">
+                                class="font-serif text-champagne text-lg hover:text-gold transition-colors focus:outline-none focus:underline">
                                 Feng Shui Hunian Menghadap Utara: Mitos dan Fakta
                             </a>
                         </div>
@@ -543,14 +580,15 @@
 
                         <div class="border-b border-gold/20 py-4">
                             <button @click="selectedFaq !== 1 ? selectedFaq = 1 : selectedFaq = null"
-                                class="w-full flex justify-between items-center text-left focus:outline-none group">
+                                :aria-expanded="selectedFaq === 1"
+                                class="w-full flex justify-between items-center text-left focus:outline-none group p-2 rounded hover:bg-white/5">
                                 <span class="text-champagne font-serif group-hover:text-gold transition-colors">
                                     Apakah gaya Gatsby cocok untuk ruangan kecil?
                                 </span>
                                 <span class="text-gold text-xl transition-transform duration-300"
-                                    :class="selectedFaq === 1 ? 'rotate-45' : ''">+</span>
+                                    :class="selectedFaq === 1 ? 'rotate-45' : ''" aria-hidden="true">+</span>
                             </button>
-                            <div x-show="selectedFaq === 1" x-collapse class="mt-2 text-sm text-pewter">
+                            <div x-show="selectedFaq === 1" x-collapse class="mt-2 text-sm text-pewter px-2">
                                 Sangat bisa. Gunakan cermin besar (misalnya model sunburst) untuk menciptakan ilusi
                                 ruang. Pilih furnitur dengan kaki ramping agar lantai terlihat lebih luas, dan fokus
                                 pada satu dinding aksen gelap agar ruangan tidak terasa sempit.
@@ -559,14 +597,15 @@
 
                         <div class="border-b border-gold/20 py-4">
                             <button @click="selectedFaq !== 2 ? selectedFaq = 2 : selectedFaq = null"
-                                class="w-full flex justify-between items-center text-left focus:outline-none group">
+                                :aria-expanded="selectedFaq === 2"
+                                class="w-full flex justify-between items-center text-left focus:outline-none group p-2 rounded hover:bg-white/5">
                                 <span class="text-champagne font-serif group-hover:text-gold transition-colors">
                                     Bagaimana merawat furnitur beludru?
                                 </span>
                                 <span class="text-gold text-xl transition-transform duration-300"
-                                    :class="selectedFaq === 2 ? 'rotate-45' : ''">+</span>
+                                    :class="selectedFaq === 2 ? 'rotate-45' : ''" aria-hidden="true">+</span>
                             </button>
-                            <div x-show="selectedFaq === 2" x-collapse class="mt-2 text-sm text-pewter">
+                            <div x-show="selectedFaq === 2" x-collapse class="mt-2 text-sm text-pewter px-2">
                                 Beludru modern sudah lebih tahan lama. Bersihkan debu secara rutin dengan vacuum cleaner
                                 (ujung sikat lembut). Jika terkena noda cair, segera tepuk-tepuk dengan kain kering
                                 bersih, jangan digosok agar serat tidak rusak.
@@ -575,14 +614,15 @@
 
                         <div class="border-b border-gold/20 py-4">
                             <button @click="selectedFaq !== 3 ? selectedFaq = 3 : selectedFaq = null"
-                                class="w-full flex justify-between items-center text-left focus:outline-none group">
+                                :aria-expanded="selectedFaq === 3"
+                                class="w-full flex justify-between items-center text-left focus:outline-none group p-2 rounded hover:bg-white/5">
                                 <span class="text-champagne font-serif group-hover:text-gold transition-colors">
                                     Apakah biaya dekorasi gaya ini mahal?
                                 </span>
                                 <span class="text-gold text-xl transition-transform duration-300"
-                                    :class="selectedFaq === 3 ? 'rotate-45' : ''">+</span>
+                                    :class="selectedFaq === 3 ? 'rotate-45' : ''" aria-hidden="true">+</span>
                             </button>
-                            <div x-show="selectedFaq === 3" x-collapse class="mt-2 text-sm text-pewter">
+                            <div x-show="selectedFaq === 3" x-collapse class="mt-2 text-sm text-pewter px-2">
                                 Tidak harus. Anda bisa mulai dengan aksesori kecil seperti sarung bantal beludru, lampu
                                 meja kuningan, atau cat dinding warna gelap. Kemewahan gaya Gatsby lebih pada pemilihan
                                 material dan penataan, bukan semata-mata harga barang.
@@ -619,9 +659,11 @@
                                 restorasi bangunan bersejarah dan adaptasi gaya klasik ke dalam hunian modern tropis.
                             </p>
                             <div class="mt-4 flex gap-4 justify-center md:justify-start">
-                                <a href="#" class="text-pewter hover:text-gold text-xs uppercase tracking-widest"
+                                <a href="#"
+                                    class="text-pewter hover:text-gold text-xs uppercase tracking-widest focus:outline-none focus:underline"
                                     aria-label="LinkedIn Sarah">LinkedIn</a>
-                                <a href="#" class="text-pewter hover:text-gold text-xs uppercase tracking-widest"
+                                <a href="#"
+                                    class="text-pewter hover:text-gold text-xs uppercase tracking-widest focus:outline-none focus:underline"
                                     aria-label="Instagram Sarah">Instagram</a>
                             </div>
                         </div>
@@ -632,7 +674,7 @@
                     <span class="block text-xs text-gold uppercase tracking-[0.2em] mb-6">Bagikan Artikel Ini</span>
                     <div class="flex justify-center gap-6">
                         <button onclick="shareSocial('wa')" aria-label="Share ke WhatsApp"
-                            class="w-12 h-12 flex items-center justify-center border border-gold/30 rounded-full hover:bg-gold hover:text-obsidian hover:border-gold transition-all duration-300 group">
+                            class="w-12 h-12 flex items-center justify-center border border-gold/30 rounded-full hover:bg-gold hover:text-obsidian hover:border-gold transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-gold">
                             <svg class="w-5 h-5 text-pewter group-hover:text-obsidian transition-colors"
                                 fill="currentColor" viewBox="0 0 24 24">
                                 <path
@@ -640,7 +682,7 @@
                             </svg>
                         </button>
                         <button onclick="shareSocial('fb')" aria-label="Share ke Facebook"
-                            class="w-12 h-12 flex items-center justify-center border border-gold/30 rounded-full hover:bg-gold hover:text-obsidian hover:border-gold transition-all duration-300 group">
+                            class="w-12 h-12 flex items-center justify-center border border-gold/30 rounded-full hover:bg-gold hover:text-obsidian hover:border-gold transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-gold">
                             <svg class="w-5 h-5 text-pewter group-hover:text-obsidian transition-colors"
                                 fill="currentColor" viewBox="0 0 24 24">
                                 <path
@@ -648,7 +690,7 @@
                             </svg>
                         </button>
                         <button onclick="shareSocial('x')" aria-label="Share ke X"
-                            class="w-12 h-12 flex items-center justify-center border border-gold/30 rounded-full hover:bg-gold hover:text-obsidian hover:border-gold transition-all duration-300 group">
+                            class="w-12 h-12 flex items-center justify-center border border-gold/30 rounded-full hover:bg-gold hover:text-obsidian hover:border-gold transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-gold">
                             <svg class="w-5 h-5 text-pewter group-hover:text-obsidian transition-colors"
                                 fill="currentColor" viewBox="0 0 24 24">
                                 <path
@@ -663,7 +705,7 @@
 
     </main>
 
-    <section class="py-20 bg-charcoal border-t border-gold/20">
+    <section class="py-20 bg-charcoal border-t border-gold/20 defer-render">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex items-center gap-4 mb-10">
                 <div class="h-px flex-1 bg-gold/20"></div>
@@ -744,7 +786,7 @@
         </div>
     </section>
 
-    <footer class="bg-obsidian pt-24 pb-10 border-t border-gold/20">
+    <footer class="bg-obsidian pt-24 pb-10 border-t border-gold/20 defer-render">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-10">
 
@@ -758,35 +800,37 @@
 
                 <div class="flex flex-col md:flex-row gap-8 md:gap-12 text-center md:text-left">
 
-                    <div>
+                    <nav>
                         <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Menu</h4>
                         <div class="flex flex-col space-y-2">
                             <a href="index.html"
-                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Beranda</a>
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300 py-1 block">Beranda</a>
                             <a href="tentang.html"
-                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Tentang</a>
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300 py-1 block">Tentang</a>
                             <a href="cluster.html"
-                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Cluster</a>
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300 py-1 block">Cluster</a>
                             <a href="fasilitas.html"
-                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Fasilitas</a>
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300 py-1 block">Fasilitas</a>
                             <a href="lokasi.html"
-                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Lokasi</a>
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300 py-1 block">Lokasi</a>
                             <a href="blog.html"
-                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Blog</a>
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300 py-1 block">Blog</a>
                         </div>
-                    </div>
+                    </nav>
 
-                    <div>
+                    <address class="not-italic">
                         <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Marketing Gallery</h4>
                         <p class="text-pewter text-sm mb-1">Jl. Puncak Tidar No. 88</p>
                         <p class="text-pewter text-sm">Malang, Jawa Timur</p>
-                    </div>
+                    </address>
 
-                    <div>
+                    <address class="not-italic">
                         <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Kontak</h4>
-                        <p class="text-pewter text-sm mb-1">0822-5739-1460</p>
-                        <p class="text-pewter text-sm">sales@gemilangproperti.id</p>
-                    </div>
+                        <p class="text-pewter text-sm mb-1"><a href="tel:+6282257391460"
+                                class="hover:text-gold py-1 block">0822-5739-1460</a></p>
+                        <p class="text-pewter text-sm"><a href="mailto:sales@gemilangproperti.id"
+                                class="hover:text-gold py-1 block">sales@gemilangproperti.id</a></p>
+                    </address>
                 </div>
 
             </div>
@@ -795,8 +839,8 @@
                 class="mt-20 border-t border-gold/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-pewter">
                 <p>&copy; 2026 Gemilang Properti. All Rights Reserved.</p>
                 <div class="flex gap-4 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-gold">Privacy Policy</a>
-                    <a href="#" class="hover:text-gold">Disclaimer</a>
+                    <a href="#" class="hover:text-gold p-2">Privacy Policy</a>
+                    <a href="#" class="hover:text-gold p-2">Disclaimer</a>
                 </div>
             </div>
         </div>
@@ -805,7 +849,7 @@
     <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-4 items-center">
 
         <button id="btn-back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});"
-            class="p-3 bg-gold text-obsidian rounded-full shadow-[0_0_15px_rgba(212,175,55,0.6)] transform translate-y-10 opacity-0 transition-all duration-500 hover:bg-white hover:scale-110 focus:outline-none pointer-events-none"
+            class="p-3 bg-gold text-obsidian rounded-full shadow-[0_0_15px_rgba(212,175,55,0.6)] transform translate-y-10 opacity-0 transition-all duration-500 hover:bg-white hover:scale-110 focus:outline-none pointer-events-none focus:pointer-events-auto"
             aria-label="Kembali ke Atas">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
@@ -814,12 +858,12 @@
         </button>
 
         <a href="https://wa.me/6282257391460?text=Halo%20Gemilang%20Properti,%20saya%20tertarik%20dengan%20info%20hunian%20klasik%20Anda."
-            target="_blank"
+            target="_blank" rel="noopener noreferrer"
             class="p-3 bg-[#25D366] text-white rounded-full shadow-[0_4px_14px_rgba(37,211,102,0.5)] hover:bg-[#128C7E] hover:scale-110 transition-all duration-300 flex items-center justify-center group relative"
-            aria-label="Chat WhatsApp">
+            aria-label="Chat WhatsApp Sales Gemilang Properti">
 
             <span
-                class="absolute right-full mr-3 bg-white text-obsidian text-xs font-bold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap hidden md:block pointer-events-none">
+                class="absolute right-full mr-3 bg-white text-obsidian text-xs font-bold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap hidden md:block pointer-events-none shadow-lg">
                 Hubungi Kami
             </span>
 

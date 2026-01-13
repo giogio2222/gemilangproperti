@@ -7,7 +7,7 @@
 
     <title>Lokasi Strategis Puncak Tidar Malang - Peta & Akses | Gemilang Properti</title>
     <meta name="description"
-        content="Kunjungi Marketing Gallery Gemilang Properti di Jl. Puncak Tidar No. 88, Malang. Lokasi strategis hanya 5 menit dari Universitas Ma Chung dan dekat pusat kota.">
+        content="Kunjungi Marketing Gallery Gemilang Properti di Jl. Puncak Tidar No. 88, Malang. Lokasi strategis hanya 5 menit dari Universitas Ma Chung dan dekat pusat kota. Jadwalkan kunjungan Anda.">
     <meta name="keywords"
         content="Lokasi Gemilang Properti, Perumahan Puncak Tidar Malang, Rumah Dekat Ma Chung, Peta Perumahan Malang, Marketing Gallery Gemilang">
     <meta name="robots" content="index, follow">
@@ -23,6 +23,7 @@
     <meta property="place:location:latitude" content="-7.978469">
     <meta property="place:location:longitude" content="112.607490">
 
+    <link rel="icon" href="assets/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
@@ -40,9 +41,15 @@
       "@context": "https://schema.org",
       "@type": "RealEstateAgent",
       "name": "Gemilang Properti Marketing Gallery",
-      "image": "https://gemilangproperti.id/assets/logo.png",
+      "description": "Marketing Gallery resmi Gemilang Properti, menawarkan hunian konsep klasik Art Deco di Puncak Tidar, Malang.",
+      "image": [
+        "https://gemilangproperti.id/assets/logo.png",
+        "https://gemilangproperti.id/img/detail/klasik.jpeg"
+      ],
       "url": "https://gemilangproperti.id/lokasi.html",
       "telephone": "+6282257391460",
+      "priceRange": "Rp 1M - Rp 5M",
+      "areaServed": "Malang",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Jl. Puncak Tidar No. 88",
@@ -84,15 +91,15 @@
             theme: {
                 extend: {
                     colors: {
-                        obsidian: '#0A0A0A',   // Hitam Pekat
-                        charcoal: '#141414',   // Abu Gelap
-                        champagne: '#F2F0E4',  // Putih Gading
+                        obsidian: '#0A0A0A',
+                        charcoal: '#141414',
+                        champagne: '#F2F0E4',
                         gold: {
-                            DEFAULT: '#D4AF37', // Emas Metalik
+                            DEFAULT: '#D4AF37',
                             light: '#F2E8C4',
                             dim: 'rgba(212, 175, 55, 0.1)',
                         },
-                        pewter: '#888888',     // Abu-abu muted
+                        pewter: '#888888',
                     },
                     fontFamily: {
                         sans: ['"Josefin Sans"', 'sans-serif'],
@@ -114,7 +121,6 @@
     </script>
 
     <style>
-        /* Efek Grain */
         .bg-grain {
             position: fixed;
             top: 0;
@@ -127,16 +133,10 @@
             mix-blend-mode: overlay;
         }
 
-        /* Clip Path Sudut */
         .clip-deco-corner {
-            clip-path: polygon(0% 0%,
-                    100% 0%,
-                    100% calc(100% - 15px),
-                    calc(100% - 15px) 100%,
-                    0% 100%);
+            clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0% 100%);
         }
 
-        /* Filter Peta agar Dark Mode */
         .map-filter {
             filter: grayscale(100%) invert(90%) contrast(85%);
             transition: filter 0.5s ease;
@@ -151,9 +151,9 @@
 <body
     class="bg-obsidian text-champagne font-sans antialiased overflow-x-hidden relative selection:bg-gold selection:text-obsidian">
 
-    <div class="bg-grain"></div>
+    <div class="bg-grain" aria-hidden="true"></div>
 
-    <div class="fixed inset-0 pointer-events-none z-0 flex justify-between px-6 md:px-24 opacity-10">
+    <div class="fixed inset-0 pointer-events-none z-0 flex justify-between px-6 md:px-24 opacity-10" aria-hidden="true">
         <div class="w-px h-full bg-gold"></div>
         <div class="w-px h-full bg-gold"></div>
         <div class="w-px h-full bg-gold"></div>
@@ -166,9 +166,9 @@
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
 
             <a href="index.html" class="flex items-center gap-4 group cursor-pointer"
-                aria-label="Beranda Gemilang Properti">
-                <div
-                    class="w-10 h-10 border border-gold rotate-45 flex items-center justify-center transition-transform duration-500 group-hover:rotate-0">
+                aria-label="Kembali ke Beranda Gemilang Properti">
+                <div class="w-10 h-10 border border-gold rotate-45 flex items-center justify-center transition-transform duration-500 group-hover:rotate-0"
+                    aria-hidden="true">
                     <div class="w-5 h-5 bg-gold -rotate-45 group-hover:rotate-0 transition-transform duration-500">
                     </div>
                 </div>
@@ -191,23 +191,26 @@
                 <a href="fasilitas.html"
                     class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Fasilitas</a>
 
-                <a href="lokasi.html"
-                    class="text-xs uppercase tracking-widest text-gold transition-colors duration-300">Lokasi</a>
+                <a href="lokasi.html" class="text-xs uppercase tracking-widest text-gold transition-colors duration-300"
+                    aria-current="page">Lokasi</a>
 
                 <a href="blog.html"
                     class="text-xs uppercase tracking-widest hover:text-gold transition-colors duration-300">Blog</a>
 
                 <a href="https://wa.me/6282257391460"
-                    class="relative px-8 py-3 border border-gold text-gold hover:bg-gold hover:text-obsidian transition-all duration-300 group overflow-hidden ml-4">
+                    class="relative px-8 py-3 border border-gold text-gold hover:bg-gold hover:text-obsidian transition-all duration-300 group overflow-hidden ml-4"
+                    aria-label="Hubungi Kami via WhatsApp">
                     <span class="relative z-10 text-xs uppercase tracking-widest font-bold">Hubungi Kami</span>
-                    <div
-                        class="absolute inset-0 bg-gold transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out">
+                    <div class="absolute inset-0 bg-gold transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out"
+                        aria-hidden="true">
                     </div>
                 </a>
             </div>
 
-            <button @click="open = !open" class="md:hidden text-gold focus:outline-none" aria-label="Buka Menu">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button @click="open = !open"
+                class="md:hidden text-gold focus:outline-none focus:ring-2 focus:ring-gold rounded-sm p-1"
+                aria-label="Buka Menu Navigasi" aria-expanded="false" :aria-expanded="open.toString()">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="square" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
@@ -217,7 +220,7 @@
             x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
             x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0"
             x-transition:leave-end="opacity-0 -translate-y-4" @click.away="open = false"
-            class="md:hidden bg-charcoal border-b border-gold absolute w-full shadow-2xl">
+            class="md:hidden bg-charcoal border-b border-gold absolute w-full shadow-2xl" style="display: none;">
 
             <div class="flex flex-col p-8 space-y-6 text-center">
                 <a href="index.html" @click="open = false"
@@ -228,12 +231,12 @@
                     class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Cluster</a>
                 <a href="fasilitas.html" @click="open = false"
                     class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Fasilitas</a>
-                <a href="lokasi.html" @click="open = false"
-                    class="text-sm uppercase tracking-widest text-gold">Lokasi</a>
+                <a href="lokasi.html" @click="open = false" class="text-sm uppercase tracking-widest text-gold"
+                    aria-current="page">Lokasi</a>
                 <a href="blog.html" @click="open = false"
                     class="text-sm uppercase tracking-widest text-champagne hover:text-gold">Blog</a>
 
-                <div class="h-px w-10 bg-gold/30 mx-auto my-2"></div>
+                <div class="h-px w-10 bg-gold/30 mx-auto my-2" aria-hidden="true"></div>
 
                 <a href="https://wa.me/6282257391460" @click="open = false"
                     class="text-sm uppercase tracking-widest text-gold font-bold">Hubungi Kami</a>
@@ -242,18 +245,20 @@
     </nav>
 
     <header class="relative h-[60vh] flex items-center justify-center overflow-hidden pt-20">
-        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent z-10"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent z-10"
+            aria-hidden="true"></div>
 
         <div class="absolute inset-0 z-0">
             <img src="img/detail/klasik.jpeg" class="w-full h-full object-cover grayscale opacity-50"
-                alt="Peta Kawasan Gemilang Properti" width="2400" height="1600" fetchpriority="high">
+                alt="Peta Kawasan Perumahan Gemilang Properti Malang" width="2400" height="1600" fetchpriority="high"
+                decoding="async">
         </div>
 
         <div class="max-w-7xl mx-auto px-6 relative z-20 text-center">
             <div class="flex items-center justify-center gap-4 mb-6">
-                <div class="h-px w-12 bg-gold"></div>
+                <div class="h-px w-12 bg-gold" aria-hidden="true"></div>
                 <span class="text-xs text-gold uppercase tracking-[0.3em]">Destinasi</span>
-                <div class="h-px w-12 bg-gold"></div>
+                <div class="h-px w-12 bg-gold" aria-hidden="true"></div>
             </div>
 
             <h1 class="font-serif text-4xl md:text-6xl text-champagne uppercase tracking-widest mb-6">
@@ -269,7 +274,8 @@
 
     <section class="py-20 relative border-t border-gold/20">
         <div class="absolute inset-0 opacity-5"
-            style="background-image: repeating-linear-gradient(45deg, #D4AF37 0, #D4AF37 1px, transparent 0, transparent 40px);">
+            style="background-image: repeating-linear-gradient(45deg, #D4AF37 0, #D4AF37 1px, transparent 0, transparent 40px);"
+            aria-hidden="true">
         </div>
 
         <div class="max-w-7xl mx-auto px-6 relative z-10">
@@ -278,14 +284,18 @@
                 <div class="w-full map-container group">
                     <div
                         class="relative w-full h-[500px] border border-gold/30 p-2 bg-charcoal clip-deco-corner shadow-glow">
-                        <div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-gold z-20"></div>
-                        <div class="absolute bottom-4 right-0 w-8 h-8 border-b-2 border-r-2 border-gold z-20"></div>
+                        <div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-gold z-20"
+                            aria-hidden="true"></div>
+                        <div class="absolute bottom-4 right-0 w-8 h-8 border-b-2 border-r-2 border-gold z-20"
+                            aria-hidden="true"></div>
 
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.213600527387!2d112.59960207595568!3d-7.976824992048455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78829c362f6057%3A0x627d794d21626280!2sJl.%20Puncak%20Tidar%2C%20Karangwidoro%2C%20Kec.%20Dau%2C%20Kabupaten%20Malang%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1709123456789!5m2!1sid!2sid"
-                            title="Peta Lokasi Gemilang Properti Malang" width="100%" height="100%" style="border:0;"
-                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                            class="w-full h-full object-cover map-filter relative z-10">
+                            title="Peta Interaktif Lokasi Gemilang Properti di Google Maps" width="100%" height="100%"
+                            style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="w-full h-full object-cover map-filter relative z-10"
+                            aria-label="Peta Google Maps Lokasi Proyek">
                         </iframe>
 
                         <div
@@ -305,8 +315,8 @@
                     </h2>
 
                     <div class="flex items-start gap-6 mb-10 pb-10 border-b border-gold/20">
-                        <div
-                            class="w-12 h-12 border border-gold flex-shrink-0 flex items-center justify-center bg-charcoal">
+                        <div class="w-12 h-12 border border-gold flex-shrink-0 flex items-center justify-center bg-charcoal"
+                            aria-hidden="true">
                             <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="square" stroke-width="1.5"
                                     d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
@@ -323,44 +333,45 @@
                                 Malang, Jawa Timur, Indonesia
                             </p>
                             <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer"
-                                class="text-xs text-champagne underline mt-2 hover:text-gold block uppercase tracking-widest">Buka
+                                class="text-xs text-champagne underline mt-2 hover:text-gold block uppercase tracking-widest"
+                                aria-label="Buka lokasi marketing gallery di Google Maps">Buka
                                 di Google Maps →</a>
                         </div>
                     </div>
 
                     <div class="space-y-6 mb-12">
                         <div class="flex items-center gap-4 group">
-                            <div
-                                class="w-2 h-2 bg-gold rotate-45 group-hover:scale-150 transition-transform duration-300">
+                            <div class="w-2 h-2 bg-gold rotate-45 group-hover:scale-150 transition-transform duration-300"
+                                aria-hidden="true">
                             </div>
                             <p class="text-pewter uppercase tracking-widest text-sm"><span
                                     class="text-champagne font-bold mr-2">5 Menit</span> ke Universitas Ma Chung</p>
                         </div>
                         <div class="flex items-center gap-4 group">
-                            <div
-                                class="w-2 h-2 bg-gold rotate-45 group-hover:scale-150 transition-transform duration-300">
+                            <div class="w-2 h-2 bg-gold rotate-45 group-hover:scale-150 transition-transform duration-300"
+                                aria-hidden="true">
                             </div>
                             <p class="text-pewter uppercase tracking-widest text-sm"><span
                                     class="text-champagne font-bold mr-2">10 Menit</span> ke Cyber Mall & City Point</p>
                         </div>
                         <div class="flex items-center gap-4 group">
-                            <div
-                                class="w-2 h-2 bg-gold rotate-45 group-hover:scale-150 transition-transform duration-300">
+                            <div class="w-2 h-2 bg-gold rotate-45 group-hover:scale-150 transition-transform duration-300"
+                                aria-hidden="true">
                             </div>
                             <p class="text-pewter uppercase tracking-widest text-sm"><span
                                     class="text-champagne font-bold mr-2">15 Menit</span> ke Mall Olympic Garden (MOG)
                             </p>
                         </div>
                         <div class="flex items-center gap-4 group">
-                            <div
-                                class="w-2 h-2 bg-gold rotate-45 group-hover:scale-150 transition-transform duration-300">
+                            <div class="w-2 h-2 bg-gold rotate-45 group-hover:scale-150 transition-transform duration-300"
+                                aria-hidden="true">
                             </div>
                             <p class="text-pewter uppercase tracking-widest text-sm"><span
                                     class="text-champagne font-bold mr-2">15 Menit</span> ke Alun-Alun Kota Malang</p>
                         </div>
                         <div class="flex items-center gap-4 group">
-                            <div
-                                class="w-2 h-2 bg-gold rotate-45 group-hover:scale-150 transition-transform duration-300">
+                            <div class="w-2 h-2 bg-gold rotate-45 group-hover:scale-150 transition-transform duration-300"
+                                aria-hidden="true">
                             </div>
                             <p class="text-pewter uppercase tracking-widest text-sm"><span
                                     class="text-champagne font-bold mr-2">35 Menit</span> ke Bandara Abdul Rachman Saleh
@@ -370,7 +381,8 @@
 
                     <div>
                         <button onclick="jadwalkanKunjungan()"
-                            class="px-10 py-4 bg-gold text-obsidian font-serif uppercase tracking-deco hover:bg-white transition-colors duration-300 shadow-[0_0_15px_rgba(212,175,55,0.4)] w-full md:w-auto text-center">
+                            class="px-10 py-4 bg-gold text-obsidian font-serif uppercase tracking-deco hover:bg-white transition-colors duration-300 shadow-[0_0_15px_rgba(212,175,55,0.4)] w-full md:w-auto text-center"
+                            aria-label="Jadwalkan Survey Lokasi via WhatsApp">
                             Jadwalkan Survey Lokasi
                         </button>
                         <p class="text-xs text-pewter mt-4 uppercase tracking-widest text-center md:text-left">*Harap
@@ -396,7 +408,7 @@
 
                 <div class="flex flex-col md:flex-row gap-8 md:gap-12 text-center md:text-left">
 
-                    <div>
+                    <nav aria-label="Footer Menu">
                         <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Menu</h4>
                         <div class="flex flex-col space-y-2">
                             <a href="index.html"
@@ -408,22 +420,27 @@
                             <a href="fasilitas.html"
                                 class="text-pewter text-sm hover:text-gold transition-colors duration-300">Fasilitas</a>
                             <a href="lokasi.html"
-                                class="text-pewter text-sm hover:text-gold transition-colors duration-300">Lokasi</a>
+                                class="text-pewter text-sm hover:text-gold transition-colors duration-300"
+                                aria-current="page">Lokasi</a>
                             <a href="blog.html"
                                 class="text-pewter text-sm hover:text-gold transition-colors duration-300">Blog</a>
                         </div>
-                    </div>
+                    </nav>
 
                     <div>
                         <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Marketing Gallery</h4>
-                        <p class="text-pewter text-sm mb-1">Jl. Puncak Tidar No. 88</p>
-                        <p class="text-pewter text-sm">Malang, Jawa Timur</p>
+                        <address class="not-italic">
+                            <p class="text-pewter text-sm mb-1">Jl. Puncak Tidar No. 88</p>
+                            <p class="text-pewter text-sm">Malang, Jawa Timur</p>
+                        </address>
                     </div>
 
                     <div>
                         <h4 class="text-gold uppercase tracking-widest text-sm mb-4">Kontak</h4>
-                        <p class="text-pewter text-sm mb-1">0822-5739-1460</p>
-                        <p class="text-pewter text-sm">sales@gemilangproperti.id</p>
+                        <address class="not-italic">
+                            <p class="text-pewter text-sm mb-1">0822-5739-1460</p>
+                            <p class="text-pewter text-sm">sales@gemilangproperti.id</p>
+                        </address>
                     </div>
                 </div>
 
@@ -444,9 +461,9 @@
 
         <button id="btn-back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});"
             class="p-3 bg-gold text-obsidian rounded-full shadow-[0_0_15px_rgba(212,175,55,0.6)] transform translate-y-10 opacity-0 transition-all duration-500 hover:bg-white hover:scale-110 focus:outline-none pointer-events-none"
-            aria-label="Kembali ke Atas">
+            aria-label="Kembali ke bagian atas halaman">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
+                stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="square" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
             </svg>
         </button>
@@ -454,14 +471,15 @@
         <a href="https://wa.me/6282257391460?text=Halo%20Gemilang%20Properti,%20saya%20tertarik%20dengan%20info%20hunian%20klasik%20Anda."
             target="_blank"
             class="p-3 bg-[#25D366] text-white rounded-full shadow-[0_4px_14px_rgba(37,211,102,0.5)] hover:bg-[#128C7E] hover:scale-110 transition-all duration-300 flex items-center justify-center group relative"
-            aria-label="Chat WhatsApp">
+            aria-label="Chat WhatsApp Admin">
 
             <span
                 class="absolute right-full mr-3 bg-white text-obsidian text-xs font-bold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap hidden md:block pointer-events-none">
                 Hubungi Kami
             </span>
 
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"
+                aria-hidden="true">
                 <path
                     d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
             </svg>
@@ -482,12 +500,12 @@
                 backToTopButton.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
                 backToTopButton.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
             }
-        });
+        }, { passive: true }); // Performance: added passive listener
     </script>
 
     <script>
         function jadwalkanKunjungan() {
-            var nomorTujuan = "6282257391460"; // Ganti dengan nomor WhatsApp Admin Anda
+            var nomorTujuan = "6282257391460";
             var pesan = "Halo Gemilang Properti, saya ingin menjadwalkan survey lokasi.%0A%0A" +
                 "Mohon infokan ketersediaan waktu untuk kunjungan ke Marketing Gallery dan Site Project.%0A%0A" +
                 "Terima kasih.";
